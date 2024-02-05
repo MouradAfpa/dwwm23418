@@ -1,5 +1,5 @@
 Mourad ARAB formateur
-Groupe DWWm
+Groupe Dwwm
 DERVAUX Julien
 RICHARD Sullivan
 LOEUIL Joshua
@@ -9,4 +9,6 @@ DESESPRINGALLE Cedric
 LASUE Quentin
 LETREN Areis
 DELAGRANDE Nicolas
+LAMY Franck
+LAPORTE Matthieu
 GHALEM Karim

@@ -6,3 +6,4 @@ LOEUIL Joshua
 CLERET Kévin
 MELON Samuel
 DESESPRINGALLE Cedric
+LASUE Quentin

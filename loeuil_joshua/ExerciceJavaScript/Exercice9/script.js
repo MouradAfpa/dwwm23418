@@ -1,5 +1,5 @@
 function accu(param){
-    return [...param].map((c,k)=>c.toUpperCase()+c.toLowerCase().repeat(k)).join('-')
+    return [...param].map((lettre,index)=>lettre.toUpperCase()+lettre.toLowerCase().repeat(index)).join('-')
 };
 
 

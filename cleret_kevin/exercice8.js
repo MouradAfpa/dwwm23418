@@ -1,23 +1,27 @@
-let prix = parseInt(prompt("Veuillez entrez un nombre"));
-let avis = prompt("entrez un avis");
 
-switch(avis) {
-    case 'terrible': 
-    alert(prix*0);
-    break;
 
-    case 'poor':
-        alert(prix*0.05);
-        break;
-    
-    case 'good':
-        alert(prix*0.1);
-        break;
-    
-    case 'great':
-        alert(prix*0.15);
-        break;
-    
-    case 'excellent':
-        alert(prix*0.2);
+
+function calculateTip(montant, avis){
+
+    let str = avis.toLowerCase();
+
+    switch(str) {
+        case 'terrible': 
+        return 0;    
+        case 'poor':
+            return Math.ceil(montant*0.05);
+        case 'good':
+            return Math.ceil(montant*0.10);
+        case 'great':
+            return Math.ceil(montant*0.15);
+        case 'excellent':
+            return Math.ceil(montant*0.20);
+        default: return "Rating not recognised";
+    }
 }
+
+console.log(calculateTip(20, "ExcellEnt"));
+
+console.log(calculateTip(26.95, "goOd") );
+
+console.log(calculateTip(20, "hi"));

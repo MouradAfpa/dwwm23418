@@ -1,6 +1,4 @@
 function mot(param){
-    return param.replace(/\b\w/g, function(element) {
-    return element.toUpperCase();})}
-
+    return param.replace(/\b\w/g, (element)=> element.toUpperCase())}
 
 console.log(mot('ceci est une phrase'));

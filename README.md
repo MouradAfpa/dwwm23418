@@ -15,3 +15,5 @@ GHALEM Karim
 BENARAB Nordine
 Liste terminé
 Liste des absent:
+rimka khenchouche 
+

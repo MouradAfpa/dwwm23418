@@ -19,3 +19,4 @@ Liste des absents:
 LAMY Franck
 rimka khenchouche
 CASAMAJOR Stanislas
+LAPORTE Matthieu

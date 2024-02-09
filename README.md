@@ -10,8 +10,10 @@ LASUE Quentin
 LETREN Areis
 DELAGRANDE Nicolas
 LAMY Franck
-LAPORTE Matthieu
+LAPORTE Matthieu :)
 GHALEM Karim
 BENARAB Nordine
 Liste terminé
 Liste des absent:
+
+Thomas :)

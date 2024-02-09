@@ -18,3 +18,4 @@ Liste des absents:
 05/02/2024 - 07/02/2023
 LAMY Franck
 rimka khenchouche
+CASAMAJOR Stanislas

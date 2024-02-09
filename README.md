@@ -14,5 +14,6 @@ LAPORTE Matthieu
 GHALEM Karim
 BENARAB Nordine
 Liste terminé
-Liste des absent:
+Liste des absents:
 05/02/2024 - 07/02/2023
+LAMY Franck

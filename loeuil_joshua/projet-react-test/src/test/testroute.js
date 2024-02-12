@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router,
 Link,
 Route,
-Routes } from "react-router-dom";
+Switch } from "react-router-dom";
 import Home from "./testHome";
 import Users from "./testUser";
 import Contact from "./testContact";
@@ -30,7 +30,7 @@ function Routine(){
                 </li>
             </ul>
 
-            <Routes>
+            <Switch>
                 <Route path="./Home">
                     <Home/>
                 </Route>
@@ -40,7 +40,7 @@ function Routine(){
                 <Route path="./Contact">
                     <Contact/>
                 </Route>
-            </Routes>
+            </Switch>
         </Router>
     )
 }

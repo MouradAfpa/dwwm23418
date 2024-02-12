@@ -1,8 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import TestInte from "./test/test.js" ;
-import './test.css';
-import Routine from './test/testroute.js';
+import Navbar from './Moviesearch/Composant/search';
 
 
 
@@ -12,11 +10,10 @@ function App() {
       
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Routine/>
-        <TestInte/>
 
         <a
           className="App-link"

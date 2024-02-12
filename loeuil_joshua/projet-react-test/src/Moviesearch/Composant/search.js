@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css"
+import CardFilm from "./cardFilm";
 
 function Navbar(){
     return (
@@ -15,7 +16,9 @@ function Navbar(){
                   Search
                 </button>
                 </div>
+                
             </div>
+
         
     )
 }

@@ -2,6 +2,7 @@ import './App.css';
 import AffichageNavbar from './component/navBar';
 import React from 'react';
 import ListeFilm from './component/ListeFilm';
+import AffichageFilms from './component/AffichageFilm';
 
 
 
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div className="App bg-black">
-      <AffichageNavbar/>
+      <AffichageFilms/>
       <ListeFilm/>
     </div>
   );

@@ -24,7 +24,7 @@ class ListeFilm extends React.Component{
         <div className="conrainer mt-5">
             <div className="row justify-content-center">
                 {this.state.films.map(film=>  
-                <FilmCards key={film.id} film={film}/>
+                <FilmCards key={film.id} movie={film} />
                 )}
             </div>
         </div>

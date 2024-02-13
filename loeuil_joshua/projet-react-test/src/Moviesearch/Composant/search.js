@@ -4,10 +4,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function Navbar(){
     return (
-        <div class="d-flex justify-content-center bg-dark">
-            <div class="input-groupe d-flex">
-                <input type="search" class="form-control" placeholder="Search"/>
-                <button type="button" class="btn btn-primary" >
+        <div className="d-flex justify-content-center bg-dark">
+            <div className="input-groupe d-flex">
+                <input type="search" className="form-control" placeholder="Search"/>
+                <button type="button" className="btn btn-primary" >
                   Search
                 </button>
                 </div>

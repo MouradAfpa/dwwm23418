@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./search";
 import CardFilm from "./cardFilm";
+import ListFilm from "./cardFilm";
 
 
 function ComposerComposent(){
@@ -9,11 +10,8 @@ function ComposerComposent(){
         <Navbar/>
         <br/>
         <br/>
-        <div class="d-flex justify-content-around">
-        <CardFilm/>
-        <CardFilm/>
-        <CardFilm/>
-        <CardFilm/>
+        <div className="d-flex justify-content-around">
+        <ListFilm/>
         </div>
         </>
     )

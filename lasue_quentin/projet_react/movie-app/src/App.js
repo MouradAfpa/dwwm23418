@@ -1,16 +1,18 @@
 import './App.css';
 import AffichageNavbar from './component/navBar';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import ListeFilm from './component/ListeFilm';
+
 
 
 
 function App() {
 
-  
+
   return (
-    <div className="App">
-      <AffichageNavbar />  
+    <div className="App bg-black">
+      <AffichageNavbar/>
+      <ListeFilm/>
     </div>
   );
 }

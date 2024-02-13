@@ -7,7 +7,14 @@ function ComposerComposent(){
     return (
         <>
         <Navbar/>
+        <br/>
+        <br/>
+        <div class="d-flex justify-content-around">
         <CardFilm/>
+        <CardFilm/>
+        <CardFilm/>
+        <CardFilm/>
+        </div>
         </>
     )
 }

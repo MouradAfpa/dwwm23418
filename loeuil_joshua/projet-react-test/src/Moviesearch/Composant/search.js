@@ -11,8 +11,10 @@ function Navbar(){
                   Search
                 </button>
                 </div>
-                
+                <br/>
+                <br/>
             </div>
+            
 
         
     )

@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./search";
-import CardFilm from "./cardFilm";
 import ListFilm from "./cardFilm";
 
 

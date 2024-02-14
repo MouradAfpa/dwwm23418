@@ -39,23 +39,25 @@ import FilmCards from "./CardsFilm";
 function ListeFilm(){
     
     const [films, setFilms] = React.useState([]);
+
+
     
     useEffect(()=> {
         const getFilms = async () => {
             try{
-
                 const movies = await axios.get(
-                    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
+                    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`);
                 
                 setFilms(movies.data.results);
+                console.log('La liste des films :', movies);
             }catch (error){
                 console.error('error fetching movies:', error);
             }
         };
         getFilms();
-    },[]);
+    });
     
-    
+
     return(
         <div className="conrainer mt-5">
             <div className="row justify-content-center">

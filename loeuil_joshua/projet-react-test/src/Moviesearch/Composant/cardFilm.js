@@ -9,7 +9,7 @@ const CardFilm = ({titre, poster_path, release_date, overview})=> {
     const handleShow=()=>setShow(true);
     const handleClose=()=>setShow(false);
     return (
-        <div className="card text-center bg-secondary mb-3">
+        <div className="card text-center bg-success mb-3">
         <div className="card-body">
           <img className="card-img-top" src={API_URL_IMG+poster_path} />
           <div className="card-body">
@@ -27,7 +27,7 @@ const CardFilm = ({titre, poster_path, release_date, overview})=> {
                   <p>{overview}</p>
                   </Modal.Body>
                   <Modal.Footer>
-                      <Button variant="secondary" onClick={handleClose}>Close</Button>
+                      <Button variant="primary" onClick={handleClose}>Close</Button>
                   </Modal.Footer>
               </Modal>
           </div>

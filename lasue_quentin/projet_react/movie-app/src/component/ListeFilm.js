@@ -59,6 +59,7 @@ function ListeFilm(){
     return(
         <div className="conrainer mt-5">
             <div className="row justify-content-center">
+                <h1 className="text-info fw-bold">Les films du moment : </h1>
                 {films.map(film=>  
                 <FilmCards key={film.id} movie={film} />
                 )}

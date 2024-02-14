@@ -1,57 +1,39 @@
-import React from "react";
-import  Card  from "react-bootstrap/Card";
-import axios from "axios";
+import { Modal,show,Button} from 'react-bootstrap';
+import React, {useState} from 'react';
 
-const api_key = process.env.REACT_APP_API_KEY;
 
-function CardFilm({Movie}){
+const API_URL_IMG ="https://image.tmdb.org/t/p/w500/";
+const CardFilm = ({titre, poster_path, release_date, overview})=> {
+    const [show, setShow]=useState(false);
+
+    const handleShow=()=>setShow(true);
+    const handleClose=()=>setShow(false);
     return (
-        <>
-            <br/><br/>
-            
-            <Card border="success" style={{ width: '16rem' }}>
-                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w300/${Movie.poster_path}`}/>
-                <Card.Body>
-                    <Card.Title>
-                        {Movie.original_title ? Movie.original_title : Movie.original_name}
-                    </Card.Title>
-                    <Card.Text>
-                        {Movie.overview}
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            
-        </>
-    )
+        <div className="card text-center bg-secondary mb-3">
+        <div className="card-body">
+          <img className="card-img-top" src={API_URL_IMG+poster_path} />
+          <div className="card-body">
+              <button type="button" className="btn btn-dark" onClick={handleShow} >View More</button>
+              <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title></Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                  <img className="card-img-top" style={{width:'14rem'}}src={API_URL_IMG+poster_path} />
+                  <h3>{titre}</h3>
+                  <h5>Release Date: {release_date}</h5>
+                  <br></br>
+                  <h6>Overview</h6>
+                  <p>{overview}</p>
+                  </Modal.Body>
+                  <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>Close</Button>
+                  </Modal.Footer>
+              </Modal>
+          </div>
+        </div>
+    </div>
+)
 }
 
-
-
-class ListFilm extends React.Component{
-    constructor(props){
-        super(props)
-       this.state ={
-        movies:[]
-    }  
-    }
-   
-    componentDidMount(){
-        axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}&language=en-US`)
-        .then(res =>{
-            const movies = res.data.results;
-            this.setState({movies})
-        })
-    }
-    render(){
-        return(
-            <div className="d-flex justify-content-center flex-wrap">
-                {this.state.movies.map(Movie => (
-                    <CardFilm key={Movie.id} Movie={Movie} />
-                ))}
-            </div>
-        )
-    }
-    }
-
-
-export default ListFilm;
+export default CardFilm;

@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
+import { Col,NavbarBrand,Row } from 'react-bootstrap';
 import FilmCards from './CardsFilm';
 import ListeFilm from './ListeFilm';
 
@@ -14,7 +16,6 @@ function AffichageFilms() {
     const [searchVal, setSearchVal] = React.useState('');
     const [movies, setMovies] = React.useState([]);
     const [pageActuelle,setPage] = React.useState(1);
-
     const [nbrPage,setNbrPage] = React.useState('1');
 
     useEffect(()=>{
@@ -31,7 +32,7 @@ function AffichageFilms() {
             }
         }
         getFilm();
-    },[pageActuelle,searchVal]); // a l'écoute des changemeent de Page et search Val
+    },[pageActuelle,searchVal]); // à l'écoute des changements de Page et search Val
 
     const searchMovie = (searchVal) => {
             setSearchVal(searchVal);
@@ -71,21 +72,21 @@ function AffichageFilms() {
             />
         </Container>
         </Navbar>
+        
     
         <div className="container mt-5">
             
-                {(movies.length ===0)||(searchVal==='')  ?
-                (<div className="row justify-content-center">
-                <ListeFilm/>
-                </div>
-                ):
-                (<div className="row justify-content-center">
-                {movies.map((film)=>(
-                <FilmCards key={film.id} movie={film}/>))}
-                </div>
+            {(movies.length ===0)||(searchVal==='')  ?
+            (<div className="row justify-content-center">
+            <ListeFilm/>
+            </div>
+            ):
+            (<>
+            <div className="row justify-content-center">
+            {movies.map((film)=>(
                 
-                ) }
-            
+            <FilmCards key={film.id} movie={film}/>))}
+            </div>
             <div className='row'>
                 <div className='col'>
                 <Button variant="outline-info" onClick={previousPage} size='lg'>Page précédente</Button>
@@ -97,7 +98,8 @@ function AffichageFilms() {
                 <div className='col'>
                 <Button variant="outline-info" onClick={nextPage} size='lg'>Page suivante</Button>
                 </div>
-            </div>
+             </div></>
+                )}
         </div>
         </>
     )

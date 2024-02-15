@@ -23,8 +23,8 @@ const [show, setShow]=useState(false);
                 <Card.Img variant="bottom" src={url_img}/>
                
             <Modal show={show} onHide={handleClose} onMouseLeave={handleClose} className="">
-                      <Modal.Body className="bg-dark text-light text-center ">
-                      <h2>{movie.title}</h2>
+                      <Modal.Body className="bg-dark text-light text-center row-1cols-2">
+                      <h1>{movie.title}</h1>
                       <img className="card-img-top" style={{width:'14rem'}}src={url_img} alt="movie.original_titre" />
                       <h3>Release Date: {movie.release_date}</h3>
                       <br></br>
@@ -53,7 +53,7 @@ function ListFilm (){
         .then(res =>{
             const movies = res.data.results;
             setMovies(movies)
-            console.log(movies);
+            
     })
 }, []);
 
@@ -70,12 +70,6 @@ const handleSubmit = async (event) => {
 }
 
 const filmToDisplay = query ? searchResults : movies ;
-
-
-
-const pagePrecedente =  (movies.page) <= 1 ? <button type="button" id="btn_prec" disabled className="">Precedent</button>: <button type="button" id="btn_prec">Precedent</button>;
-const pageActuel = movies.page;
-const nbreTotalPages  = (movies.total_pages);  
 
 
         return(
@@ -99,15 +93,6 @@ const nbreTotalPages  = (movies.total_pages);
             <div className="d-flex justify-content-around flex-wrap gap-3 pt-3 bg-black">
             {filmToDisplay.map(movie => (<CardFilm key={movie.id} movie={movie}/>
             ))}
-            </div>
-            <div className="d-flex justify-content-center">
-                <div>
-                {pagePrecedente}
-                </div>
-                <div>
-                <p>{pageActuel}</p>
-                </div>
-                {nbreTotalPages}
             </div>
             </>
         );

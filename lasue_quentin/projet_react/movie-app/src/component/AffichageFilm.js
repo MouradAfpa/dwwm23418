@@ -82,6 +82,9 @@ function AffichageFilms() {
                 <Button variant="outline-info" onClick={previousPage} size='lg'>Page précédente</Button>
                 </div>
                 <div className='col'>
+                <Button variant="outline-info" size='lg'>Page {pageActuelle}</Button>
+                </div>
+                <div className='col'>
                 <Button variant="outline-info" onClick={nextPage} size='lg'>Page suivante</Button>
                 </div>
             </div>

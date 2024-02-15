@@ -49,9 +49,8 @@ function ListeFilm(){
                     `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`);
                 
                 setFilms(movies.data.results);
-                console.log('La liste des films :', movies);
             }catch (error){
-                console.error('error fetching movies:', error);
+                console.log('error fetching movies:', error);
             }
         };
         getFilms();

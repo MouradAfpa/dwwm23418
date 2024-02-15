@@ -9,6 +9,7 @@ import ListeFilm from './ListeFilm';
 
 
 
+
 function AffichageFilms() {
     const [searchVal, setSearchVal] = React.useState('');
     const [movies, setMovies] = React.useState([]);
@@ -24,7 +25,7 @@ function AffichageFilms() {
 
         setMovies(movies.data.results);
         }catch(error){
-        console.error('Error fetching data: ',error);
+        console.log('Error fetching data: ',error);
         }
     };
 
@@ -69,7 +70,7 @@ function AffichageFilms() {
     
         <div className="container mt-5">
             <div className="row justify-content-center">
-                {movies.length ===0  ?
+                {(movies.length ===0)||(searchVal==='')  ?
                 (<ListeFilm/>):
                 (
                 movies.map((film)=>(

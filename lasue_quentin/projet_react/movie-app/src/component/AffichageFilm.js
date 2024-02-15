@@ -15,37 +15,41 @@ function AffichageFilms() {
     const [movies, setMovies] = React.useState([]);
     const [pageActuelle,setPage] = React.useState(1);
 
-    const handleInput = async (event) => {
-        setSearchVal(event.target.value);
-        
-        try{
-        const movies = await axios.get(
-            `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchVal}&page=${pageActuelle}`
-        );
-
-        setMovies(movies.data.results);
-        }catch(error){
-        console.log('Error fetching data: ',error);
-        }
-    };
+    const [nbrPage,setNbrPage] = React.useState('1');
 
     useEffect(()=>{
-        try{
-            const movie = axios.get(
+        const getFilm = async ()=>{
+            try{
+            const movie = await axios.get(
                 `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchVal}&page=${pageActuelle}`
             );
     
             setMovies(movie.data.results);
+            setNbrPage(movie.data.total_pages)
             }catch(error){
             console.log('Error fetching data: ',error);
             }
-    },[pageActuelle,searchVal])
+        }
+        getFilm();
+    },[pageActuelle,searchVal]); // a l'écoute des changemeent de Page et search Val
+
+    const searchMovie = (searchVal) => {
+            setSearchVal(searchVal);
+            setPage(1); // Reset pageActuelle à 1 los de la nouvele recherche
+        };
+
+    const changeRecherche = (e) => {    //a l'écoute de l'événement dès qu'il y a un changement, on envoi la nouvelle valeur dans searchVal 
+        const searchVal = e.target.value;
+        setSearchVal(searchVal);
+        searchMovie(searchVal);
+        };
 
     const nextPage = () => {
+        if(pageActuelle !== nbrPage)
         setPage(pageActuelle + 1);
         
     };
-
+   
     const previousPage = () => {
         if (pageActuelle > 1) {
             setPage(pageActuelle - 1);
@@ -59,7 +63,7 @@ function AffichageFilms() {
         <Container>
           <Navbar.Brand> <span className="text-warning fw-bold">Search</span> <i className="text-info">Films</i></Navbar.Brand>
             <Form.Control
-            onChange={handleInput}
+            onChange={changeRecherche}
             value={searchVal}
             type="text"
             placeholder="Rechercher un film"
@@ -69,20 +73,26 @@ function AffichageFilms() {
         </Navbar>
     
         <div className="container mt-5">
-            <div className="row justify-content-center">
+            
                 {(movies.length ===0)||(searchVal==='')  ?
-                (<ListeFilm/>):
-                (
-                movies.map((film)=>(
-                <FilmCards key={film.id} movie={film}/>))
+                (<div className="row justify-content-center">
+                <ListeFilm/>
+                </div>
+                ):
+                (<div className="row justify-content-center">
+                {movies.map((film)=>(
+                <FilmCards key={film.id} movie={film}/>))}
+                </div>
+                
                 ) }
-            </div>
+            
             <div className='row'>
                 <div className='col'>
                 <Button variant="outline-info" onClick={previousPage} size='lg'>Page précédente</Button>
                 </div>
                 <div className='col'>
                 <Button variant="outline-info" size='lg'>Page {pageActuelle}</Button>
+                <Button variant="outline-info" size='lg'>Total pages :{nbrPage}</Button>
                 </div>
                 <div className='col'>
                 <Button variant="outline-info" onClick={nextPage} size='lg'>Page suivante</Button>

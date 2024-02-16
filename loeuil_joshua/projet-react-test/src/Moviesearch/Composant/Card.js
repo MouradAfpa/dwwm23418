@@ -4,8 +4,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-const api_key = process.env.REACT_APP_API_KEY;
-const url_popu =`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`
+
 
 
 function CardFilm({movie}){
@@ -16,7 +15,7 @@ const [show, setShow]=useState(false);
     const handleClose=()=>setShow(false);
     return(
         
-        <Card border="success" className="bg-dark border-4 rounded-5 text-light" style={{width: '23rem', height:'37rem'}} >
+        <Card border="success" className="bg-dark border-4 rounded-5 text-light" style={{width: '23rem', height:'38rem'}} >
            
             <Card.Body onClick={handleShow} className=" text-center"> 
             <h4>{movie.title}</h4>
@@ -59,15 +58,15 @@ function ListFilm (){
 
 
 const handleSubmit = async (event) => {
-    event.preventDefault();
-    const url_search=`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${api_key}`
-    await axios.get(url_search)
-    .then(res =>{
-        const searchResults = res.data.results;
-        setSearchResults(searchResults);
-
-    })
+    setQuery(event.target.value);
+    try{
+    const response = await axios.get(
+        `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${api_key}`);
+        setSearchResults(response.data.results);
+} catch (error) {
+    console.error("Encore");
 }
+};
 
 const filmToDisplay = query ? searchResults : movies ;
 
@@ -76,21 +75,21 @@ const filmToDisplay = query ? searchResults : movies ;
             <>
             <Navbar bg="secondary" expand="lg" variant="dark" className="d-flex justify-content-center">
                     <div>
-                    <Form className="d-flex" onSubmit={handleSubmit} autoComplete="off">
+                    <Form className="d-flex" autoComplete="off">
                         <FormControl type="search"
                         placeholder="Recherche"
                         className="me-2"
                         aria-label="Recherche"
                         name="query"
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}></FormControl>
+                        onChange={handleSubmit}></FormControl>
                         <Button variant="primary" type="submit">Search</Button>
                     </Form>
                     </div>
 
         </Navbar>  
 
-            <div className="d-flex justify-content-around flex-wrap gap-3 pt-3 bg-black">
+            <div className="d-flex justify-content-around flex-wrap gap-5 pt-3 bg-black">
             {filmToDisplay.map(movie => (<CardFilm key={movie.id} movie={movie}/>
             ))}
             </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,10 +9,10 @@ import FilmCards from './CardsFilm';
 
 
 function AffichageFilms() {
-    const [searchVal, setSearchVal] = React.useState('');
-    const [movies, setMovies] = React.useState([]);
-    const [pageActuelle,setPage] = React.useState(1);
-    const [nbrPage,setNbrPage] = React.useState('1');
+    const [searchVal, setSearchVal] = useState('');
+    const [movies, setMovies] = useState([]);
+    const [pageActuelle,setPage] = useState(1);
+    const [nbrPage,setNbrPage] = useState('1');
 
     useEffect(()=>{
         if(!searchVal){
@@ -81,17 +81,6 @@ function AffichageFilms() {
         
     
         <div className="container mt-5">
-            <div className='row'>
-                    <div className='col'>
-                        <Button variant="outline-info" onClick={previousPage} size='lg'>Page précédente</Button>
-                    </div>
-                    <div className='col'>
-                        <Button variant="outline-info" size='lg'>Page {pageActuelle} sur {nbrPage}</Button>
-                    </div>
-                    <div className='col'>
-                        <Button variant="outline-info" onClick={nextPage} size='lg'>Page suivante</Button>
-                    </div>
-            </div>
             
             <div className="row justify-content-center">
             {movies.map((film)=>(

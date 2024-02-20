@@ -5,7 +5,7 @@ function Tri_insertion(t){
 
     let x;
     let j;
-    let n = Tab.lenght;
+    let n = t.length;
 
     for(let i = 1; i<n; i++){
         
@@ -26,5 +26,5 @@ return t;
 }
 
 console.log(Tab);
-console.log(Tri_insertion(Tab));
+console.log(Tri_insertion(Tab))
 

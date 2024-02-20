@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Button, Card,Form,FormControl,Navbar, Modal} from "react-bootstrap";
+import { Card, Modal, Navbar, Form, FormControl, Button} from "react-bootstrap";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -11,8 +11,8 @@ function CardFilm({movie}){
     const url_img = movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : '';
 const [show, setShow]=useState(false);
 
-    const handleShow=()=>setShow(true);
-    const handleClose=()=>setShow(false);
+    const handleShow = ()=>{setShow(true)};
+    const handleClose= ()=>{setShow(false)};
     return(
         
         <Card className="bg-dark border-4 rounded-5 text-light" style={{width: '23rem', height:'38rem', borderColor: 'chartreuse'}} >
@@ -20,11 +20,11 @@ const [show, setShow]=useState(false);
             <Card.Body onClick={handleShow} className=" text-center"> 
             <h4>{movie.title}</h4>
                 <Card.Img variant="bottom" src={url_img}/>
-               
-            <Modal show={show} onHide={handleClose} onMouseLeave={handleClose} className="">
+               </Card.Body>
+            <Modal show={show} onHide={handleClose} className="">
                       <Modal.Body className="bg-dark text-light text-center row-1cols-2">
                       <h1>{movie.title}</h1>
-                      <img className="card-img-top" style={{width:'14rem'}}src={url_img} alt="movie.original_titre" />
+                      <img className="card-img-top" style={{width:'14rem'}}src={url_img} alt={movie.title} />
                       <h3>Release Date: {movie.release_date}</h3>
                       <br></br>
                       
@@ -33,7 +33,7 @@ const [show, setShow]=useState(false);
                       <p>{movie.overview}</p>
                       </Modal.Footer>
                       </Modal>
-            </Card.Body>
+            
            
         </Card>
     )
@@ -48,7 +48,6 @@ function ListFilm (){
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [currentPageInput, setCurrentPageInput] = useState('')
 
 
 const url_popu = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&page=${page}`;
@@ -84,7 +83,7 @@ useEffect(() =>{
         }
     };
     fetchPopuMovies();
-}, [page]);
+}, [url_popu, page]);
 
 
 const handlePrevPage = () =>{
@@ -99,22 +98,13 @@ const handleNextPage = () =>{
     }
 };
 
-const handleToGo = () => {
-    const pageNumber = parseInt(currentPageInput);
-    if(page>=1 && pageNumber){
-        setPage(pageNumber);
-        setCurrentPageInput('');
-    }
-};
-
-
 
 const filmToDisplay = query ? searchResults : movies ;
 
 
         return(
             <>
-            <Navbar bg="secondary" expand="lg" variant="dark" className="d-flex justify-content-center fixed-top" style={{opacity: '70%'}}>
+            <Navbar bg="secondary" expand="lg" variant="dark" className="d-flex justify-content-center fixed-top" style={{opacity: '70%'}} id="dbt">
                     <div>
                     <Form className="d-flex" autoComplete="off">
                         <FormControl type="search"
@@ -129,8 +119,16 @@ const filmToDisplay = query ? searchResults : movies ;
                     </div>
 
         </Navbar>  
+        <div className="d-flex flex-column gap-5 align-items-end fixed-top m-lg-2" style={{zIndex: 100, top: '48%'}}>
+                <span>
+                    <button type="button" onClick={()=>window.scrollTo(0, 0)} className="bg-dark text-light border-primary">↑</button>
+                </span>
+                <span>
+                <button type="button" onClick={()=>window.scrollTo(0, document.body.scrollHeight)} className="bg-dark text-light border-primary">↓</button>
+                </span>
+            </div>
 
-            <div className="d-flex justify-content-around flex-wrap gap-5 pt-lg-5 bg-black">
+            <div className="d-flex justify-content-around flex-wrap gap-4 pt-lg-5 bg-black">
             {filmToDisplay.map(movie => (<CardFilm key={movie.id} movie={movie}/>
             ))}
             </div>
@@ -138,28 +136,16 @@ const filmToDisplay = query ? searchResults : movies ;
                 <div>
                     <button type="button" onClick={handlePrevPage} className="border-3 bg-black text-danger" style={{borderColor: 'chartreuse'}}>Precedent</button>
                 </div>
-                <div className="d-flex justify-content-around">
-                    <span className=" border-secondary border"> 
-                        page: {page} sur {totalPages}
-                    </span>
-                    <span>
-                        <input 
-                        type="number"
-                        value={currentPageInput}
-                        onChange={(e) => setCurrentPageInput(e.target.value)}
-                        min="1"
-                        max={totalPages}
-                        onKeyDown={(e) =>{
-                            if(e.key === 'Enter'){
-                                handleToGo();
-                            }
-                        }}/>
+                <div className="d-flex justify-content-center">
+                    <span className=" border-bottom"> 
+                        Page: {page} sur {totalPages}
                     </span>
                 </div>
-                <div>
+                <div id="fin">
                     <button type="button" onClick={handleNextPage} className="border-3 bg-black text-danger" style={{borderColor: 'chartreuse'}}>Suivant</button>
                 </div>
             </div>
+            
             </>
         );
                 };

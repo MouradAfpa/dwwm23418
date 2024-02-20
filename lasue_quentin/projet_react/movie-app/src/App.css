@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+#scrollButtonUP{
+  position: fixed;
+  bottom: 50%;
+  left: 10%;
+}
+#scrollButtonDown{
+  position: fixed;
+  bottom: 45%;
+  left: 10%;
+}

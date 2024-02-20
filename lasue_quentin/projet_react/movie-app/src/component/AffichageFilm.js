@@ -79,11 +79,11 @@ function AffichageFilms() {
         </Container>
         </Navbar>
         
-        <Button variant='outline-info' 
+        <Button variant='outline-secondary' 
         id='scrollButtonUP'
         onClick={()=>{window.scrollTo({top:0, behaviour :"smooth"})}}
         >↑</Button>
-        <Button variant='outline-info' 
+        <Button variant='outline-secondary' 
         id='scrollButtonDown'
         onClick={()=>{window.scrollTo({top:document.body.scrollHeight, behaviour :"smooth"})}}
         >↓</Button>

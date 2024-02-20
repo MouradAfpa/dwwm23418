@@ -1,23 +1,31 @@
-// Construire une class Personne qui défini un nom, un prenom, 
-// une adresse, une date de naissance.
 
-// toStr() => permet d'afficher sous forme de chaine de caracteres 
-// les caracteristiques de l'objet personne.
-
-
+// CLASS PERSONNE
 class Personne {
+    _nom;
+
     constructor(nom, prenom, adresse, dateNaissance){
-        this.nom=nom;
+        this._nom=nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.dateNaissance = dateNaissance
     }
 
+    get nom() {
+        return this._nom;
+    }
+
+    set nom(newNom){
+        this._nom = newNom;
+    }
+
     toStr() {
         let z = ""
-        return z = `Nom: ${this.nom}, prenom: ${this.prenom}, adresse: ${this.adresse}, date de naissance: ${this.dateNaissance}`;
+        return z = `Nom: ${this._nom}, prenom: ${this.prenom}, adresse: ${this.adresse}, date de naissance: ${this.dateNaissance}`;
     }
 }
 
-const personne1 = new Personne('Bonbontoudur', 'Rudolf', '1 rue des abricots', '13/11/1994');
+// INSTANCES
+const personne1 = new Personne('bonbontoudur', 'Rudolf', '1 rue des abricots', '13/11/1994');
+
+// APPEL METHODES
 console.log(personne1.toStr());

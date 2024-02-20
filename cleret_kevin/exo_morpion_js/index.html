@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- TABLE DE MORPION -->
+    <div id="tab_morpion">
+
+        <!-- LIGNE 1 -->
+            <div id="case1" onclick="inserer1()"></div>
+            <div id="case2" onclick="inserer2()"></div>
+            <div id="case3" onclick="inserer3()"></div>
+        <!-- </div> -->
+
+        <!-- LIGNE 2 -->
+            <div id="case4" onclick="inserer4()"></div>
+            <div id="case5" onclick="inserer5()"></div>
+            <div id="case6" onclick="inserer6()"></div>
+        <!-- </div> -->
+
+        <!-- LIGNE 3 -->
+            <div id="case7" onclick="inserer7()"></div>
+            <div id="case8" onclick="inserer8()"></div>
+            <div id="case9" onclick="inserer9()"></div>
+
+    </div>
+    <!-- FIN TABLEAU -->
+
+    <button id="bouton_test" onclick="reset()">Reset</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tab_morpion {
+    /* width: 308px; */
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    gap: 4px;
+    border: 2px solid black
+}
+/* .tab_morpion {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 100px 150px 200px;
+    gap: 10px;
+} */
+
+#case1, #case2, #case3, #case4, #case5, #case6, #case7, #case8, #case9 {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bolder;
+} 
+
+
+
+#bouton_test {
+    /* width: 100px; */
+    margin-top: 3%;
+}

@@ -1,10 +1,11 @@
 import React, { useEffect , useState} from 'react';
 import axios from 'axios';
+import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
 import FilmCards from './CardsFilm';
+import Boutons from './Bouton';
+import NavBar from './NavBar';
+import ScrollBouton from './ScrollBouton';
 
 
 
@@ -51,61 +52,30 @@ function AffichageFilms() {
         setPage(1); //Reset la page actuelle
         };
 
-    const nextPage = () => {
-        if(pageActuelle !== nbrPage)
-        setPage(pageActuelle + 1);
-        
-    };
-   
-    const previousPage = () => {
-        if (pageActuelle > 1) {
-            setPage(pageActuelle - 1);
-            
-        }
-    };    
+    
 
     return(
     <>
-        <Navbar className="bg-dark justify-content-center" data-bs-theme="dark" fixed="top">
-        <Container>
-          <Navbar.Brand> <span className="text-warning fw-bold">Search</span> <i className="text-info">Films</i></Navbar.Brand>
-            <Form.Control
-            onChange={changeRecherche}
-            value={searchVal}
-            type="text"
-            placeholder="Rechercher un film"
-            className=" mr-sm-2"
-            />
-        </Container>
-        </Navbar>
+        <NavBar
+        searchVal={searchVal}
+        setSearchVal={setSearchVal} 
+        setPage={setPage}
+        pageActuelle={pageActuelle}/>
+       
+        <ScrollBouton/>
         
-        <Button variant='outline-secondary' 
-        id='scrollButtonUP'
-        onClick={()=>{window.scrollTo({top:0, behaviour :"smooth"})}}
-        >↑</Button>
-        <Button variant='outline-secondary' 
-        id='scrollButtonDown'
-        onClick={()=>{window.scrollTo({top:document.body.scrollHeight, behaviour :"smooth"})}}
-        >↓</Button>
-        <div className="container mt-5">
+        <Container className='mt-5'>
+            <Row className='justify-content-center'>
+                {movies.map((film)=>(
+                <FilmCards key={film.id} movie={film}/>))}
             
-            <div className="row justify-content-center">
-            {movies.map((film)=>(
-                
-            <FilmCards key={film.id} movie={film}/>))}
-            </div>
-            <div className='row'>
-                <div className='col'>
-                    <Button variant="outline-info" onClick={previousPage} size='lg'>Page précédente</Button>
-                </div>
-                <div className='col'>
-                    <Button variant="outline-info" size='lg'>Page {pageActuelle} sur {nbrPage}</Button>
-                </div>
-                <div className='col'>
-                    <Button variant="outline-info" onClick={nextPage} size='lg'>Page suivante</Button>
-                </div>
-             </div>
-        </div>
+                <Boutons
+                pageActuelle={pageActuelle} 
+                setPage={setPage} 
+                nbrPage={nbrPage}/>
+            </Row>
+        </Container>
+
     </>
     )
 }

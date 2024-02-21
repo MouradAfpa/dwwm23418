@@ -34,6 +34,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "green";
             document.getElementById("case2").style.background = "green";
             document.getElementById("case3").style.background = "green";
+
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
 
         case nTab.includes(4) && nTab.includes(5) && nTab.includes(6):
@@ -41,6 +44,9 @@ function calculScore() {
             document.getElementById("case4").style.background = "green";
             document.getElementById("case5").style.background = "green";
             document.getElementById("case6").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
 
         case nTab.includes(7) && nTab.includes(8) && nTab.includes(9):
@@ -48,6 +54,9 @@ function calculScore() {
             document.getElementById("case7").style.background = "green";
             document.getElementById("case8").style.background = "green";
             document.getElementById("case9").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
         
         case nTab.includes(1) && nTab.includes(4) && nTab.includes(7):
@@ -55,6 +64,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "green";
             document.getElementById("case4").style.background = "green";
             document.getElementById("case7").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
 
         case nTab.includes(2) && nTab.includes(5) && nTab.includes(8):
@@ -62,6 +74,9 @@ function calculScore() {
             document.getElementById("case2").style.background = "green";
             document.getElementById("case5").style.background = "green";
             document.getElementById("case8").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
         
         case nTab.includes(3) && nTab.includes(6) && nTab.includes(9):
@@ -69,6 +84,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "green";
             document.getElementById("case2").style.background = "green";
             document.getElementById("case3").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
         
         case nTab.includes(1) && nTab.includes(5) && nTab.includes(9):
@@ -76,6 +94,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "green";
             document.getElementById("case5").style.background = "green";
             document.getElementById("case9").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
             
         case nTab.includes(3) && nTab.includes(5) && nTab.includes(7):
@@ -83,6 +104,9 @@ function calculScore() {
             document.getElementById("case3").style.background = "green";
             document.getElementById("case5").style.background = "green";
             document.getElementById("case7").style.background = "green";
+            
+            document.getElementById("resultat").style.background = "green";
+            document.getElementById("resultat").innerHTML = "VICTOIRE !"
             break;
 
             
@@ -92,6 +116,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "orange";
             document.getElementById("case2").style.background = "orange";
             document.getElementById("case3").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
 
         case aTab.includes(4) && aTab.includes(5) && aTab.includes(6):
@@ -99,6 +126,9 @@ function calculScore() {
             document.getElementById("case4").style.background = "orange";
             document.getElementById("case5").style.background = "orange";
             document.getElementById("case6").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
 
         case aTab.includes(7) && aTab.includes(8) && aTab.includes(9):
@@ -106,6 +136,9 @@ function calculScore() {
             document.getElementById("case7").style.background = "orange";
             document.getElementById("case8").style.background = "orange";
             document.getElementById("case9").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
         
         case aTab.includes(1) && aTab.includes(4) && aTab.includes(7):
@@ -113,6 +146,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "orange";
             document.getElementById("case4").style.background = "orange";
             document.getElementById("case7").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
 
         case aTab.includes(2) && aTab.includes(5) && aTab.includes(8):
@@ -120,6 +156,9 @@ function calculScore() {
             document.getElementById("case2").style.background = "orange";
             document.getElementById("case5").style.background = "orange";
             document.getElementById("case8").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
         
         case aTab.includes(3) && aTab.includes(6) && aTab.includes(9):
@@ -127,6 +166,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "orange";
             document.getElementById("case2").style.background = "orange";
             document.getElementById("case3").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
         
         case aTab.includes(1) && aTab.includes(5) && aTab.includes(9):
@@ -134,6 +176,9 @@ function calculScore() {
             document.getElementById("case1").style.background = "orange";
             document.getElementById("case5").style.background = "orange";
             document.getElementById("case9").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
             
         case aTab.includes(3) && aTab.includes(5) && aTab.includes(7):
@@ -141,6 +186,9 @@ function calculScore() {
             document.getElementById("case3").style.background = "orange";
             document.getElementById("case5").style.background = "orange";
             document.getElementById("case7").style.background = "orange";
+            
+            document.getElementById("resultat").style.background = "orange";
+            document.getElementById("resultat").innerHTML = "DEFAITE !"
             break;
 
         
@@ -156,6 +204,9 @@ function calculScore() {
             document.getElementById("case7").style.background = "grey";
             document.getElementById("case8").style.background = "grey";
             document.getElementById("case9").style.background = "grey";
+            
+            document.getElementById("resultat").style.background = "grey";
+            document.getElementById("resultat").innerHTML = "MATCH NUL !"
             break;
 
         default:

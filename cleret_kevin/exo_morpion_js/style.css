@@ -7,7 +7,7 @@ body {
 
 #tab_morpion {
     /* width: 308px; */
-    margin-top: 10%;
+    margin-top: 2%;
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
@@ -35,4 +35,13 @@ body {
 #bouton_test {
     /* width: 100px; */
     margin-top: 3%;
+}
+
+#resultat{
+    font-size: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    padding: 0.5% 1.1%;
 }

@@ -22,3 +22,5 @@ String.prototype.toJadenCase = function (){
     const phrase = "Ceci est une phrase";
     const count = getCount(phrase);
     console.log(count); 
+
+-------------------------------------------------------------------------------------------------------------

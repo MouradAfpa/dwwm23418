@@ -5,7 +5,6 @@ function counterEffect(txt) {
     let tabReponse = new Array();
 
     for (let i=0; i<regex.length ; i++) {
-        // tab.push(parseInt(regex[i]));        //ne pas faire attention à cette ligne !
         tabReponse[i] = new Array();
     }
     

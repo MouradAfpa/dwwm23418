@@ -128,7 +128,7 @@ const filmToDisplay = query ? searchResults : movies ;
                 </span>
             </div>
 
-            <div className="d-flex justify-content-around flex-wrap gap-4 pt-lg-5 bg-black">
+            <div className="d-flex justify-content-evenly flex-wrap gap-4 pt-lg-5 bg-black">
             {filmToDisplay.map(movie => (<CardFilm key={movie.id} movie={movie}/>
             ))}
             </div>
@@ -141,7 +141,7 @@ const filmToDisplay = query ? searchResults : movies ;
                         Page: {page} sur {totalPages}
                     </span>
                 </div>
-                <div id="fin">
+                <div>
                     <button type="button" onClick={handleNextPage} className="border-3 bg-black text-danger" style={{borderColor: 'chartreuse'}}>Suivant</button>
                 </div>
             </div>

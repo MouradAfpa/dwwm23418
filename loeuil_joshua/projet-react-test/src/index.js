@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import { Provider } from 'react-redux';
+import store from './Moviesearch/Redux/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

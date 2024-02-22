@@ -4,7 +4,7 @@ import {
     next_Page,
     rechercheFilm,
     reset_Page,
-  } from "./action";
+  } from "./actions";
   const initialState = {
     query: "",
     result: [],

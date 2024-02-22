@@ -1,19 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { fetchFilmPops, rechercheFilms } from "../../test/Redux/action";
+import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
 
-
- function SearchBar() {
+function SearchBar() {
   const recherche = useSelector((state) => state.Reducer1.query);
-const page = useSelector((state) => state.Reducer1.page);
-
+  const page = useSelector((state) => state.Reducer1.page);
 
   const dispatch = useDispatch();
 
   const handleSearch = () => {
     if (recherche.trim() !== "") {
-      dispatch(rechercheFilms(recherche , page));
+      dispatch(rechercheFilms(recherche, page));
     } else {
       dispatch(fetchFilmPops());
     }

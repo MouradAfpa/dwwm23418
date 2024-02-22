@@ -141,7 +141,7 @@ const filmToDisplay = query ? searchResults : movies ;
                         Page: {page} sur {totalPages}
                     </span>
                 </div>
-                <div>
+                <div id="fin">
                     <button type="button" onClick={handleNextPage} className="border-3 bg-black text-danger" style={{borderColor: 'chartreuse'}}>Suivant</button>
                 </div>
             </div>

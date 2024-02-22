@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
-import { fetchFilmPops, rechercheFilms, resetPage } from "../../test/Redux/action";
+import { fetchFilmPops, rechercheFilms, resetPage } from "../Redux/actions";
 
 function CardFilm() {
   const movies = useSelector((state) => state.Reducer1.result);

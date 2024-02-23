@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {fetchFilmPops , rechercheFilms} from "./Moviesearch/Redux/actions"
 import "bootstrap/dist/css/bootstrap.css";
-import BoutonPage from "./Moviesearch/composant/boutonPage";
-import SearchBar from "./Moviesearch/composant/Searchbar";
-import CardFilm from "./Moviesearch/composant/cardFilm";
+import BoutonPage from "./Moviesearch/Composant/boutonPage";
+import SearchBar from "./Moviesearch/Composant/Searchbar";
+import CardFilm from "./Moviesearch/Composant/cardFilm";
 
 function App() {
   const recherche = useSelector((state) => state.query);

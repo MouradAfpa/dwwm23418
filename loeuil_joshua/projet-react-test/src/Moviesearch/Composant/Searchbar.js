@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Form, FormControl } from "react-bootstrap";
 import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
 
 function SearchBar() {
@@ -22,7 +22,7 @@ function SearchBar() {
       bg="secondary"
       expand="lg"
       variant="dark"
-      className="d-flex justify-content-center fixed-top"
+      className="d-flex justify-content-center fixed-top "
       style={{ opacity: "70%" }}
     >
       <div>
@@ -38,10 +38,6 @@ function SearchBar() {
               dispatch(rechercheFilms(event.target.value, 1));
             }}
           ></FormControl>
-
-          <Button variant="primary" type="submit">
-            Search
-          </Button>
         </Form>
       </div>
     </Navbar>

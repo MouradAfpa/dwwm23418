@@ -33,7 +33,7 @@ function CardFilm() {
       {movies.map((movie) => (
         <Card
           key={movie.id}
-          className="bg-dark border-4 rounded-5 text-light"
+          className="bg-dark border-4 rounded-5 text-light "
           style={{ width: "20rem", height: "35rem", borderColor: "chartreuse" }}
         >
           <Card.Body onClick={() => handleShow(movie)} className=" text-center">

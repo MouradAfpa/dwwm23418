@@ -12,12 +12,13 @@ function justePrix(){
             tenta --;
             } else if (essai < prix){
             essai = parseInt(prompt(`Plus ! Essaye encore !`));
-            tenta --;
-            } else if(tenta == 0){
-                console.log(`Nombres de tentaives utilisées vous avez perdu !`)}
-                else if(essai == prix) {
-                console.log(`FELICITATION !! Vous avez trouver le juste prix !`);
+            tenta --;}
+            }
+            if(tenta == 0){
+            console.log(`Nombres de tentaives utilisées vous avez perdu !`)}
+            if(essai == prix) {
+            console.log(`FELICITATION !! Vous avez trouver le juste prix !`);
     } ;
-}}
+}
 
 justePrix();

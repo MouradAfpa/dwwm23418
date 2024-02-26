@@ -1,15 +1,15 @@
 function somme(){
     let n = parseInt(prompt("Entrer un entier"));
-    let str;
     let i;
     
         for(i=0; i <n; i++){
-         if (i %3 == 0){
-            str = "FIZZ";
-        } else if(i %5 == 0){
-            str = "BUZZ";
-        } else if((i %3 == 0) && (i%5 == 0)){
+            let str = i;
+         if ((str %3 == 0) && (str%5 == 0)){
             str = "FIZZBUZZ";
+        } else if(str %5 == 0){
+            str = "BUZZ";
+        } else if(str %3 == 0){
+            str = "FIZZ";
         }else{
             str = i;
         };

@@ -5,7 +5,7 @@ function somme() {
 
   for (let i = 1; i < N + 1; i++) {
     Somme = Somme + i;
-    str = str + i;
+    str = str +  i + '+';
   }
 
   document.write(str + "=" + Somme);

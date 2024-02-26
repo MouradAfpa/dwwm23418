@@ -25,3 +25,4 @@ function findLongest(t) {
 }
 
 console.log(findLongest([1, 10, 100, 200, 100, 300, 50]))
+console.log(findLongest([100000, 10, 100, 200, 100, 300, 50]))

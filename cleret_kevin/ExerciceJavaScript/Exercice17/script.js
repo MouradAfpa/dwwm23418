@@ -8,10 +8,6 @@ function findShort(t) {
     for (let i=0; i<n; i++) {
         console.log(longest[i].length)
 
-        // longest[i] = new Array(longest[i]);
-        // console.log(longest[i])
-        // console.log(longest[i].length)
-
         if (longest[i].length < min) {
             min = longest[i].length
             minMot = longest[i];

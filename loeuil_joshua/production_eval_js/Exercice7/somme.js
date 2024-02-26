@@ -8,17 +8,5 @@ function somme() {
     str = str + i;
   }
 
-  document.write(
-    str[0] +
-      "+" +
-      str[1] +
-      "+" +
-      str[2] +
-      "+" +
-      str[3] +
-      "+" +
-      str[4] +
-      " = " +
-      Somme
-  );
+  document.write(str + "=" + Somme);
 }

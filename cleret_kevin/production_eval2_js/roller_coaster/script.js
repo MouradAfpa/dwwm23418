@@ -1,7 +1,7 @@
 
 function rollerCosta() {
     let places = 5;
-    let tours = 8;
+    let tours = 3;
     let benef = 0;
     let file = [2,3,5,4];
     let placesR = 0;

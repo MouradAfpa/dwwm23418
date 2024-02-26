@@ -1,9 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import BoutonPage from "./Moviesearch/Composant/boutonPage";
-import SearchBar from "./Moviesearch/Composant/Searchbar";
-import CardFilm from "./Moviesearch/Composant/cardFilm";
-import BoutonDefilment from "./Moviesearch/Composant/boutonDefil";
+import BoutonPage from "./Moviesearch/composant/boutonPage";
+import SearchBar from "./Moviesearch/composant/Searchbar";
+import CardFilm from "./Moviesearch/composant/cardFilm";
+import BoutonDefilment from "./Moviesearch/composant/boutonDefil";
 
 function App() {
 

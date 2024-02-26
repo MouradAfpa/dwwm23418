@@ -80,8 +80,9 @@ function sommeBetw(){
     let somme = 0;
     for(let i=1; i<=nombre; i++){
         somme +=i
+        
     }
-    document.write('Pour le nombre '+nombre+' la somme des nombre entre 1 et '+nombre+' = '+somme )
+    document.write(somme)
 }
 
 function escalier(){

@@ -7,7 +7,9 @@ function maF(n) {
     for (let i = 0; i <= n; i++) {
         somme.push("*");
         console.log(`${somme}`)
-      }}
+      }
+
+    }
     maF(N)
 
 

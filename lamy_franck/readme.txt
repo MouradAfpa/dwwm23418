@@ -1,1 +1,0 @@
-LAMY Franck

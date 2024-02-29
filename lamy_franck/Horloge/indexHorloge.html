@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styleHorloge.css">
+    <title>horloge</title>
+</head>
+
+
+<body onload=showDate()>
+    <div id="horloge">Horloge</div>
+<br>
+<button onclick="pauseHorloge()" id="pauseHorloge">Pause horloge</button>
+ <hr>
+ 
+ <h2>Chronomètre</h2>
+ <fieldset>
+      <div id="timer">00:00:00</div>
+    </fieldset>
+    <br><br>
+      <button onclick="depart()" id="depart">Départ</button>
+      <button onclick="pauseReprise()" id="pause">Pause / Play</button>
+      <button onclick="reset()" id="reset">Réinitialiser</button>
+      <br><br>
+      <hr>
+ 
+ <script src="/actionhorloge.js"></script>
+ </body>
+</html>

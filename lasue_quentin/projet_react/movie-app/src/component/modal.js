@@ -23,6 +23,7 @@ function Modals({show,setShow,props}){
                             <hr></hr>
                             <h4>Synopsis</h4>
                             <p>{props.movie.overview}</p>
+                            <Image src={`https://image.tmdb.org/t/p/w1280${props.movie.backdrop_path}`} alt={props.movie.title}  thumbnail fluid/>
                         </Col>
                     </Row>
                 </Container>

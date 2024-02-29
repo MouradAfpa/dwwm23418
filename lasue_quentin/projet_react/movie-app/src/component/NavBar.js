@@ -10,18 +10,20 @@ function NavBar({searchVal, setSearchVal, setPage, pageActuelle}){
         setPage(1); //Reset la page actuelle
         };
     return  (
-        <Navbar className="bg-dark justify-content-center" data-bs-theme="dark" fixed="top">
-        <Container>
-          <Navbar.Brand> <span className="text-warning fw-bold">Search</span> <i className="text-info">Films</i></Navbar.Brand>
-            <Form.Control
-            onChange={changeRecherche}
-            value={searchVal}
-            type="text"
-            placeholder="Rechercher un film"
-            className=" mr-sm-2"
-            />
-        </Container>
-        </Navbar>
+        <header className='mb-5'>
+            <Navbar className="bg-dark justify-content-center" data-bs-theme="dark" fixed="top">
+            <Container>
+            <Navbar.Brand> <span className="text-warning fw-bold">Search</span> <i className="text-info">Films</i></Navbar.Brand>
+                <Form.Control
+                onChange={changeRecherche}
+                value={searchVal}
+                type="text"
+                placeholder="Rechercher un film"
+                className=" mr-sm-2"
+                />
+            </Container>
+            </Navbar>
+        </header>
     );
 }
 export default NavBar;

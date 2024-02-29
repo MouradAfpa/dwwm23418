@@ -6,6 +6,7 @@ import FilmCards from './CardsFilm';
 import Boutons from './Bouton';
 import NavBar from './NavBar';
 import ScrollBouton from './ScrollBouton';
+import Carroussel from './Carroussel';
 
 
 
@@ -46,12 +47,6 @@ function AffichageFilms() {
         }
     },[pageActuelle,searchVal]); // à l'écoute des changements de Page et search Val
 
-    const changeRecherche = (e) => {    //a l'écoute de l'événement dès qu'il y a un changement, on envoi la nouvelle valeur dans searchVal 
-        const searchVal = e.target.value;
-        setSearchVal(searchVal);
-        setPage(1); //Reset la page actuelle
-        };
-
     
 
     return(
@@ -61,8 +56,10 @@ function AffichageFilms() {
         setSearchVal={setSearchVal} 
         setPage={setPage}
         pageActuelle={pageActuelle}/>
-       
-        <ScrollBouton/>
+        
+        <Carroussel />
+        
+        <ScrollBouton />
         
         <Container className='mt-5'>
             <Row className='justify-content-center'>

@@ -7,9 +7,9 @@ function pyramide(){
         console.log(pyramide);
     }
 
-    for(let i=val;i=1;i--){
+    for(let i=val;i>=1;i--){
         pyramide = pyramide.slice(0,-1);
         console.log(pyramide);
     }
 }
-// pyramide() Boucle infinie ?
+pyramide()

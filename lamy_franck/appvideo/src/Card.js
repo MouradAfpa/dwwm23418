@@ -1,18 +1,50 @@
-import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-function DetailFilm({ film, onBackToHome }) {
+function MyVerticallyCenteredModal(props) {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={film.poster_path} />
-      <Card.Body>
-        <Card.Title>{film.title}</Card.Title>
-        <Card.Title>{film.release_date}</Card.Title>
-        <Card.Text>{film.overview}</Card.Text>
-        <Button variant="primary" onClick={onBackToHome}>Retour à l'accueil</Button>
-      </Card.Body>
-    </Card>
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        </Modal.Title>
+        <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} className='d-block w-100' alt='...' />
+      </Modal.Header>
+      <Modal.Body>
+        <h4>{movie.titre}</h4>
+        <p>{movie.overview}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 
-export default DetailFilm;
+
+///------------------------------
+//---------------------------------
+function App() {
+  const [modalShow, setModalShow] = React.useState(false);
+
+  return (
+    <>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    </>
+  );
+}
+
+render(<App />);
+//---------------------------------------
+//---------------------------------------

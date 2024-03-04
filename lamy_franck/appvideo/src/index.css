@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a.carousel-control-prev {
+  /* margin-left: -46rem; */
+  background-color: rgba(43, 42, 42, 0.862);
+}
+
+a.carousel-control-next {
+  /* margin-right: -46rem; */
+  background-color: rgba(43, 42, 42, 0.862);
+}
+
+h5{
+  text-align: center;
+}
+

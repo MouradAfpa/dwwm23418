@@ -3,16 +3,15 @@ function counterEffect(txt) {
     let regex = txt.split('');
     let tab = [];
     let tabReponse = new Array();
-    let i=0;
-    let j=0;
 
-    for (i=0; i<regex.length ; i++) {
-        tab.push(parseInt(regex[i]));
+    for (let i=0; i<regex.length ; i++) {
         tabReponse[i] = new Array();
     }
-
-    for (j=0; j<tab.length ; j++) {
-        tab[i][]
+    
+    for (let k=0; k<tabReponse.length; k++) {
+        for (let j=0; j<=regex[k] ; j++) {
+            tabReponse[k][j] = j;
+        }
     }
 
     return tabReponse;
@@ -20,6 +19,7 @@ function counterEffect(txt) {
 
 
 console.log(counterEffect('12458'))
+
 
 
 

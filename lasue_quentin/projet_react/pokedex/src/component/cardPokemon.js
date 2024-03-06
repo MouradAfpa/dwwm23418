@@ -15,7 +15,7 @@ function CardPokemon(props) {
     Combat : '#D56723',
     Vol : '#8CCADB',
     Poison:'#B97FC9',
-    Sol:'sol',
+    Sol:'##7B6D2F',
     Roche:'#A38C21',
     Insecte:'#729F3F',
     Spectre:'#7B62A3',
@@ -26,7 +26,7 @@ function CardPokemon(props) {
     Électrik:'#EED535',
     Psy:'#F366B9',
     Glace:'#51C4E7',
-    Dragon:'dragon',
+    Dragon:'#6F0808',
     Ténébres:'#707070',
     Fée:'#FDB9E9',
   }

@@ -3,6 +3,8 @@ import ListPoke from './Composant/listPoke';
 import Navi from './Composant/search';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Favories from './Composant/favoris';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -14,7 +16,7 @@ function App() {
   useEffect(()=>{
     
     if(!search){
-      axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/100')
+      axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/102')
       .then((res)=>{
         setPoke(res.data);
       })
@@ -28,14 +30,22 @@ function App() {
 
    
   return (
+    <Router>
     <div>
       <Navi value={search} setSearch={setSearch} recherche={result}/>
 
       <div className=" d-flex flex-wrap gap-4 justify-content-around bg-black">
-      {(search ? result : poke).map((poke) => (
-          <ListPoke poke={poke} key={poke.id} />))}
+        <Routes>
+          <Route path="/" exact element={(search ? result : poke).map((poke) => (
+          <ListPoke poke={poke} key={poke.id} />))}/>
+      
+
+          <Route path="./favoris" element={<Favories/>} />
+          </Routes>
      </div>
     </div>
+    
+    </Router>
   );
 }
 

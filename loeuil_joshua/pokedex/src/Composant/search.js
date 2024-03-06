@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from "react-router-dom";
 
 
 function Navi({setSearch}){
@@ -21,7 +22,13 @@ function Navi({setSearch}){
     return(
         
         <div className="bg-primary d-flex p-3 justify-content-between ">
-            <h1 className="text-light">Pokedex</h1>
+            <h1 className="text-light">
+                <Link to="/" className="text-light text-decoration-none">Pokedex</Link>
+                </h1>
+            <div className="mt-2"><h3>
+            <Link to="./favoris" className="text-light text-decoration-none">Favoris</Link>
+            </h3>
+            </div>
             <form className="w-25 mt-3" onSubmit={handleSubmit}>
             <input type="search" 
             value={cherche}

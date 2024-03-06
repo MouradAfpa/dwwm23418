@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Modal, Table } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { FAVORIE } from "../redux/action";
 
 function ListPoke({ poke }) {
   const [show, setShow] = useState(false);
@@ -8,17 +10,32 @@ function ListPoke({ poke }) {
   const clicHide = () => setShow(false);
   const clicShow = () => setShow(!show);
 
+  const dispatch = useDispatch();
+
+  const handleFavo = () =>{
+    dispatch({
+      type: FAVORIE,
+      payload: poke
+    });
+  }
+
   return (
     <div className="pt-5">
-      <Card className=" border-4 rounded-5 bg-dark" style={{borderColor: 'chartreuse'}} onClick={clicShow}>
+      <Card className=" border-4 rounded-5 bg-dark" style={{borderColor: 'chartreuse'}} >
         <Card.Header className="text-center bg-danger rounded-top-5">
           <div className="text-light">
             <h1>{poke.name}</h1>
           </div>
         </Card.Header>
-        <Card.Body>
+        <Card.Body onClick={clicShow}>
           <img src={poke.image} alt="" />
         </Card.Body>
+        <Card.Footer className=" d-flex justify-content-center bg-body-tertiary rounded-bottom-5">
+        <button onClick={handleFavo} className=" bg-primary rounded-circle pt-2 pb-2 ps-1 pe-1">
+          
+              Favorie
+            </button>
+        </Card.Footer>
 
         <Modal show={show} onHide={clicHide} key={poke.id}>
           <Modal.Header className="d-flex justify-content-center bg-danger text-light ">

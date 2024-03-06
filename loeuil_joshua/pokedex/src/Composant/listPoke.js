@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Modal, Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { FAVORIE } from "../redux/action";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 function ListPoke({ poke }) {
   const [show, setShow] = useState(false);
@@ -15,14 +17,20 @@ function ListPoke({ poke }) {
   const handleFavo = () =>{
     dispatch({
       type: FAVORIE,
-      payload: poke
+      payload: {
+        id: poke.id,
+        name: poke.name,
+        image: poke.image,
+      }
     });
-  }
+  };
+
+  
 
   return (
-    <div className="pt-5">
-      <Card className=" border-4 rounded-5 bg-dark" style={{borderColor: 'chartreuse'}} >
-        <Card.Header className="text-center bg-danger rounded-top-5">
+    <div className="pt-5 pb-5">
+      <Card className=" border-3 " style={{borderColor: 'chartreuse'}} >
+        <Card.Header className="text-center bg-danger">
           <div className="text-light">
             <h1>{poke.name}</h1>
           </div>
@@ -30,10 +38,9 @@ function ListPoke({ poke }) {
         <Card.Body onClick={clicShow}>
           <img src={poke.image} alt="" />
         </Card.Body>
-        <Card.Footer className=" d-flex justify-content-center bg-body-tertiary rounded-bottom-5">
-        <button onClick={handleFavo} className=" bg-primary rounded-circle pt-2 pb-2 ps-1 pe-1">
-          
-              Favorie
+        <Card.Footer className=" d-flex justify-content-center bg-black-subtle">
+        <button onClick={handleFavo} className=" bg-dark rounded-circle p-2 shadow">
+        <FontAwesomeIcon icon={faHeart} beat size="2x" style={{color: "#00ff1e",}} />
             </button>
         </Card.Footer>
 

@@ -11,6 +11,7 @@ function App() {
   const [poke, setPoke] = useState([]);
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
+ 
 
 
   useEffect(()=>{
@@ -19,6 +20,7 @@ function App() {
       axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/102')
       .then((res)=>{
         setPoke(res.data);
+  
       })
     }else{ 
       axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${search}`)
@@ -34,13 +36,13 @@ function App() {
     <div>
       <Navi value={search} setSearch={setSearch} recherche={result}/>
 
-      <div className=" d-flex flex-wrap gap-4 justify-content-around bg-black">
+      <div className=" d-flex flex-wrap gap-4 justify-content-around">
         <Routes>
           <Route path="/" exact element={(search ? result : poke).map((poke) => (
           <ListPoke poke={poke} key={poke.id} />))}/>
       
 
-          <Route path="./favoris" element={<Favories/>} />
+          <Route path="/favoris" element={<Favories/>} />
           </Routes>
      </div>
     </div>

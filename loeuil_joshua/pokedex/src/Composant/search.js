@@ -25,9 +25,10 @@ function Navi({setSearch}){
             <h1 className="text-light">
                 <Link to="/" className="text-light text-decoration-none">Pokedex</Link>
                 </h1>
-            <div className="mt-2"><h3>
+            <div className="mt-3">
+            <h5>
             <Link to="./favoris" className="text-light text-decoration-none">Favoris</Link>
-            </h3>
+            </h5>
             </div>
             <form className="w-25 mt-3" onSubmit={handleSubmit}>
             <input type="search" 

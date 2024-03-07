@@ -17,8 +17,8 @@ function MovieDetails({ show, handleClose, movie }) {
                 <Container>
                     <Row>
                         <img src={posterUrl} alt={movie.title} />
-                        <p>Date de sortie : {movie.release_date}</p>
-                        <p>Synopsis : {movie.overview}</p>
+                        <p><b>Date de sortie :</b> {movie.release_date}</p>
+                        <p><b>Synopsis :</b> {movie.overview}</p>
                     </Row>
                 </Container>
             </Modal.Body>

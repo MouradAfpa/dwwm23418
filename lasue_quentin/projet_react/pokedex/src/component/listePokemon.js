@@ -9,6 +9,7 @@ function ListePokemons() {
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(1);
   const [Loading, setLoading] = useState(true);
+  const[erreurSearch,setErreurSearch] = useState(false);
   const pokemonParPage = 15;
   const indexDernierPokemon = page * pokemonParPage;
   const indexPremierPokemon = indexDernierPokemon - pokemonParPage;
@@ -37,21 +38,24 @@ function ListePokemons() {
         );
         setPokemons(pokemons.data);
         setLoading(false);
+        // console.log(pokemons);
       };
       getPokemons();
     } else {
-      try {
-        const getPokemons = async () => {
+      
+      const getPokemons = async () => {
+        try {
           const pokemons = await axios.get(
             `https://pokebuildapi.fr/api/v1/pokemon/${searchVal}`
           );
           setPokemons(pokemons.data);
           setLoading(false);
-        };
-        getPokemons();
-      } catch (error) {
+        } catch (error) {
         console.log("error fetching pokemons:", error);
-      }
+        setErreurSearch(true)
+        }
+      };
+      getPokemons();
     }
   }, [searchVal]);
 
@@ -61,7 +65,7 @@ function ListePokemons() {
 
   return (
     <>
-      {Loading ? (
+      {(Loading) ? (
         <Container>
           <Row className="text-center">
             <h1>
@@ -82,7 +86,9 @@ function ListePokemons() {
                   value={searchTerm}
                   type="text"
                   placeholder="Search Pokemon..."
+                  // className={erreurSearch ?'is-invalid':''}
                 />
+                  {/* if(erreurSearch){(<Form.Control.Feedback type="invalid">Nom du pokémon invalide</Form.Control.Feedback>)} */}
               </Col>
               <Col xs="auto">
                 <Button variant="danger" type="submit">
@@ -113,7 +119,8 @@ function ListePokemons() {
             <BoutonPage page={page} setPage={setPage} nbrPage={nbrPage} />
           ) : null}
         </Container>
-      )}
+      )
+    }
     </>
   );
 }

@@ -106,35 +106,30 @@ function PageDetails() {
             >
               <Container>
                 <Card.Title className="text-center">
-                  <h5>Statistiques :</h5>
+                  <h3>Statistiques :</h3>
                 </Card.Title>
                 <Row>
                   <Row className="justify-content-center">
                     <Card.Img
-                      style={{ width: "8rem" }}
+                      style={{ width: "10rem" }}
                       src={pokemonDetails.sprite}
                     />
                   </Row>
-                  <Row className="text-center fw-bold">
-                    <p className="text-info fw-bold"> HP : {stats.HP}</p>
-                    <p className="text-danger fw-bold"> Attack :{stats.attack}</p>
-                    <p className="text-warning fw-bold"> Defense :{stats.defense}</p>
-                    <p className="text-danger fw-bold"> Special Attack :{stats.special_attack}</p>
-                    <p className="text-warning fw-bold"> Special Defense :{stats.special_defense}</p>
-                    <p className="text-info fw-bold"> Speed :{stats.speed}</p>
-                  </Row>
-
+                  <Card.Title>
+                    {Object.keys(stats).map((stat)=>(
+                      <>
+                      <Row>
+                        <Col>
+                        <p className="fs-5 text-end text-primary"> {stat} : </p>
+                        </Col>
+                        <Col>
+                        <ProgressBar  label={stats[stat]}   now={stats[stat]} max={250} />
+                        </Col>
+                      </Row>
+                      </>
+                    ))}
+                  </Card.Title>
                 </Row> 
-                <Row>
-                  <ProgressBar className="my-3" max="600">
-                    <ProgressBar  label="HP"  variant="info" now={stats.HP} key="1"/>
-                    <ProgressBar  label="Attack"  variant="danger" now={stats.attack} key="2"/>
-                    <ProgressBar  label="Defense"  variant="warning" now={stats.defense} key="3"/>
-                    <ProgressBar  label="Spe.Attack"  variant="danger" now={stats.special_attack} key="4"/>
-                    <ProgressBar  label="Spe. defense"  variant="warning" now={stats.special_defense} key="5"/>
-                    <ProgressBar  label="Speed"  variant="info" now={stats.speed} key="6"/>
-                  </ProgressBar>
-                </Row>
               </Container>
             </Card>
           </Col>

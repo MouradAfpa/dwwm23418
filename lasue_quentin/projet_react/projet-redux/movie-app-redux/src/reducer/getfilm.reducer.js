@@ -3,6 +3,7 @@ import {
   getFilmPop,
   getFilmTrend,
   rechercheFilm,
+  getSerie,
   next_page,
   previous_page,
   reset_page,
@@ -46,6 +47,13 @@ const FilmReducer = (state = initialState, action) => {
         page: action.payload.page,
         nbrPage: action.payload.nbrPage,
       };
+      case getSerie:
+      return {
+        ...state,
+        films: action.payload.films,
+        page: action.payload.page,
+        nbrPage: action.payload.nbrPage,
+      };
     case next_page:
       return {
         ...state,
@@ -59,7 +67,7 @@ const FilmReducer = (state = initialState, action) => {
     case reset_page:
       return {
         ...state,
-        page: 1,
+        page:1,
       };
     default:
       return state;

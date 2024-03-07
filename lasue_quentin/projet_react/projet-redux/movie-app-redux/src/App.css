@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+#scrollButtonUP{
+  position: fixed;
+  bottom: 30%;
+  left: 10%;
+}
+#scrollButtonDown{
+  position: fixed;
+  bottom: 25%;
+  left: 10%;
+}
+@media (max-width:470px){
+  #scrollButtonUP,#scrollButtonDown{display: none;}
+}
+@media (max-width:768px){
+  #carouselPop{display: none;}
+}

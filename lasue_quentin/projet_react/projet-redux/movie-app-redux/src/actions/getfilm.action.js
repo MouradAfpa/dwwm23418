@@ -4,18 +4,16 @@ export const getFilmTrend = "getFilmTrend";
 export const getFilmPop = "getFilmPop";
 export const getFilmDiscovery = "getFilmDiscovery";
 export const rechercheFilm = "rechercheFilm";
+export const getSerie = "getSerie";
 export const next_page = "next_page";
 export const previous_page = "previous_page";
 export const reset_page = "reset_page";
 
-export const getFilmTrends = () => {
-  return async (dispatch, getState) => {
-    const { page } = getState().FilmReducer;
-    console.log(page);
+export const getFilmTrends = (page) => {
+  return async (dispatch) => {
     const reponse = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=fr-FR`
     );
-    console.log(reponse.data.results);
     dispatch({
       type: getFilmTrend,
       payload: {
@@ -26,9 +24,8 @@ export const getFilmTrends = () => {
     });
   };
 };
-export const getFilmPops = () => {
-  return async (dispatch, getState) => {
-    const { page } = getState().FilmReducer;
+export const getFilmPops = (page) => {
+  return async (dispatch) => {
     const reponse = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=fr-FR`
     );
@@ -42,9 +39,8 @@ export const getFilmPops = () => {
     });
   };
 };
-export const getFilmDiscoverys = () => {
-  return async (dispatch, getState) => {
-    const { page } = getState().FilmReducer;
+export const getFilmDiscoverys = (page) => {
+  return async (dispatch) => {
     const reponse = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=fr-FR`
     );
@@ -58,9 +54,8 @@ export const getFilmDiscoverys = () => {
     });
   };
 };
-export const rechercheFilms = (recherche) => {
-  return async (dispatch, getState) => {
-    const { page } = getState().FilmReducer;
+export const rechercheFilms = (recherche, page) => {
+  return async (dispatch) => {
     const reponse = await axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${recherche}&page=${page}&language=fr-FR`
     );
@@ -69,6 +64,21 @@ export const rechercheFilms = (recherche) => {
       payload: {
         page,
         recherche,
+        films: reponse.data.results,
+        nbrPage: reponse.data.total_pages,
+      },
+    });
+  };
+};
+export const getSeries = (page) => {
+  return async (dispatch) => {
+    const reponse = await axios.get(
+      `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=fr-FR`
+    );
+    dispatch({
+      type: getSerie,
+      payload: {
+        page,
         films: reponse.data.results,
         nbrPage: reponse.data.total_pages,
       },

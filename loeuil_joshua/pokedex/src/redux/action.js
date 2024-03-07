@@ -16,10 +16,7 @@ export const add_Favoris = () =>{
     id: data.id,
     name: data.name,
     image: data.image,
-    sprite: data.sprite,
-    slug: data.slug,
-    apiTypes: data.apiTypes,
-    stats: data.stats,
+    
 }
 });
         } catch(error){

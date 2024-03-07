@@ -38,7 +38,7 @@ function App() {
 
       <div className=" d-flex flex-wrap gap-4 justify-content-around">
         <Routes>
-          <Route path="/" exact element={(search ? result : poke).map((poke) => (
+          <Route path="/"  element={(search ? result : poke).map((poke) => (
           <ListPoke poke={poke} key={poke.id} />))}/>
       
 

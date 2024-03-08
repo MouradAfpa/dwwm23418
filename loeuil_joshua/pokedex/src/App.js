@@ -59,7 +59,7 @@ function App() {
     <div>
       <Navi value={search} setSearch={setSearch} recherche={result}/>
 
-      <div className=" d-flex flex-wrap gap-4 justify-content-around">
+      <div className=" d-flex flex-wrap justify-content-around" >
         <Routes>
           <Route path="/"  element={(search ? result : poke).map((poke) => (
           <ListPoke poke={poke} key={poke.id} />))}/>

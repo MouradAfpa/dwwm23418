@@ -21,12 +21,13 @@ function FilmCards(props) {
       >
         <Card.Img variant="top" src={image} alt={props.movie.title} />
         <Card.Body>
-          <Card.Title className="text-light">{props.movie.title?props.movie.title:props.movie.name}</Card.Title>
+          <Card.Title className="text-light">
+            {props.movie.title ? props.movie.title : props.movie.name}
+          </Card.Title>
           <Button variant="outline-info">En savoir plus</Button>
         </Card.Body>
       </Card>
-
-      <Modals show={show} setShow={setShow} props={props} />
+      <Modals show={show} setShow={setShow} props={props.movie} />
     </>
   );
 }

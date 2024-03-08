@@ -2,12 +2,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { useSelector, useDispatch } from "react-redux";
-import { resetPage, rechercheFilms } from "../actions/getfilm.action";
+import {  rechercheFilms } from "../actions/getfilm.action";
 
 function NavBar() {
   const dispatch = useDispatch();
   const recherche = useSelector((state) => state.FilmReducer.recherche);
-  const page = useSelector((state) => state.FilmReducer.page);
   const ChangeRecherche = (event) => {
     // dispatch(resetPage())
     dispatch(rechercheFilms(event.target.value, 1)); // 1 Pour remettre a la première page quand on change la recherche

@@ -2,7 +2,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Image } from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
-import { getFilmPops } from '../actions/getfilm.action';
 
 function Carroussel() {
   const [movies,setMovies] = useState([]);

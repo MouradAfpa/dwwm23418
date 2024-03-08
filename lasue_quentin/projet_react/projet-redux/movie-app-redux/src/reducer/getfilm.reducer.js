@@ -7,6 +7,7 @@ import {
   next_page,
   previous_page,
   reset_page,
+  ajout_favoris,
 } from "../actions/getfilm.action";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   recherche: "",
   page: 1,
   nbrPage: 1,
+  favoris: [],
 };
 
 const FilmReducer = (state = initialState, action) => {
@@ -47,7 +49,7 @@ const FilmReducer = (state = initialState, action) => {
         page: action.payload.page,
         nbrPage: action.payload.nbrPage,
       };
-      case getSerie:
+    case getSerie:
       return {
         ...state,
         films: action.payload.films,
@@ -67,8 +69,23 @@ const FilmReducer = (state = initialState, action) => {
     case reset_page:
       return {
         ...state,
-        page:1,
+        page: 1,
       };
+    case ajout_favoris:
+      const pokemon = action.payload.favoris;
+      const isFavorite = state.favoris.includes(pokemon);
+      
+      if (isFavorite) {
+        return {
+          ...state,
+          favoris: state.favoris.filter((fav) => fav !== pokemon),
+        };
+      } else {
+        return {
+          ...state,
+          favoris: [...state.favoris, action.payload.favoris],
+        };
+      }
     default:
       return state;
   }

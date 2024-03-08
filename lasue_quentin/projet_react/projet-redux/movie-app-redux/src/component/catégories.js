@@ -3,11 +3,9 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import { useDispatch } from "react-redux";
 import { resetPage } from "../actions/getfilm.action";
-import { useState } from "react";
 
 function Categories({listeAfficher, setListeAfficher}) {
   const dispatch = useDispatch();
-//   const [listeAfficher, setListeAfficher] = useState("trendFilm");
   const trendFilm = () => {
     setListeAfficher("trendFilm");
     dispatch(resetPage());
@@ -50,7 +48,7 @@ function Categories({listeAfficher, setListeAfficher}) {
       <ButtonToolbar className="justify-content-center m-5">
         <ButtonGroup aria-label="First group" size="lg">
           {categories.map((cat) => (
-            <Button variant="outline-info" onClick={cat.onclick}>
+            <Button  key={cat.nom} variant="outline-info" onClick={cat.onclick}>
               {cat.nom}
             </Button>
           ))}

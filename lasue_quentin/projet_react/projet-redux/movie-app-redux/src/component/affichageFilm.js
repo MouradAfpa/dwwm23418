@@ -6,10 +6,8 @@ import {
   getFilmDiscoverys,
   getFilmPops,
   getSeries,
-  resetPage,
 } from "../actions/getfilm.action";
 import { Container, Row } from "react-bootstrap";
-// import Button from "react-bootstrap/Button";
 import FilmCards from "./CardsFilm";
 import Boutons from "./Bouton";
 import NavBar from "./NavBar";
@@ -25,25 +23,6 @@ function AffichageFilms() {
   const page = useSelector((state) => state.FilmReducer.page);
   const [listeAfficher, setListeAfficher] = useState("trendFilm");
 
-  const trendFilm = () => {
-    setListeAfficher("trendFilm");
-    dispatch(resetPage());
-  };
-
-  const popFilm = () => {
-    setListeAfficher("PopFilm");
-    dispatch(resetPage());
-    console.log(listeAfficher);
-  };
-
-  const discoveryFilm = () => {
-    setListeAfficher("discoveryFilm");
-    dispatch(resetPage());
-  };
-  const trendSerie=()=>{
-    setListeAfficher("trendSerie");
-    dispatch(resetPage())
-  }
 
   useEffect(() => {
     if (recherche) {
@@ -57,22 +36,7 @@ function AffichageFilms() {
     } else {
       dispatch(getFilmTrends(page));
     }
-  }, [recherche, page, listeAfficher]);
-
-  const categories = [
-    {
-      nom: "Trend",
-      onclick: trendFilm,
-    },
-    {
-      nom: "Pop",
-      onclick: popFilm,
-    },
-    {
-      nom: "Discovery",
-      onclick: discoveryFilm,
-    },
-  ];
+  }, [recherche, page, listeAfficher,dispatch]);
 
   return (
     <>

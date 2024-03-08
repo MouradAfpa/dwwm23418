@@ -40,7 +40,7 @@ function ListPoke({ poke }) {
     localStorage.setItem("favor", JSON.stringify(favori));
     setItemsFA(!itemsFA);
     
-    const favoLoc = JSON.parse(localStorage('favor')) || [];
+    const favoLoc = JSON.parse(localStorage.getItem('favor')) || [];
     dispatch(add_Favoris(favoLoc));
   };
 

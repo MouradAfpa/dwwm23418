@@ -9,6 +9,7 @@ export const next_page = "next_page";
 export const previous_page = "previous_page";
 export const reset_page = "reset_page";
 export const ajout_favoris = "ajout_favoris";
+export const getFavori = "getFavori";
 
 export const getFilmTrends = (page) => {
   return async (dispatch) => {
@@ -82,6 +83,17 @@ export const getSeries = (page) => {
         page,
         films: reponse.data.results,
         nbrPage: reponse.data.total_pages,
+      },
+    });
+  };
+};
+
+export const getFavoris = (listeFavoris)=>{
+  return async (dispatch)=>{
+    dispatch({
+      type:getFavori,
+      payload:{
+        films:listeFavoris,
       },
     });
   };

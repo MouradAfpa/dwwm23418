@@ -52,4 +52,5 @@
 }
 @media (max-width:768px){
   #carouselPop{display: none;}
+  /* #btnCategories{} */
 }

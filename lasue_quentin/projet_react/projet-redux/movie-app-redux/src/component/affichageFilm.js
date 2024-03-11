@@ -6,8 +6,9 @@ import {
   getFilmDiscoverys,
   getFilmPops,
   getSeries,
+  getFavoris,
 } from "../actions/getfilm.action";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import FilmCards from "./CardsFilm";
 import Boutons from "./Bouton";
 import NavBar from "./NavBar";
@@ -19,10 +20,9 @@ function AffichageFilms() {
   const dispatch = useDispatch();
   const films = useSelector((state) => state.FilmReducer.films);
   const recherche = useSelector((state) => state.FilmReducer.recherche);
-
   const page = useSelector((state) => state.FilmReducer.page);
   const [listeAfficher, setListeAfficher] = useState("trendFilm");
-
+  const fav = useSelector((state) => state.FilmReducer.favoris);
 
   useEffect(() => {
     if (recherche) {
@@ -33,11 +33,13 @@ function AffichageFilms() {
       dispatch(getFilmDiscoverys(page));
     } else if (listeAfficher === "trendingSerie") {
       dispatch(getSeries(page));
+    } else if (listeAfficher === "favoris") {
+      dispatch(getFavoris(fav));
     } else {
       dispatch(getFilmTrends(page));
     }
-  }, [recherche, page, listeAfficher,dispatch]);
-
+  }, [recherche, page, listeAfficher,dispatch,fav]);
+  
   return (
     <>
       <NavBar />
@@ -48,7 +50,12 @@ function AffichageFilms() {
 
       <Container className="mt-5">
         <Row className="justify-content-center">
-          {films.map((film) => (
+          {films.length ===0 ?
+          <Col>
+          <h1 className="text-center text-info m-5">Vous n'avez aucun favoris.</h1> 
+          </Col>
+          :
+          films.map((film) => (
             <FilmCards key={film.id} movie={film} />
           ))}
 

@@ -17,7 +17,7 @@ function Boutons() {
   };
 
   return (
-    <Row>
+    <Row className="mb-5">
       <Col>
         <Button variant="outline-info" onClick={prevPage} size="lg">
           Page précédente

@@ -8,22 +8,23 @@ import { ajoutFavori } from "../actions/getfilm.action";
 function Modals({ show, setShow, props }) {
   const handleClose = () => setShow(false);
   const dispatch = useDispatch();
-  // const favoris = useSelector((state) => state.FilmReducer.favoris);
-  // const newFavoris = [...favoris];
-  // const indexFavoris = newFavoris.findIndex((fav) => fav === props);
-
-  // const addFavoris = (props) => {
-  //   if (indexFavoris === -1) {
-  //     newFavoris.push(props);
-  //     dispatch(ajoutFavori(newFavoris));
-  //   } else {
-  //     newFavoris.splice(indexFavoris, 1);
-  //     dispatch(ajoutFavori(newFavoris));
-  //   }
-  // };
-  // const isFavoris= (props)=>{
-  //   return favoris.some((fav)=>fav.id ===props.id);
-  // }
+  const favoris = useSelector((state) => state.FilmReducer.favoris);
+  const newFavoris = [...favoris];
+  const indexFavoris = newFavoris.findIndex((fav) => fav === props);
+  const isFavoris= favoris.some((fav)=>fav.id ===props.id);
+  
+  const addFavoris = (film) => {
+    if (indexFavoris === -1) {
+      newFavoris.push(film);
+      // console.log("nouvelle liste fav + : " + newFavoris);
+      dispatch(ajoutFavori(newFavoris));
+    } else {
+      newFavoris.splice(indexFavoris, 1);
+      // console.log("nouvelle liste fav - : " + newFavoris);
+      dispatch(ajoutFavori(newFavoris));
+    }
+  };
+  
   return (
     <Modal
       show={show}
@@ -58,10 +59,10 @@ function Modals({ show, setShow, props }) {
               </p>
               <Button variant="info">{props.vote_average}</Button>
               <Button
-                variant="outline-warning"
-                // variant={isFavoris(props) ? "warning" : "outline-warning"}
+                // variant="outline-warning"
+                variant={isFavoris ? "warning" : "outline-warning"}
                 className="m-3"
-                // onClick={addFavoris(props)}
+                onClick={() => addFavoris(props)}
               >
                 ☆
               </Button>

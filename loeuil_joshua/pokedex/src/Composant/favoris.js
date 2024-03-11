@@ -12,16 +12,21 @@ function Favories(){
 const favoris = useSelector(state => state.Reducer.favo);
 
 const dispatch = useDispatch();
+useEffect(() =>{
+  const favoLocal = JSON.parse(localStorage.getItem("favor") || "[]");
+  dispatch(add_Favoris(favoLocal));
+}, [dispatch]);
+
 
 const handleRemove = (id) => {
     dispatch(remove_Favo(id));
+
+    const storageUpdate = favoris.filter((fav) => fav.id !== id);
+    localStorage.setItem("favor", JSON.stringify(storageUpdate))
 };
 console.log(favoris);
 
-useEffect(() =>{
-  const favoLocal = JSON.parse(localStorage.getItem("favor") || []);
-  dispatch(add_Favoris(favoLocal));
-}, [])
+
 
 return(
     <div className="d-flex flex-wrap gap-5 justify-content-around p-5 pb-5" >

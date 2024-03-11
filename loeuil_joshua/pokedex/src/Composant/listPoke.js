@@ -40,7 +40,7 @@ function ListPoke({ poke }) {
     localStorage.setItem("favor", JSON.stringify(favori));
     setItemsFA(!itemsFA);
     
-    const favoLoc = JSON.parse(localStorage('favor')) || [];
+    const favoLoc = JSON.parse(localStorage.getItem('favor')) || [];
     dispatch(add_Favoris(favoLoc));
   };
 
@@ -63,21 +63,21 @@ function ListPoke({ poke }) {
   
 
   return (
-    <div className="pt-5 pb-5">
-      <Card className=" border-3 " style={{borderColor: 'chartreuse'}} >
+    <div className="pt-5 pb-5 ">
+      <Card className=" border-3 " style={{borderColor: 'chartreuse', height: '25rem' , width: '20rem'}} >
         <Card.Header className="text-center bg-danger">
           <div className="text-light">
             <h1>{poke.name}</h1>
           </div>
         </Card.Header>
-        <Card.Body onClick={clicShow}>
-          <img src={poke.image} alt="" />
+        <Card.Body onClick={clicShow} className="d-flex justify-content-center">
+          <img src={poke.sprite} alt="" />
         </Card.Body>
         <Card.Footer className=" d-flex justify-content-center bg-black-subtle">
-        <button onClick={handleFavo} className={` rounded-circle p-2 shadow ${
+        <button onClick={handleFavo} className={` rounded-circle p-1 ps-2 pe-2 shadow ${
           itemsFA ? "bg-danger" : "bg-dark"}`}>
-        { itemsFA ? <FontAwesomeIcon icon={faHeart} size="2x" style={{color: "#00ff1e",}}/> : 
-          <FontAwesomeIcon icon={faHeart}  beat size="2x" style={{color: "#ff0000",}}/>}
+        { itemsFA ? <FontAwesomeIcon icon={faHeart} size="1x" style={{color: "#00ff1e",}}/> : 
+          <FontAwesomeIcon icon={faHeart}  beat size="1x" style={{color: "#ff0000",}}/>}
             </button>
         </Card.Footer>
 
@@ -89,7 +89,7 @@ function ListPoke({ poke }) {
             {poke.apiTypes.length > 1 ? (
               <div>
                 <img
-                  src={poke.sprite}
+                  src={poke.image}
                   alt={poke.slug}
                   className="w-75 rounded-circle bg-light"
                 />

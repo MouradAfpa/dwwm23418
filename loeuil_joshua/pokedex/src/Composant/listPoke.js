@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Modal, Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { FAVORIE } from "../redux/action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { add_Favoris } from "../redux/action";
 
 
 function ListPoke({ poke }) {
   const [show, setShow] = useState(false);
-  const [itemsFA, setItemsFA] = useState(false);
+
 
   const clicHide = () => setShow(false);
   const clicShow = () => setShow(!show);
@@ -18,33 +17,10 @@ function ListPoke({ poke }) {
   const dispatch = useDispatch();
 
 
- useEffect(()=>{
-    const favor = JSON.parse(localStorage.getItem("favor")) || [];
-    const isFavor = favor.some((fav)=> fav.id === poke.id);
-    setItemsFA(isFavor);
-  }, [poke.id]);
+ 
 
-  const switchFavor = ()=>{
-    let favori = JSON.parse(localStorage.getItem("favor") || "[]");
-
-    if(itemsFA){
-      favori = favori.filter((fav) => fav.id !== poke.id);
-    }else{
-      favori.push({
-        id: poke.id,
-        name: poke.name,
-        image: poke.image
-      });
-    }
-
-    localStorage.setItem("favor", JSON.stringify(favori));
-    setItemsFA(!itemsFA);
-    
-    const favoLoc = JSON.parse(localStorage.getItem('favor')) || [];
-    dispatch(add_Favoris(favoLoc));
-  };
-
-
+ 
+  
   const handleFavo = () =>{
     dispatch({
       type: FAVORIE,
@@ -55,7 +31,7 @@ function ListPoke({ poke }) {
       },
     });
     
-    switchFavor();
+
   };
 
  
@@ -74,10 +50,8 @@ function ListPoke({ poke }) {
           <img src={poke.sprite} alt="" />
         </Card.Body>
         <Card.Footer className=" d-flex justify-content-center bg-black-subtle">
-        <button onClick={handleFavo} className={` rounded-circle p-1 ps-2 pe-2 shadow ${
-          itemsFA ? "bg-danger" : "bg-dark"}`}>
-        { itemsFA ? <FontAwesomeIcon icon={faHeart} size="1x" style={{color: "#00ff1e",}}/> : 
-          <FontAwesomeIcon icon={faHeart}  beat size="1x" style={{color: "#ff0000",}}/>}
+        <button onClick={handleFavo} className={"rounded-circle p-1 ps-2 pe-2 shadow bg-dark"}>
+        <FontAwesomeIcon icon={faHeart} size="1x" style={{color: "#00ff1e",}}/> 
             </button>
         </Card.Footer>
 

@@ -33,25 +33,29 @@ function App() {
   }
 
   useEffect(()=>{
-    
+    // const dataPoke = async () =>{
+    //   try{
     // if(!search){
-  //     axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/102')
-  //     .then((res)=>{
-  //       setPoke(res.data);
+    //   const resultLim = await axios.get('https://pokebuildapi.fr/api/v1/pokemon/limit/102');
+    //     setPoke(resultLim.data);
 
       
   fetchPoke();
-  //     })
-  //   }else{ 
-  //     axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${search}`)
-  //     .then((res) =>{
-  //       setResult([res.data])
-  //     })
+    // }else{ 
+  //      const resSearch = await axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${search}`)
+      
+  //       setResult([resSearch.data]);
   //   } 
-  // }, [search])
+  // } catch(error){
+  //   console.error('erreur', error);
+  // }
+  
+  // };
+  // dataPoke();
+//  }, [search])
+    }
+  );
 
-
-  })
 
    
   return (

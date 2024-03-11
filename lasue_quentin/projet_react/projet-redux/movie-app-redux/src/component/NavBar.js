@@ -20,8 +20,7 @@ function NavBar() {
       >
         <Container>
           <Navbar.Brand>
-            {" "}
-            <span className="text-warning fw-bold">Search</span>{" "}
+            <span className="text-warning fw-bold">Search</span>
             <i className="text-info">Films</i>
           </Navbar.Brand>
           <Form.Control

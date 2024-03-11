@@ -15,6 +15,7 @@ import NavBar from "./NavBar";
 import ScrollBouton from "./ScrollBouton";
 import Carroussel from "./Carroussel";
 import Categories from "./catégories";
+import Footer from "./footer";
 
 function AffichageFilms() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function AffichageFilms() {
       dispatch(getFilmTrends(page));
     }
   }, [recherche, page, listeAfficher,dispatch,fav]);
-  
+
   return (
     <>
       <NavBar />
@@ -62,6 +63,7 @@ function AffichageFilms() {
           <Boutons />
         </Row>
       </Container>
+      <Footer/>
     </>
   );
 }

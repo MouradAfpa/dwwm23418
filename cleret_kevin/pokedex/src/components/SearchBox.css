@@ -1,0 +1,32 @@
+
+#search {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 4% 0% 2%;
+}
+
+#searchbar {
+    border-radius: 25px;
+    width: 40%;
+    padding: 0.3% 1%;
+    font-size: 0.6em;
+    position: relative;
+    left: 15%;
+}
+::placeholder {
+    color: #2b2d42;
+}
+
+#logoprout {
+    width: 2.8%;
+    margin-left: 4%;
+    color: #edf2f4;
+}
+
+#search h2 {
+    font-weight: 800;
+    text-decoration: underline  #edf2f4;
+    color: #2b2d42;
+    text-transform: uppercase;
+}

@@ -1,0 +1,32 @@
+
+export const get = async (value) => {
+  return apiFake.find(
+    (item) => item.name.toLowerCase() === value.toLowerCase()
+  );
+};
+ 
+export const getPoke = async () => {
+  return apiFake;
+};
+
+
+
+
+
+
+async function fetchPoke(searchTerme) {
+    try {
+      let fetchedPokes;
+      if (searchTerme) {
+        fetchedPokes = await apiPoke.get(searchTerme);
+      } else {
+        fetchedPokes = await apiPoke.getPoke();
+      }
+      console.log(fetchedPokes);
+      setPokes(fetchedPokes);
+ 
+      setError(false);
+    } catch (error) {
+      setError(true);
+    }
+  }

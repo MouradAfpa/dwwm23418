@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Form, FormControl } from "react-bootstrap";
 import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
+import logo from "../../the_movie_database_logo.png";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   const recherche = useSelector((state) => state.Reducer1.query);
@@ -22,10 +24,16 @@ function SearchBar() {
       bg="secondary"
       expand="lg"
       variant="dark"
-      className="d-flex justify-content-center fixed-top "
+      className="d-flex justify-content-between fixed-top"
       style={{ opacity: "70%" }}
     >
-      <div>
+      <div className="ps-4">
+        <img src={logo} alt="logo movie database" className=" position-fixed-start"/>
+        </div>
+        <div className="d-flex justify-content-around gap-4 text-decoration-none">
+          <Link to="/Film"><h3 className="text-light text-decoration-underline">Film</h3></Link>
+          <Link to="/Serie"><h3 className="text-light text-decoration-underline">Tv</h3></Link>
+        </div>
         <Form className="d-flex" autoComplete="off" onSubmit={handleSearch}>
           <FormControl
             type="search"
@@ -39,7 +47,6 @@ function SearchBar() {
             }}
           ></FormControl>
         </Form>
-      </div>
     </Navbar>
   );
 }

@@ -1,7 +1,7 @@
 import "./App.css";
-import ListePokemons from "./component/listePokemon";
-import PageDetails from "./component/pageDetails";
-import ListeFavoris from "./component/listeFavoris";
+import ListePokemons from "./view/listePokemon";
+import PageDetails from "./view/pageDetails";
+import ListeFavoris from "./view/listeFavoris";
 import NavBar from "./component/navBar";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

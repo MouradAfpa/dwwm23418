@@ -1,6 +1,6 @@
 import { Container, Row, Col,Button } from "react-bootstrap";
 import { useState } from "react";
-import CardFavoris from "./CardFavoris";
+import CardFavoris from "../component/CardFavoris";
 
 function ListeFavoris(){
     const [favoris, setFavoris] =useState(JSON.parse(localStorage.getItem('favoris')) || []) ;

@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
-import CardPokemon from "./cardPokemon";
-import BoutonPage from "./boutonPage";
-import Footer from "./footer";
+import CardPokemon from "../component/cardPokemon";
+import BoutonPage from "../component/boutonPage";
+import Footer from "../component/footer";
 
 function ListePokemons() {
   const [pokemons, setPokemons] = useState([]);
@@ -21,6 +21,7 @@ function ListePokemons() {
   const [searchVal, setSearchVal] = useState("");
   const [searchTerm, setSearchTerm] = useState(searchVal); // constante tampon pour gestion du fonctionnement de l'API la valeur doit être entière pour fonctionner 
   const[erreur,setErreur] = useState(""); // gestion de l'erreur pour afficher un msg si valeur introuvable dans es données de l'API
+
 
   
 

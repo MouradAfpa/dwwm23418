@@ -3,18 +3,20 @@ import { Card, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
 import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
+import { useNavigate } from "react-router-dom";
 
 function CardFilm() {
   const movies = useSelector((state) => state.Reducer1.result);
   const page = useSelector((state) => state.Reducer1.page);
   const recherche = useSelector((state) => state.Reducer1.query);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [show, setShow] = useState(null);
 
-  const handleShow = (movie) => {
-    setShow(movie);
-  };
+  // const handleShow = (movie) => {
+  //   setShow(movie);
+  // };
 
   const handleClose = () => {
     setShow(null);
@@ -28,8 +30,9 @@ function CardFilm() {
     }
   }, [recherche, page, dispatch]);
 
-  
-
+ function handleClick(movie){
+  navigate(`/detail/${movie.id}`)
+ }
 
 
  
@@ -46,7 +49,7 @@ function CardFilm() {
           <Card.Img
               variant="bottom"
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-              onClick={() => handleShow(movie)} 
+              onClick={() => handleClick(movie)}
             />
           <Card.Body className=" text-center">
             <h4>{movie.title}</h4>

@@ -24,12 +24,12 @@ function BoutonPage() {
   }
 
   return (
-    <div className="d-flex justify-content-around bg-black text-light p-5">
+    <div className="d-flex justify-content-around bg-black text-light p-4">
       <button
         type="button"
         onClick={handleResetPage}
-        className="border-3 bg-black text-danger"
-        style={{ borderColor: "chartreuse" }}
+        className="border-danger border-3"
+        
         >
           Retour Page 1
         </button>
@@ -38,8 +38,7 @@ function BoutonPage() {
         <button
           type="button"
           onClick={handlePrevPage}
-          className="border-3 bg-black text-danger"
-          style={{ borderColor: "chartreuse" }}
+          className="border-danger border-3"
         >
           Precedent
         </button>
@@ -56,8 +55,7 @@ function BoutonPage() {
         <button
           type="button"
           onClick={handleNextPage}
-          className="border-3 bg-black text-danger"
-          style={{ borderColor: "chartreuse" }}
+          className="border-danger border-3"
         >
           Suivant
         </button>

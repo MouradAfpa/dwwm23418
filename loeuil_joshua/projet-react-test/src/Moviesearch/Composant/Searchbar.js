@@ -21,11 +21,11 @@ function SearchBar() {
 
   return (
     <Navbar
-      bg="secondary"
+      bg="black"
       expand="lg"
       variant="dark"
-      className="d-flex justify-content-between fixed-top"
-      style={{ opacity: "70%" }}
+      className="d-flex justify-content-between position-relative"
+      // style={{ opacity: "70%" }}
     >
       <div className="ps-4">
         <img src={logo} alt="logo movie database" className=" position-fixed-start"/>

@@ -30,19 +30,23 @@ function CardSerie() {
   }, [recherche, page, dispatch]);
 
   return (
-    <div className="d-flex justify-content-evenly flex-wrap gap-4 pt-lg-5 bg-black">
+    <div className="d-flex justify-content-evenly flex-wrap gap-4 pt-lg-5 p-5 m-5 bg-primary-subtle">
       {series.map((serie) => (
         <Card
           key={serie.id}
-          className="bg-dark border-4 rounded-5 text-light "
-          style={{ width: "20rem", height: "35rem", borderColor: "chartreuse" }}
+          className="bg-dark-subtle border-4 border-black "
+          style={{ width: "20rem", height: "35rem"}}
+           
         >
-          <Card.Body onClick={() => handleShow(serie)} className=" text-center">
-            <h4>{serie.name}</h4>
-            <Card.Img
+          <Card.Img
               variant="bottom"
               src={`https://image.tmdb.org/t/p/w200${serie.poster_path}`}
+              style={{height: '29rem'}}
+              onClick={() => handleShow(serie)}
             />
+            <Card.Body className="text-center">
+            <h4>{serie.name}</h4>
+            
           </Card.Body>
           <Modal show={show === serie} onHide={handleClose} className="">
             <Modal.Body className="bg-dark text-light text-center row-1cols-2">

@@ -28,20 +28,29 @@ function CardFilm() {
     }
   }, [recherche, page, dispatch]);
 
+  
+
+
+
+ 
+
+
   return (
-    <div className="d-flex justify-content-evenly flex-wrap gap-4 pt-lg-5 bg-black">
+    <div className="d-flex justify-content-evenly flex-wrap gap-4 pt-lg-5 p-5 m-5 bg-primary-subtle">
       {movies.map((movie) => (
         <Card
           key={movie.id}
-          className="bg-dark border-4 rounded-5 text-light "
-          style={{ width: "20rem", height: "35rem", borderColor: "chartreuse" }}
+          className="bg-dark-subtle border-4 border-black "
+          style={{ width: "20rem", height: "35rem"}}
         >
-          <Card.Body onClick={() => handleShow(movie)} className=" text-center">
-            <h4>{movie.title}</h4>
-            <Card.Img
+          <Card.Img
               variant="bottom"
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+              onClick={() => handleShow(movie)} 
             />
+          <Card.Body className=" text-center">
+            <h4>{movie.title}</h4>
+            
           </Card.Body>
           <Modal show={show === movie} onHide={handleClose} className="">
             <Modal.Body className="bg-dark text-light text-center row-1cols-2">

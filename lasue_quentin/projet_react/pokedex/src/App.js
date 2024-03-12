@@ -10,7 +10,7 @@ function App() {
   const [searchVal, setSearchVal] = useState("");
 
   return (
-    <div>
+    <>
       <BrowserRouter>
         <NavBar searchVal={searchVal} setSearchVal={setSearchVal} />
         <Routes>
@@ -29,7 +29,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 

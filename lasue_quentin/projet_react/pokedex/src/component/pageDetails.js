@@ -35,7 +35,7 @@ function PageDetails() {
       }
     };
     getDetails();
-  }, []);
+  }, [id]);
 
   //Fonctionnalité Favoris : 
   //état local favoris initialiser avec la valeur du local storage si ça existe sinon tableau vide
@@ -144,9 +144,9 @@ function PageDetails() {
                 <Col>
                     {resistance.map((resist)=>{
                       let badgeColor = resist.damage_multiplier
-                      if(badgeColor == 1){
+                      if(badgeColor === 1){
                         badgeColor = "secondary"
-                      }else if(badgeColor == 2){
+                      }else if(badgeColor === 2){
                         badgeColor = "danger"
                       }else {
                         badgeColor = "success"

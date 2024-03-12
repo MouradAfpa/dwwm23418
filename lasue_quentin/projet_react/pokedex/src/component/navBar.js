@@ -12,11 +12,13 @@ function NavBar() {
         <Navbar bg="primary" data-bs-theme="dark">
             <Container>
                 <Navbar.Brand>
-                    <Image 
-                    width="60"
-                    height="30"
-                    src='https://th.bing.com/th/id/R.d5f28cb2bccb6ae1a5b3d5ece9c7e856?rik=QoVFY3l1R6i%2bMg&pid=ImgRaw&r=0'
-                    />
+                    <Link to="/">
+                        <Image 
+                            width="120"
+                            height="60"
+                            src='https://th.bing.com/th/id/R.d5f28cb2bccb6ae1a5b3d5ece9c7e856?rik=QoVFY3l1R6i%2bMg&pid=ImgRaw&r=0'
+                        />
+                    </Link>
                 </Navbar.Brand>
                 <Nav className="me-auto">
                     <Link to="/">

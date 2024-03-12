@@ -4,12 +4,12 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import CardPokemon from "./cardPokemon";
 import BoutonPage from "./boutonPage";
+import Footer from "./footer";
 
 function ListePokemons() {
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(1);
   const [Loading, setLoading] = useState(true);
-  const[erreurSearch,setErreurSearch] = useState(false);
   const pokemonParPage = 15;
   const indexDernierPokemon = page * pokemonParPage;
   const indexPremierPokemon = indexDernierPokemon - pokemonParPage;
@@ -19,7 +19,10 @@ function ListePokemons() {
   const nbrPage = pokemons.length / pokemonParPage;
 
   const [searchVal, setSearchVal] = useState("");
-  const [searchTerm, setSearchTerm] = useState(searchVal);
+  const [searchTerm, setSearchTerm] = useState(searchVal); // constante tampon pour gestion du fonctionnement de l'API la valeur doit être entière pour fonctionner 
+  const[erreur,setErreur] = useState(""); // gestion de l'erreur pour afficher un msg si valeur introuvable dans es données de l'API
+
+  
 
   const handleChange = (e) => {
     const searchTerm = e.target.value;
@@ -27,7 +30,21 @@ function ListePokemons() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchVal(searchTerm);
+    if(pokemons.length>1){ // si on à plus d'un pokemons (pas de recherche avant)
+      for(const pokemon of pokemons){ // parcours tous les pokemons
+        if(pokemon.name.toLowerCase() ===searchTerm.toLowerCase() // ne tiens pas compte des majuscule à la comparaison
+          ){
+          setErreur(""); 
+          setSearchVal(searchTerm); // lance la réponse pour affichage du pokemon
+          break;
+        }else{
+          setErreur("Veuillez entrez un nom de pokemon valide."); 
+        }
+      }
+    }else{      
+      setSearchVal("");// si déjà une recherche on reviens à tous les pokemons
+      setErreur(""); 
+    }
   };
 
   useEffect(() => {
@@ -38,7 +55,6 @@ function ListePokemons() {
         );
         setPokemons(pokemons.data);
         setLoading(false);
-        // console.log(pokemons);
       };
       getPokemons();
     } else {
@@ -52,7 +68,6 @@ function ListePokemons() {
           setLoading(false);
         } catch (error) {
         console.log("error fetching pokemons:", error);
-        setErreurSearch(true)
         }
       };
       getPokemons();
@@ -86,9 +101,9 @@ function ListePokemons() {
                   value={searchTerm}
                   type="text"
                   placeholder="Search Pokemon..."
-                  // className={erreurSearch ?'is-invalid':''}
+                  className="required"
                 />
-                  {/* if(erreurSearch){(<Form.Control.Feedback type="invalid">Nom du pokémon invalide</Form.Control.Feedback>)} */}
+                <span style={{color:'red'}}>{erreur}</span>
               </Col>
               <Col xs="auto">
                 <Button variant="danger" type="submit">
@@ -118,8 +133,10 @@ function ListePokemons() {
           {!isNaN(nbrPage) ? (
             <BoutonPage page={page} setPage={setPage} nbrPage={nbrPage} />
           ) : null}
+          <Footer/>
         </Container>
-      )
+      ) 
+      
     }
     </>
   );

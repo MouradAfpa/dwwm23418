@@ -27,7 +27,7 @@ function Detail() {
   return (
     <div className="d-flex  bg-primary-subtle p-5 gap-5 mt-4 ms-5 me-5 mb-4" style={{height: '48.4rem'}}>
       <div>
-        <button onClick={handleReturn} className="p-3">
+        <button onClick={handleReturn} className="p-3 border-1 rounded-circle bg-primary-subtle">
           ←
         </button>
       </div>

@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<CardFilm />}/>
           <Route path="/Serie" element={<CardSerie/>} />
-          <Route path="/detail/:id" element={<Detail/>}/>
+          <Route path="/:id" element={<Detail/>}/>
 
        </Routes>
         <BoutonPage />

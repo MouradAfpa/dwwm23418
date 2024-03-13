@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Card, Modal } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
 import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
@@ -12,15 +12,8 @@ function CardFilm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [show, setShow] = useState(null);
 
-  // const handleShow = (movie) => {
-  //   setShow(movie);
-  // };
-
-  const handleClose = () => {
-    setShow(null);
-  };
+ 
 
   useEffect(() => {
     if (recherche) {
@@ -31,7 +24,7 @@ function CardFilm() {
   }, [recherche, page, dispatch]);
 
  function handleClick(movie){
-  navigate(`/detail/${movie.id}`)
+  navigate(`/${movie.id}`)
  }
 
 
@@ -44,33 +37,18 @@ function CardFilm() {
         <Card
           key={movie.id}
           className="bg-dark-subtle border-4 border-black "
-          style={{ width: "20rem", height: "35rem"}}
+          style={{ width: "20rem", height: "38rem"}}
         >
           <Card.Img
               variant="bottom"
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-              onClick={() => handleClick(movie)}
             />
-          <Card.Body className=" text-center">
+          <Card.Body className=" text-center d-flex flex-column justify-content-between">
             <h4>{movie.title}</h4>
-            
+            <button onClick={() => handleClick(movie)} className="rounded-5 ps-3 pe-3 bg-white">Voir detail</button>
           </Card.Body>
-          <Modal show={show === movie} onHide={handleClose} className="">
-            <Modal.Body className="bg-dark text-light text-center row-1cols-2">
-              <h2>{movie.title}</h2>
-              <img
-                className=" card-img-top"
-                style={{ width: "14rem" }}
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <h3>Date de sortie: {movie.release_date}</h3>
-              <br></br>
-            </Modal.Body>
-            <Modal.Footer className="bg-dark text-light text-center">
-              <p>{movie.overview}</p>
-            </Modal.Footer>
-          </Modal>
+          
+         
         </Card>
       ))}
     </div>

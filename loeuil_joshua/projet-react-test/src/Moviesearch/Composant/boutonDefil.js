@@ -11,7 +11,7 @@ function BoutonDefilment(){
           <button
             type="button"
             onClick={() => window.scrollTo(0, 0)}
-            className="bg-dark text-light border-primary rounded-circle pb-1 pt-1 ps-2 pe-2"
+            className="bg-dark text-light border-primary"
           >
           ↑
           </button>
@@ -20,7 +20,7 @@ function BoutonDefilment(){
           <button
             type="button"
             onClick={() => window.scrollTo(0, document.body.scrollHeight)}
-            className="bg-dark text-light border-primary rounded-circle pb-1 pt-1 ps-2 pe-2"
+            className="bg-dark text-light border-primary"
           >
             ↓
           </button>

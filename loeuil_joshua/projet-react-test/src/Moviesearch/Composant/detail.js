@@ -44,9 +44,10 @@ function Detail() {
             />
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 border w-75">
               <h2 className="text-center border-bottom">{film.title}</h2>
+              <p>Date de Sortie: {film.release_date}</p>
               <hr />
               <p className="w-75  border">{film.overview}</p>
-              <p>Date de Sortie: {film.release_date}</p>
+              
 
             </div>
           </div>

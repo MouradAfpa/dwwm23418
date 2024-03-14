@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assurance Automobile</title>
+  </head>
+  <body>
+    <!-- Exercice 4.7 -->
+    <h2>Exercice 4.7 :</h2>
+    <form action="">
+      <fieldset>
+        <label for="age">Votre âge :</label>
+        <input type="number" id="age"/>
+        <label for="permis">Votre nombre d'année de permis :</label>
+        <input type="number" id="permis"/>
+        <label for="assurance">Votre nombre d'année d'assurance :</label>
+        <input type="number" id="assurance"/>
+        <label for="accident">Votre nombre d'accident :</label>
+        <input type="number" id="accident"/>
+      </fieldset>
+    </form>
+    <button onclick="tarifAssurance()">Obtenir mon tarif</button>
+    <h3 id="reponse"></h3>
+
+    <script src="assurance.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+#nav{
+border:  rgba(255, 156, 17, 0.885)solid 3px;
+width: 100%;
+background-color:rgba(0, 0, 0, 0.831);
+
+
+}
+
+#lien{
+    font: rgba(255, 156, 17, 0.885);
+    
+}
+
+#body{
+display: flex;
+justify-content: center;
+border:rgba(255, 156, 17, 0.885) solid 3px;
+
+}
+
+
+.container{
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    border: rgba(255, 156, 17, 0.885) solid 3px;
+    box-shadow:auto ;
+    margin-top: 5%;
+    width: 23%;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.831);
+    height: 400px;
+
+}
+
+#titre{
+    color: white;
+    margin-top: -1%;
+}
+.formulaire{
+ color: white;
+
+}
+#phrase{
+    margin-top: -5%;
+    color: white;
+}
+
+.formulaire input{
+    width: 50%;
+    height: 12%;
+    margin:1%;
+    border-color:rgba(255, 156, 17, 0.885); ;
+}
+
+#submit{
+    background: rgba(255, 156, 17, 0.885);
+    border-radius: 7px;
+    border: black solid 1px;
+    color: white;
+}
+.formulaire p{
+    color: rgba(255, 156, 17, 0.885);
+    margin-top: -5%;
+
+}
+ #formulaire2{
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    border: rgba(255, 156, 17, 0.885) solid 5;
+    box-shadow:auto ;
+    margin-top: 5%;
+    width: 23%;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.831);
+    height: 400px;
+    color: white;
+    gap: 3%;
+
+}
+
+#formulaire2 input{
+
+    width: 70%;
+    height: 7%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

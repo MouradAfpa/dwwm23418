@@ -2,11 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Form, FormControl } from "react-bootstrap";
 import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
+import logo from "../../the_movie_database_logo.png";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   const recherche = useSelector((state) => state.Reducer1.query);
   const page = useSelector((state) => state.Reducer1.page);
-
   const dispatch = useDispatch();
 
   const handleSearch = () => {
@@ -19,13 +20,29 @@ function SearchBar() {
 
   return (
     <Navbar
-      bg="secondary"
+      bg="black"
       expand="lg"
       variant="dark"
-      className="d-flex justify-content-center fixed-top "
-      style={{ opacity: "70%" }}
+      className="d-flex justify-content-between position-relative"
+      // style={{ opacity: "70%" }}
     >
-      <div>
+      <div className="ps-4">
+        <img
+          src={logo}
+          alt="logo movie database"
+          className=" position-fixed-start"
+        />
+      </div>
+      <div className="d-flex justify-content-around gap-4 text-decoration-none">
+        <Link to="/">
+          <h3 className="text-light text-decoration-underline">Film</h3>
+        </Link>
+        <Link to="/Serie">
+          <h3 className="text-light text-decoration-underline">Serie</h3>
+        </Link>
+      </div>
+      <div className="d-flex justify-content-around gap-4 text-decoration-none">
+        <h3 className="text-light text-decoration-underline">Favoris</h3>
         <Form className="d-flex" autoComplete="off" onSubmit={handleSearch}>
           <FormControl
             type="search"

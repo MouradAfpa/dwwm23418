@@ -18,18 +18,31 @@ function BoutonPage() {
     
   };
 
+  const handleResetPage = ()=>{
+    dispatch(resetPage());
+    window.scrollTo(0, 0);
+  }
+
   return (
-    <div className="d-flex justify-content-around bg-black text-light p-5">
-      <div>
+    <div className="d-flex justify-content-around bg-black text-light p-4">
+      <button
+        type="button"
+        onClick={handleResetPage}
+        className="border-danger border-3"
+        
+        >
+          Retour Page 1
+        </button>
+        <div>  
+        
         <button
           type="button"
           onClick={handlePrevPage}
-          onLoad={resetPage}
-          className="border-3 bg-black text-danger"
-          style={{ borderColor: "chartreuse" }}
+          className="border-danger border-3"
         >
           Precedent
         </button>
+     
       </div>
 
       <div className="d-flex justify-content-center">
@@ -42,8 +55,7 @@ function BoutonPage() {
         <button
           type="button"
           onClick={handleNextPage}
-          className="border-3 bg-black text-danger"
-          style={{ borderColor: "chartreuse" }}
+          className="border-danger border-3"
         >
           Suivant
         </button>

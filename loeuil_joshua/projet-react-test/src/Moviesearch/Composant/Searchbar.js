@@ -42,7 +42,9 @@ function SearchBar() {
         </Link>
       </div>
       <div className="d-flex justify-content-around gap-4 text-decoration-none">
-        <h3 className="text-light text-decoration-underline">Favoris</h3>
+       <Link to="/Favori"> 
+       <h3 className="text-light text-decoration-underline">Favoris</h3>
+       </Link>
         <Form className="d-flex" autoComplete="off" onSubmit={handleSearch}>
           <FormControl
             type="search"

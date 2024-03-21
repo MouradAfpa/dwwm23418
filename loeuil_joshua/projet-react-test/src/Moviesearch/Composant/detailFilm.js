@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Detail() {
+function DetailFilm() {
   const [film, setFilm] = useState([]);
 
   const navigate = useNavigate();
@@ -25,15 +25,15 @@ function Detail() {
 
   
   const ajoutFavo = (film) => {
-    let favo = JSON.parse(localStorage.getItem("Favori")) || [];
+    let favo = JSON.parse(localStorage.getItem("FavFilm")) || [];
     const isFavo = favo.some((favor) => favor.id === film.id);
 
     if (!isFavo) {
         favo.push({id: film.id, title: film.title, image: film.poster_path, date_sortie: film.release_date, resume: film.overview})
-      localStorage.setItem("Favori", JSON.stringify(favo));
+      localStorage.setItem("FavFilm", JSON.stringify(favo));
     } else {
         favo = favo.filter((favor) => favor.id !== film.id);
-        localStorage.setItem("Favori", JSON.stringify(favo));
+        localStorage.setItem("FavFilm", JSON.stringify(favo));
     }
   };
 
@@ -45,7 +45,7 @@ function Detail() {
       <div>
         <button
           onClick={handleReturn}
-          className="p-2 px-3 border-1 rounded-circle bg-primary-subtle"
+          className=" pb-1 border-1 rounded-circle bg-primary-subtle"
         >
           ←
         </button>
@@ -64,10 +64,10 @@ function Detail() {
             <h2 className="text-center border-bottom">{film.title}</h2>
             <p>Date de Sortie: {film.release_date}</p>
             <hr />
-            <p className="w-75  border">{film.overview}</p>
+            <p className="w-75 p-2 text-center border">{film.overview}</p>
             <hr />
             <hr />
-            <button onClick={ajoutFavo}>Ajoutez au Favoris</button>
+            <button onClick={() => ajoutFavo(film)}>Ajoutez au Favoris</button>
           </div>
         </div>
       </div>
@@ -75,4 +75,4 @@ function Detail() {
   );
 }
 
-export default Detail;
+export default DetailFilm;

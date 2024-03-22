@@ -1,6 +1,6 @@
 <?php
 
-class Guitariste extends Musicien
+class Guitariste extends Musicien implements IInstrumentCorde
 {
     public function __construct(string $nom, int $age)
     {
@@ -9,5 +9,9 @@ class Guitariste extends Musicien
     public function gratte()
     {
         return "Le guitariste fais sont solo ! <br>";
+    }
+    public function jouerCorde()
+    {
+        return "Joue un instrument a corde.";
     }
 }

@@ -1,5 +1,5 @@
 <?php
 interface IVoix
 {
-    public function typeVoix();
+    public function typeVoix(string $typeVoix): string ;
 }

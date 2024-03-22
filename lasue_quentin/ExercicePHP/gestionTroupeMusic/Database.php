@@ -1,26 +1,111 @@
 <?php
 class Database
 {
-    public function connexion()
+    private  string $host = "localhost";
+    private string $db = "troupe";
+    private string $user = "root";
+    private string $mdp = "";
+
+    public function ajoutMusicien(string $type, string $nom, int $age)
     {
         try {
-            $host = "localhost";
-            $db = "";
-            $user = "root";
-            $mdp = "";
             //Connexion à la base de données avec PDO
-            $connexion = new PDO("mysql:host=$host;dbname=$db", $user, $mdp);
+            $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
             //Configuration de PDO pour générer des exeptions en cas d'erreur.
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //Message de succés si la connexion est établie.
-            echo "Connexion réussie !<br>";
+            echo "Connexion réussie ! ";
+            //Opération de modification de base de données
+            $query = "INSERT INTO musicien (nom,age,type) VALUES (:nom, :age, :typeM)";
+            $statement = $connexion->prepare($query);
+
+            $statement->bindParam(":nom", $nom);
+            $statement->bindParam(":age", $age);
+            $statement->bindParam(":typeM", $type);
+
+            //Exécution de la requéte préparée
+            $statement->execute();
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();
         }
     }
 
-    public function ajoutMusicien()
+    public function getAllMembers()
     {
+        try {
+            //Connexion à la base de données avec PDO
+            $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
+            //Configuration de PDO pour générer des exeptions en cas d'erreur.
+            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = "SELECT *  FROM musicien";
+            $resultats = $connexion->query($query);
+            return $resultats;
+        } catch (PDOException $e) {
+            // gestion des exeptions PDO : affichage du message d'erreur
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+    public function updateMember(int $id, string $attribut, string $newNom, int $newAge)
+    {
+        try {
+            //Connexion à la base de données avec PDO
+            $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
+            //Configuration de PDO pour générer des exeptions en cas d'erreur.
+            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = "UPDATE musicien SET nom =:nom, age =:age, type=:attribut WHERE id = :id ";
+
+            $statement = $connexion->prepare($query);
+
+            $statement->bindParam(":id", $id);
+            $statement->bindParam(":nom", $newNom);
+            $statement->bindParam(":age", $newAge);
+            $statement->bindParam(":attribut", $attribut);
+
+            //Exécution de la requéte préparée
+            $statement->execute();
+        } catch (PDOException $e) {
+            // gestion des exeptions PDO : affichage du message d'erreur
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+    public function deleteMember(int $id)
+    {
+        try {
+            //Connexion à la base de données avec PDO
+            $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
+            //Configuration de PDO pour générer des exeptions en cas d'erreur.
+            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = "DELETE FROM musicien where id = $id";
+            $connexion->exec($query);
+        } catch (PDOException $e) {
+            // gestion des exeptions PDO : affichage du message d'erreur
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+    public function searchName(string $searchName)
+    {
+        try {
+            //Connexion à la base de données avec PDO
+            $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
+            //Configuration de PDO pour générer des exeptions en cas d'erreur.
+            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //Requête recherche sur le nom ou le type
+            $query = "SELECT * FROM musicien WHERE nom LIKE :searchName OR type LIKE :searchName";
+
+            $statement = $connexion->prepare($query);
+            //Ajout des joker de recherche devant et derrière pour correspondre a des partie du nom
+            $searchParam = "%$searchName%";
+            $statement->bindParam(":searchName", $searchParam);
+
+            $statement->execute();
+
+            //Récupération des résultats de la recherche
+            $resultats = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $resultats;
+
+        } catch (PDOException $e) {
+            // gestion des exeptions PDO : affichage du message d'erreur
+            echo "Erreur : " . $e->getMessage();
+        }
     }
 }

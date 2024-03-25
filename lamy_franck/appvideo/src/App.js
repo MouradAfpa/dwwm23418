@@ -75,7 +75,7 @@ function App() {
         <div className='d-flex justify-content flex-lg-wrap  '>
         {films.map((movie, index) => (
           <div key={index} className='w-25'>
-            <div className='card w-60 m-4'>
+            <div className='card w-55 m-4'>
               <img className="card-img-top" src={movie.poster_path} alt="Affiche film" />
               <h5 className='card-name m-2 '>{movie.titre}</h5>
             </div>

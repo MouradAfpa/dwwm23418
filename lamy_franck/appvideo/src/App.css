@@ -69,6 +69,12 @@ span.carousel-control-prev-icon{
 height: 30%;
 }
 
+span.carousel-control-next-icon{
+  width: 30%;
+  height: 30%;
+  
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -136,7 +136,7 @@
                                                         <input type='number' name='newAge' value='$resultat[age]' class='form-control'>
 
                                                         <label for='attribut' class='form-label'>Quel champ voulez vous modifier ?</label>
-                                                        <select name='attribut' id='attribut' class='form-select'>
+                                                        <select name='attribut' id='attribut' class='form-select' required>
                                                             <option value=''>---Choisir le type du Musicien---</option>
                                                             <option value='guitariste'>Guitariste</option>
                                                             <option value='trompettiste'>Trompettiste</option>

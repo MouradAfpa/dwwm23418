@@ -1,7 +1,6 @@
 <?php
 include "Database.php";
 
-
 if (
     isset($_POST['nom']) &&
     isset($_POST['age']) &&

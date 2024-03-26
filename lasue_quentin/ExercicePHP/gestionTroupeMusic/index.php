@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groupe de Musicien </title>
+    <title>Groupe de Musicien</title>
     <link rel="stylesheet" href="./bootstrap.min.css">
 </head>
 
@@ -20,16 +20,18 @@
     ?>
     <div class="container">
         <div class="row mb-3 mt-3 pb-3 border-bottom border-primary">
-            <form action="traitementForm.php" method="post" class="d-flex flex-column justify-content-center">
+            <form action="traitementForm.php" method="post" id="formulaireAjout" class="d-flex flex-column justify-content-center">
                 <legend class="d-flex justify-content-center">Ajouter des membres à la troupe :</legend>
                 <label for="nom" class="form-label">Nom du musicien :</label>
-                <input class="form-control" type="text" name="nom" placeholder="Mickaël">
+                <input class="form-control"  id="nomInput" type="text" name="nom" placeholder="Mickaël" required>
+                <span id='errorNom' class="text-danger"></span>                
 
                 <label for="age" class="form-label">Âge du musicien :</label>
-                <input class="form-control" type="" name="age" placeholder="27">
+                <input class="form-control" id="ageInput" type="number" name="age" placeholder="27" required>
+                <span id='errorAge' class="text-danger"></span>
 
                 <label for="type">Type du musicien :</label>
-                <select name="type" id="type" class="form-select">
+                <select name="type" id="type" id="typeInput" class="form-select" required>
                     <option value="">---Choisir le type du Musicien---</option>
                     <option value="guitariste">Guitariste</option>
                     <option value="trompettiste">Trompettiste</option>
@@ -37,6 +39,7 @@
                     <option value="batteur">Batteur</option>
                     <option value="percussionniste">Percussionniste</option>
                 </select>
+                <span id='errorType' class="text-danger"></span>
 
                 <input type="submit" value="Ajouter" class="btn btn-primary form-control mt-3">
             </form>
@@ -86,17 +89,27 @@
                 ?>
 
             </div>
+            <img src="./musicien/" alt="">
         </div>
 
         <div class="row">
             <?php
+            $imgType=[
+                "guitariste"=>"./musicien/guitare.jpg",
+                "trompettiste"=>"./musicien/trompettiste.jpg",
+                "chanteur" =>"./musicien/chanteur.jpg",
+                "batteur"=>"./musicien/batteur.jpg",
+                "percussionniste" =>"./musicien/percussionniste.png"
+            ];
             $db = new Database();
             $reponse = $db->getAllMembers();
             if ($reponse) {
                 $resultats = $reponse->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultats as $resultat) {
+                    $img = $imgType[$resultat['type']];
                     echo "
-                        <div class='card m-2 border-primary' style='width: 18rem;'>
+                        <div class='card m-2 border-primary text-center' style='width: 18rem;'>
+                        <img class='card-img-top img-thumbnail' src='$img' alt='image $resultat[type]' style='max-height:200px' >
                                 <div class=' my-3 d-flex justify-content-center'>
                                  <h5 class='card-title'>$resultat[nom]</h5>
                                 </div>
@@ -163,6 +176,9 @@
 
         </div>
     </div>
+    <!-- <script>
+        src = "./script.js"
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 

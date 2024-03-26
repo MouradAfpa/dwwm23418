@@ -8,6 +8,14 @@ class Database
 
     public function ajoutMusicien(string $type, string $nom, int $age)
     {
+        $imgType = [
+            "guitariste" => "./musicien/guitare.jpg",
+            "trompettiste" => "./musicien/trompettiste.jpg",
+            "chanteur" => "./musicien/chanteur.jpg",
+            "batteur" => "./musicien/batteur.jpg",
+            "percussionniste" => "./musicien/percussionniste.png"
+        ];
+
         try {
             //Connexion à la base de données avec PDO
             $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
@@ -15,12 +23,14 @@ class Database
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connexion réussie ! ";
             //Opération de modification de base de données
-            $query = "INSERT INTO musicien (nom,age,type) VALUES (:nom, :age, :typeM)";
+            $img= $imgType[$type];
+            $query = "INSERT INTO musicien (nom,age,type,image) VALUES (:nom, :age, :typeM, :img )";
             $statement = $connexion->prepare($query);
 
             $statement->bindParam(":nom", $nom);
             $statement->bindParam(":age", $age);
             $statement->bindParam(":typeM", $type);
+            $statement->bindParam(":img", $img);
 
             //Exécution de la requéte préparée
             $statement->execute();
@@ -102,7 +112,6 @@ class Database
             //Récupération des résultats de la recherche
             $resultats = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $resultats;
-
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();

@@ -23,8 +23,8 @@
             <form action="traitementForm.php" method="post" id="formulaireAjout" class="d-flex flex-column justify-content-center">
                 <legend class="d-flex justify-content-center">Ajouter des membres à la troupe :</legend>
                 <label for="nom" class="form-label">Nom du musicien :</label>
-                <input class="form-control"  id="nomInput" type="text" name="nom" placeholder="Mickaël" required>
-                <span id='errorNom' class="text-danger"></span>                
+                <input class="form-control" id="nomInput" type="text" name="nom" placeholder="Mickaël" required>
+                <span id='errorNom' class="text-danger"></span>
 
                 <label for="age" class="form-label">Âge du musicien :</label>
                 <input class="form-control" id="ageInput" type="number" name="age" placeholder="27" required>
@@ -94,22 +94,15 @@
 
         <div class="row">
             <?php
-            $imgType=[
-                "guitariste"=>"./musicien/guitare.jpg",
-                "trompettiste"=>"./musicien/trompettiste.jpg",
-                "chanteur" =>"./musicien/chanteur.jpg",
-                "batteur"=>"./musicien/batteur.jpg",
-                "percussionniste" =>"./musicien/percussionniste.png"
-            ];
+
             $db = new Database();
             $reponse = $db->getAllMembers();
             if ($reponse) {
                 $resultats = $reponse->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultats as $resultat) {
-                    $img = $imgType[$resultat['type']];
                     echo "
                         <div class='card m-2 border-primary text-center' style='width: 18rem;'>
-                        <img class='card-img-top img-thumbnail' src='$img' alt='image $resultat[type]' style='max-height:200px' >
+                        <img class='card-img-top img-thumbnail' src='$resultat[image]' alt='image $resultat[type]' style='max-height:200px' >
                                 <div class=' my-3 d-flex justify-content-center'>
                                  <h5 class='card-title'>$resultat[nom]</h5>
                                 </div>

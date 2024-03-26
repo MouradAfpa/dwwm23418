@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+</head>
+
+<body>
+    <div><fieldset>
+    <h1>Informations personnelles</h1>
+    <div><fieldset>
+        <legend>état civil</legend>
+        <label>Civilité</label><br>
+            <select name="MrMme">
+                <option value="Mr.">Mr.</option>
+                <option value="Mme">Mme</option>
+            </select><br>
+
+            <label>Nom</label><br>
+
+                <input type="text"><br>
+
+            <label>Prénom</label><br>
+
+                <input type="text"><br>
+
+            <label>Date de naissance</label><br>
+
+                <input type="date" name="Date de naissance" id="naissance"><br>
+
+            <label>Commune de naissance</label><br>
+
+                <input type="text"><br>
+                <select name="Départ" id="Départ">
+                    <option value="Commune">Commune</option>
+                    <option value="Wattignies">Wattignies</option>
+                    <option value="Lille">Lille</option>
+                    <option value="Mons">Mons</option>
+                    <option value="Templamars">Templemars</option>
+                </select>
+            </fieldset>
+    </div>
+    <div>
+        <fieldset>
+        <legend>Coordonnées</legend>
+            <label>Téléphone</label><br>
+                <input type="number" name="Phone number" id="Phonenumber" ><br>
+
+            <label>Courriel</label><br>
+                <input type="email" name="E-mail" id="E-mail"><br>
+
+            <label>Site Web</label>    <br>
+                <input type="url" name="Web" id="Web">
+            </fieldset>
+    </div>
+    <div>
+        <fieldset>
+        <legend>Compétences</legend>
+            <label>Niveau d'anglais :</label>
+
+            <label for="radio1"> C1</label>
+                <input type="radio" name="radio" id="radio1">
+
+            <label for="radio2">B1</label>
+                <input type="radio" name="radio" id="radio2">
+
+            <label for="radio3">A1</label>
+                <input type="radio" name="radio" id="radio3"><br>
+
+            <label>Language informatiques :</label>  
+
+                <label for="html">HTML</label>  
+                    <input type="checkbox" name="html" id="html">
+
+                <label for="css">CSS</label>
+                    <input type="checkbox" name="css" id="css">    
+
+                <label for="js">Javascript</label>  
+                    <input type="checkbox" name="js" id="js">  
+
+                <label for="php">PHP</label>    
+                    <input type="checkbox" name="php" id="php">
+
+        </fieldset>
+    </div>
+
+    <input type="submit" value="Envoyer">
+    <input type="reset" value="Effacer">
+</fieldset>
+</div>
+
+
+
+</body>
+</html>

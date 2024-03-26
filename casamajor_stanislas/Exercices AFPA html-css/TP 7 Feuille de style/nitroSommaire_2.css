@@ -1,0 +1,43 @@
+html
+
+body
+
+
+.sommaire {
+    width: 15%;
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.contenu {
+    width: 80%;
+    float: left;
+    background-color: #AAAAFF;
+    border: solid black 2px;
+    padding: 1%;
+    margin-left: 50px;
+}
+
+.sommaire a{
+    background-color: #DDDDDD;
+    text-decoration: none;
+    color: black;
+    display: block;
+    border: solid black 1px;
+    margin: 10px;
+    height: 30px;
+    
+
+}
+
+.sommaire a:hover {
+    background-color: #CCCCCC;
+}
+
+li {
+    list-style: none;
+}
+

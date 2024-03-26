@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+body {
+    background-color: #ffffff;
+    margin: 0%;
+    padding: 0%;
+    
+}
+
+header {
+    background-color: #0b0a0d;
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section0 {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.section1 {
+    background-color: blue;
+    height: 300px;
+    width: 10%;
+}
+
+.section2 {
+    background-color: red;
+    height: 300px;
+    width: 10%;
+    
+}
+
+.section3 {
+    background-color: green;
+    height: 300px;
+    width: 10%;
+}
+
+.section4 {
+    background-color: yellow;
+    height: 300px;
+    width: 10%;
+}
+
+.section5 {
+    background-color: darkmagenta;
+    height: 300px;
+    width: 10%;
+
+}
+
+.div3 a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+.div3 {
+    display: flex;
+    color: white;
+}
+
+.connexion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 20px;
+
+}
+
+.panier {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+.commandes {
+    display: flex;
+    align-items: center;
+    gap :10px;
+    padding-right: 20px;
+}
+
+.deconnecter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 20px;
+    background-color: gray;
+}
+
+
+
+    

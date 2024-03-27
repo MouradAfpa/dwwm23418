@@ -10,9 +10,9 @@ const SerieView = ({ handleSearch, popularSeries, favorite, setFavorite, handleF
             <CardSerie
               key={serie.id}
               serie={serie}
-              handleSearch={handleSearch} // Utilisez handleSearch au lieu de handleSerieSearch
+              handleSearch={handleSearch} 
               handleFavorite={handleFavorite}
-              isFavorite={favorite.some(favSerie => favSerie.id === serie.id)} // Vérifiez la présence de la série dans les favoris
+              isFavorite={favorite.some(favSerie => favSerie.id === serie.id)} 
             />
           ))}
       </div>

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import HomeView from './view/HomeView';
@@ -18,9 +19,11 @@ function App() {
   useEffect(() => {
 
     const fetchData = async () => {
+
       const responseData = await fetchPopularMovies();
       setMovies(responseData);
       setPopularSeries(await fetchSeries());
+
     };
 
     fetchData();
@@ -52,6 +55,7 @@ function App() {
   };
 
   return (
+
     <BrowserRouter>
       <NavbarJs
         search={search}
@@ -60,6 +64,7 @@ function App() {
         popularSeries={popularSeries}
         setPopularSeries={setPopularSeries}
       />
+      
       <Routes>
         <Route path="/" element={<HomeView movies={movies} />} />
         <Route path="/serie" element={<SerieView popularSeries={popularSeries} setPopularSeries={setPopularSeries} handleSearch={handleSearch} favorite={favorite} setFavorite ={setFavorite} handleFavorite={handleFavorite}/>} />
@@ -68,6 +73,7 @@ function App() {
         <Route path="/detail/:id" element={<DetailView />} />
       </Routes>
     </BrowserRouter>
+
   );
 }
 

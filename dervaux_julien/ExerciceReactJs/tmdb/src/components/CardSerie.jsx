@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
+import { useState } from "react";
 
-const CardSerie = ({ serie }) => {
+const CardSerie = ({ serie, handleFavorite, isFavorite }) => {
     const navigate = useNavigate();
+    const [isFavorited, setIsFavorited] = useState(isFavorite);
 
     const handleViewDetail = () => {
         navigate(`/detail/${serie.id}`);
+    };
+
+    const toggleFavorite = () => {
+        handleFavorite(serie); // Passer la série individuelle à la fonction handleFavorite
+        setIsFavorited(!isFavorited);
     };
 
     return (
@@ -14,6 +21,9 @@ const CardSerie = ({ serie }) => {
             <Card.Body>
                 <Card.Title>{serie.name}</Card.Title>
                 <Button variant="primary" onClick={handleViewDetail}>View Detail</Button>
+                <Button onClick={toggleFavorite}>
+                    {isFavorited ? "Remove from Favorites" : "Add to Favorites"}
+                </Button>
             </Card.Body>
         </Card>
     );

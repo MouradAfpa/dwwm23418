@@ -6,6 +6,7 @@ if (
     isset($_POST['age']) &&
     isset($_POST['type'])
 ) {
+    echo "Formulaire Ajout valide.";
     $nom = htmlspecialchars($_POST['nom']);
     $age = htmlspecialchars($_POST['age']);
     $type = $_POST['type'];
@@ -19,6 +20,7 @@ if (
     isset($_POST['newNom']) &&
     isset($_POST['newAge'])
 ) {
+    echo "Formulaire Modif valide.";
     $id = $_POST['id'];
     $attribut = $_POST['attribut'];
     $newNom = htmlspecialchars($_POST['newNom']);
@@ -30,7 +32,7 @@ if (
 
 if (isset($_POST['idSup'])) {
     $idSup = $_POST['idSup'];
-
+    echo "Suppression effectuer.";
     $db = new Database();
     $db->deleteMember($idSup);
 }

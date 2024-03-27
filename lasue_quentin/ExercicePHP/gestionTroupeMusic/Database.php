@@ -23,7 +23,7 @@ class Database
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connexion réussie ! ";
             //Opération de modification de base de données
-            $img= $imgType[$type];
+            $img = $imgType[$type];
             $query = "INSERT INTO musicien (nom,age,type,image) VALUES (:nom, :age, :typeM, :img )";
             $statement = $connexion->prepare($query);
 
@@ -34,6 +34,7 @@ class Database
 
             //Exécution de la requéte préparée
             $statement->execute();
+            echo "Ajout effectuer.";
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();
@@ -50,6 +51,29 @@ class Database
             $query = "SELECT *  FROM musicien";
             $resultats = $connexion->query($query);
             return $resultats;
+            echo "Tous les membres ont était récupéré.";
+        } catch (PDOException $e) {
+            // gestion des exeptions PDO : affichage du message d'erreur
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+    public function addPhoto(int $id, $photoImporter)
+    {
+        try {
+            //Connexion à la base de données avec PDO
+            $connexion = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->mdp);
+            //Configuration de PDO pour générer des exeptions en cas d'erreur.
+            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $photo = file_get_contents($photoImporter);
+            $query = "UPDATE musicien SET photo = :photo WHERE id = :id ";
+            $statement = $connexion->prepare($query);
+
+            $statement->bindParam(":id", $id);
+            $statement->bindParam(":photo", $photo);
+
+            //Exécution de la requéte préparée
+            $statement->execute();
+            echo "Photo envoyer a la base de donnée.";
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();
@@ -73,6 +97,7 @@ class Database
 
             //Exécution de la requéte préparée
             $statement->execute();
+            echo "Modification effectué.";
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();
@@ -87,6 +112,7 @@ class Database
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $query = "DELETE FROM musicien where id = $id";
             $connexion->exec($query);
+            echo "Suppression validé.";
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();
@@ -112,6 +138,7 @@ class Database
             //Récupération des résultats de la recherche
             $resultats = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $resultats;
+            echo "Resultat de la recherche trouvée.";
         } catch (PDOException $e) {
             // gestion des exeptions PDO : affichage du message d'erreur
             echo "Erreur : " . $e->getMessage();

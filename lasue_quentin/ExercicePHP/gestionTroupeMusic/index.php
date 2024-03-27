@@ -100,9 +100,19 @@
             if ($reponse) {
                 $resultats = $reponse->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultats as $resultat) {
+                    //si une photo a était envoyer a la base de donnée
+                    if ($resultat["photo"]) {
+                        // On  convertit les donné binaire en chaie de caractère encoder en base 64
+                        $img = base64_encode($resultat['photo']);
+                        //crée une URL de donnée pour l'afficher (type jpeg encodée en base64)
+                        $image = "data:image/jpeg;base64,$img";
+                    } else {
+                        //Sinon on prend l'image de base
+                        $image = $resultat['image'];
+                    }
                     echo "
                         <div class='card m-2 border-primary text-center' style='width: 18rem;'>
-                        <img class='card-img-top img-thumbnail' src='$resultat[image]' alt='image $resultat[type]' style='max-height:200px' >
+                        <img class='card-img-top img-thumbnail' src='$image' alt='image $resultat[type]' style='max-height:200px' >
                                 <div class=' my-3 d-flex justify-content-center'>
                                  <h5 class='card-title'>$resultat[nom]</h5>
                                 </div>
@@ -131,7 +141,13 @@
                                                     <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                                 </div>
                                                 <div class='modal-body'>
-
+                                                <form enctype='multipart/form-data' action='traitementFormPhoto.php' method='post' class='d-flex flex-column justify-content-center'>
+                                                    <input type='hidden' value='$resultat[id]' name='id'>
+                                                    <input type='hidden' name='MAX_FILE_SIZE' value='30000' />
+                                                    <label for='userfile' class='form-label'>Nouvelle photo :</label>
+                                                    <input name='userfile' type='file' class='form-control'/>
+                                                    <input type='submit' value='Changer la photo' class='btn btn-primary mt-3'/>
+                                                </form>
                                                     <form action='traitementForm.php' method='post'class='d-flex flex-column justify-content-center'>
                                                         <input type='hidden' value='$resultat[id]' name='id'>
 
@@ -168,6 +184,10 @@
             ?>
 
         </div>
+        <!-- Début du travail sur la photo de profil
+        Reste a : créer dans database un methode qui envoi la photo dans une colonne photo
+                dans le traitement vérifier avant d'appeler la method  -->
+
     </div>
     <!-- <script>
         src = "./script.js"

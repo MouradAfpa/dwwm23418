@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import HomeView from './view/HomeView';
 import SerieView from './view/SerieView';
 import FilmView from "./view/FilmView";
 import DetailView from "./view/DetailView";
 import NavbarJs from "./components/NavbarJs";
 import { fetchPopularMovies, searchMovies, fetchSeries, searchSeries } from "./components/ApiFilm";
+import FavoritesView from "./view/FavoritesView";
 
 function App() {
 
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState('');
   const [popularSeries, setPopularSeries] = useState([]);
+  const [favorite, setFavorite] = useState([]);
 
   useEffect(() => {
 
@@ -38,6 +40,20 @@ function App() {
     }
   };
 
+  const handleFavorite = (movie) => {
+    // Vérifie si le film est déjà dans les favoris
+    const isFavorite = favorite.some(favMovie => favMovie.id === movie.id);
+    
+    if (isFavorite) {
+      // Supprime le film des favoris
+      const updatedFavorites = favorite.filter(favMovie => favMovie.id !== movie.id);
+      setFavorite(updatedFavorites);
+    } else {
+      // Ajoute le film aux favoris
+      setFavorite([...favorite, movie]);
+    }
+  };
+
   return (
     <BrowserRouter>
       <NavbarJs
@@ -50,7 +66,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeView movies={movies} />} />
         <Route path="/serie" element={<SerieView popularSeries={popularSeries} setPopularSeries={setPopularSeries} handleSearch={handleSearch} />} />
-        <Route path="/film" element={<FilmView handleSearch={handleSearch} movies={movies} setMovies={setMovies} />} />
+        <Route path="/film" element={<FilmView handleSearch={handleSearch} movies={movies} setMovies={setMovies} favorite={favorite} setFavorite ={setFavorite} handleFavorite={handleFavorite} />} />
+        <Route path="/favorites" element={<FavoritesView favorite={favorite} handleFavorite={handleFavorite} />} />
         <Route path="/detail/:id" element={<DetailView />} />
       </Routes>
     </BrowserRouter>

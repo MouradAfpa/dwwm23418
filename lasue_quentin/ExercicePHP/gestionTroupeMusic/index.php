@@ -159,14 +159,14 @@
 
                                                         <label for='attribut' class='form-label'>Quel champ voulez vous modifier ?</label>
                                                         <select name='attribut' id='attribut' class='form-select' required>
-                                                            <option value=''>---Choisir le type du Musicien---</option>
-                                                            <option value='guitariste'>Guitariste</option>
+                                                            <option value='$resultat[type]'>$resultat[type]</option>
+                                                            <option value='guitariste' >Guitariste</option>
                                                             <option value='trompettiste'>Trompettiste</option>
                                                             <option value='chanteur'>Chanteur</option>
                                                             <option value='batteur'>Batteur</option>
                                                             <option value='percussionniste'>Percussionniste</option>
                                                         </select>
-
+                                                        
                                                         <input type='submit' value='Modifier' class='btn btn-primary mt-3'>
                                                     </form>
                                                 

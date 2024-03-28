@@ -1,6 +1,6 @@
 
 import { useParams } from 'react-router-dom';
-import { fetchMovieDetails } from '../components/ApiFilm';
+import { fetchMovieDetails, fetchSerieDetails } from '../components/ApiFilm';
 import CardMovie from '../components/CardMovie';
 import { useEffect, useState } from 'react';
 
@@ -11,7 +11,7 @@ const DetailView = () => {
 
     useEffect(() => {
         const fetchDetails = async () => {
-            const movieDetails = await fetchMovieDetails(id);
+            const movieDetails = await fetchSerieDetails(id);
             setMovie(movieDetails);
         };
         fetchDetails();

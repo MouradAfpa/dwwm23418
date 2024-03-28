@@ -16,7 +16,8 @@
         if (file_exists($file))
             require_once $file;
     });
-
+    $db = new Database();
+    $connexion = $db -> connect();
     ?>
     <div class="container">
         <div class="row mb-3 mt-3 pb-3 border-bottom border-primary">
@@ -56,8 +57,8 @@
                     !empty($_GET['searchName'])
                 ) {
                     $searchName = htmlspecialchars($_GET['searchName']);
-                    $db = new Database();
                     $resultats = $db->searchName($searchName);
+                    $db->close();
                     if ($resultats) {
                         echo "<table class='table table-striped'>
                             <thead>
@@ -95,8 +96,8 @@
         <div class="row">
             <?php
 
-            $db = new Database();
             $reponse = $db->getAllMembers();
+            $db -> close();
             if ($reponse) {
                 $resultats = $reponse->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($resultats as $resultat) {

@@ -1,7 +1,7 @@
 
 // const api_key = "345e9307869fd128c56f8c98215535ad";
 const api_key = import.meta.env.VITE_API_KEY;
-console.log(api_key);
+// console.log(api_key);
 
 // récuperer depuis l'api https://developer.themoviedb.org/reference/intro/getting-started
 
@@ -40,7 +40,7 @@ export const fetchMovieDetails = async (id) => {
     return data;
 };
 export const fetchSerieDetails = async (id) => {
-    // Effectuer une requête GET à l'API pour les détails d'un film avec l'ID spécifié
+    // Effectuer une requête GET à l'API pour les détails d'une serie avec l'ID spécifié
     const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&language=fr-Fr`);
     const data = await response.json();
     return data;

@@ -12,7 +12,7 @@ const SerieView = ({ handleSearch, popularSeries, favorite, setFavorite, handleF
               serie={serie}
               handleSearch={handleSearch} 
               handleFavorite={handleFavorite}
-              isFavorite={favorite.some(favSerie => favSerie.id === serie.id)} 
+              isFavorite={favorite.some(favSerie => favSerie.id === serie.id)}
             />
           ))}
       </div>

@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { useState } from "react";
 
-const CardSerie = ({ serie, handleFavorite, isFavorite }) => {
+const CardSerie = ({serie, handleFavorite, isFavorite  }) => {
     const navigate = useNavigate();
     const [isFavorited, setIsFavorited] = useState(isFavorite);
 
     const handleViewDetail = () => {
-        navigate(`/detail/${serie.id}`);
+        navigate(`/serie/${serie.id}`);
+        console.log(serie.id);
     };
 
     const toggleFavorite = () => {

@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import HomeView from './view/HomeView';
 import SerieView from './view/SerieView';
 import FilmView from "./view/FilmView";
-import DetailView from "./view/DetailView";
+import DetailView from "./view/DetailMovieView";
 import NavbarJs from "./components/NavbarJs";
 import { fetchPopularMovies, searchMovies, fetchSeries, searchSeries } from "./components/ApiFilm";
 import FavoritesView from "./view/FavoritesView";
+import DetailSerieView from "./view/DetailMovieView";
 
 function App() {
   // Déclaration des états utilisés dans l'application
@@ -63,7 +64,7 @@ function App() {
   };
 
   // Rendu de l'application avec React Router
-  
+
   return (
     <BrowserRouter>
       {/* Composant Navbar pour la navigation et la recherche */}
@@ -80,8 +81,9 @@ function App() {
         <Route path="/" element={<HomeView movies={movies} />} />
         <Route path="/serie" element={<SerieView popularSeries={popularSeries} setPopularSeries={setPopularSeries} handleSearch={handleSearch} favorite={favorite} setFavorite ={setFavorite} handleFavorite={handleFavorite}/>} />
         <Route path="/film" element={<FilmView handleSearch={handleSearch} movies={movies} setMovies={setMovies} favorite={favorite} setFavorite ={setFavorite} handleFavorite={handleFavorite} />} />
-        <Route path="/favorites" element={<FavoritesView favorite={favorite} handleFavorite={handleFavorite} />} />
+        <Route path="/favorites/detail/:id" element={<FavoritesView favorite={favorite} handleFavorite={handleFavorite} />} />
         <Route path="/detail/:id" element={<DetailView />} />
+        <Route path="/serie/:id" element={<DetailSerieView/>} />
       </Routes>
     </BrowserRouter>
   );

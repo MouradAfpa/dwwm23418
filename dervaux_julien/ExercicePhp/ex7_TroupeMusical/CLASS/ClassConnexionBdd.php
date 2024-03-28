@@ -5,6 +5,9 @@ class Database
     private $host = "localhost";
     private $db = "troupe_musicale";
     private $connexion;
+    private $conn;
+    private static $_dbConfig=[];
+    private static $_configFile="";
 
     public function __construct()
     {
@@ -14,6 +17,27 @@ class Database
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }
+    }
+
+    public function connect(){
+        $this->conn == null;
+        self::setConnection("../CONF/db.conf");
+        self::setConnection();
+        try {
+            $this->connexion = new PDO("mysql:host=$this->host;dbname=$this->db", "root", "");
+            $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+
+    private static function setConnection(){
+        $handle = fopen(self::$_configFile,'r');
+        $conf = json_decode(fread($handle,filesize((self::$_configFile))));
+        $_dbConfig["host"] = $conf->host;
+        $_dbConfig["db_name"] = $conf->db_name;
+        $_dbConfig["username"] = $conf->username;
+        $_dbConfig["password"] = $conf->password;
     }
 
     public function getConnexion()
@@ -119,6 +143,10 @@ class Database
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }
+    }
+
+    public function set_configfile($_configFile){
+        self::$_configFile = $_configFile;
     }
 
 

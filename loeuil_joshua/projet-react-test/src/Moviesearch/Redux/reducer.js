@@ -35,7 +35,7 @@ const Reducer1 = (state = initialState, action) => {
       return {
         ...state,
         query: "",
-        result: action.payload.results,
+        results: action.payload.results,
         page: action.payload.page,
         total_pages: action.payload.total_pages,
       };
@@ -43,7 +43,7 @@ const Reducer1 = (state = initialState, action) => {
       return {
         ...state,
         query: action.payload.query,
-        result: action.payload.results,
+        results: action.payload.results,
         page: action.payload.page,
         total_pages: action.payload.total_pages,
       };

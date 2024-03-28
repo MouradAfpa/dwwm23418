@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function DetailFilm() {
+function DetailSerie() {
   const [serie, setSerie] = useState([]);
 
   const navigate = useNavigate();
@@ -75,4 +75,4 @@ function DetailFilm() {
   );
 }
 
-export default DetailFilm;
+export default DetailSerie;

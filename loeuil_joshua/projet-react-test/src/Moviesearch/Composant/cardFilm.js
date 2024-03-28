@@ -37,7 +37,7 @@ function CardFilm() {
         <Card
           key={movie.id}
           className="bg-dark-subtle border-4 border-black "
-          style={{ width: "20rem", height: "38rem"}}
+          style={{ width: "20rem"}}
         >
           <Card.Img
               variant="bottom"

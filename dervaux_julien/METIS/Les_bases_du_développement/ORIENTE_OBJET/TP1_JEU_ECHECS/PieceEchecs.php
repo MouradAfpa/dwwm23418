@@ -21,7 +21,7 @@ class PieceEchecs
         if ($x >= 1 && $x <= 8 && $y >= 1 && $y <= 8) {
             $this->coordX = $x;
             $this->coordY = $y;
-            
+
         } else {
             echo "Les coordonnées doivent être comprises entre 1 et 8.";
         }
@@ -42,8 +42,8 @@ class PieceEchecs
 
     public function getCoordonnees()
     {
-        $coordonnées = ["coordonée X" => $this->coordX,
-                        "coordonée Y" => $this->coordY      
+        $coordonnées = ["coordonnée X" => $this->coordX,
+                        "coordonnée Y" => $this->coordY      
     ];
         return $coordonnées;
     }

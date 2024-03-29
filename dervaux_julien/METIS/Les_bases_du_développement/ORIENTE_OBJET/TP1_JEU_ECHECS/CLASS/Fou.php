@@ -16,8 +16,8 @@ class Fou extends PieceEchecs
         $this->xArrivee = $xArrivee;
         $this->yArrivee = $yArrivee;
         $jeSuisIci = parent::getCoordonnees();
-        $diffX = $this->xArrivee - $jeSuisIci["coordonée X"];
-        $diffY = $this->yArrivee - $jeSuisIci["coordonée Y"];
+        $diffX = abs($this->xArrivee - $jeSuisIci["coordonnée X"]);
+        $diffY = abs($this->yArrivee - $jeSuisIci["coordonnée Y"]);
 
         if($diffX == $diffY){
             parent::setCoordonnees($xArrivee, $yArrivee);

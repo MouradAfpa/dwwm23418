@@ -1,6 +1,6 @@
 <?php
 
-class PieceEchecs
+    abstract class PieceEchecs
 
 {
     private int $coordX;

@@ -15,7 +15,7 @@ class Cavalier extends PieceEchecs
     public function peutAller($xArrivee, $yArrivee)
     {
         $jeSuisIci = parent::getCoordonnees();
-        if ((($xArrivee - $jeSuisIci["coordonnée X"]) == 2 && ($yArrivee - $jeSuisIci["coordonnée Y"]) == 1) || 
+        if ((abs($xArrivee - $jeSuisIci["coordonnée X"]) == 2 && abs($yArrivee - $jeSuisIci["coordonnée Y"]) == 1) || 
             (abs($xArrivee - $jeSuisIci["coordonnée X"]) == 1 && abs($yArrivee - $jeSuisIci["coordonnée Y"]) == 2)) 
         {
             parent::setCoordonnees($xArrivee, $yArrivee);

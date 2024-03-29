@@ -55,12 +55,13 @@ class PieceEchecs
         return $this->couleur;
     }
 
-    // public function __toString()
-    // {
-    //     return (
-    //         $this->coordX;
-    //         $this->coordY;
-        
-    //     )
-    // }
+    public function getCouleurCase()
+    {
+        if(($this->coordX + $this->coordY)%2 == 0){
+            echo "case noire";
+            var_dump(($this->coordX + $this->coordY)%2);
+        }else{
+            echo "case blanche";
+        }
+    }
 }

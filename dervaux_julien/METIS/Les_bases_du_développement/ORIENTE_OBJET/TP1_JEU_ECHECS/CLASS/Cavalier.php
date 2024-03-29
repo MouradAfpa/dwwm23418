@@ -36,6 +36,10 @@ class Cavalier extends PieceEchecs
         }
         return $result;
     }   
+
+    public function getCase(){
+        parent::getCouleurCase();
+    }
 }
 
 $cavalier = new Cavalier(7,1,1);
@@ -44,7 +48,7 @@ echo $cavalier->peutAller(8,3) . "<br>";
 echo $cavalier . "<br>";
 echo $cavalier->peutAller(7,1) . "<br>";
 echo $cavalier . "<br>";
-echo $cavalier->peutAller(8,2) . "<br>";
+echo $cavalier->peutAller(8,3) . "<br>";
 echo $cavalier . "<br>";
-
+echo $cavalier->getCase() . "<br>";
 ?>

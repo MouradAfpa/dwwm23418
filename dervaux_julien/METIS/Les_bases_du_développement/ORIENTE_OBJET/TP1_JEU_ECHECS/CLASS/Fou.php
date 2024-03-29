@@ -36,17 +36,16 @@ class Fou extends PieceEchecs
         }
         return $result;
     }
+    public function getCase(){
+        parent::getCouleurCase();
+    }
     
 }
 
-$fouBlanc = new Fou(6, 1, 1);
-echo $fouBlanc;
-echo $fouBlanc->peutAller(7,2);
-echo $fouBlanc;
-echo $fouBlanc->peutAller(8,3);
-echo $fouBlanc;
-echo $fouBlanc->peutAller(7,2);
-echo $fouBlanc;
+$fouBlanc = new Fou(7, 4, 1);
+echo $fouBlanc->getCase();
+
+
 
 
 

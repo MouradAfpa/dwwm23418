@@ -3,14 +3,14 @@ import { Card, Button } from "react-bootstrap";
 import { useState } from "react";
 
 const CardSerie = ({serie, handleFavorite, isFavorite  }) => {
+
+    
     const navigate = useNavigate();
     const [isFavorited, setIsFavorited] = useState(isFavorite);
 
     const handleViewDetail = () => {
-        navigate(`/serie/${serie.id}`);
-        console.log(serie.id);
+        navigate(`/serie/detail/${serie.id}`);
     };
-
     const toggleFavorite = () => {
         handleFavorite(serie); // Passer la série individuelle à la fonction handleFavorite
         setIsFavorited(!isFavorited);

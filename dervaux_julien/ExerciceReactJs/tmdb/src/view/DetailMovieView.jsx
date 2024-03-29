@@ -1,11 +1,10 @@
 
 import { useParams } from 'react-router-dom';
-import { fetchMovieDetails, fetchSerieDetails } from '../components/ApiFilm';
+import { fetchMovieDetails} from '../components/ApiFilm';
 import CardMovie from '../components/CardMovie';
 import { useEffect, useState } from 'react';
-import CardSerie from '../components/CardSerie';
 
-const DetailSerieView = () => {
+const DetailMovieView = () => {
     
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -30,4 +29,4 @@ const DetailSerieView = () => {
     );
 };
 
-export default DetailSerieView;
+export default DetailMovieView;

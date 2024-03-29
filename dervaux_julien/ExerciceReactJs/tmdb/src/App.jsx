@@ -83,7 +83,7 @@ function App() {
         <Route path="/film" element={<FilmView handleSearch={handleSearch} movies={movies} setMovies={setMovies} favorite={favorite} setFavorite ={setFavorite} handleFavorite={handleFavorite} />} />
         <Route path="/favorites/detail/:id" element={<FavoritesView favorite={favorite} handleFavorite={handleFavorite} />} />
         <Route path="/detail/:id" element={<DetailView />} />
-        <Route path="/serie/:id" element={<DetailSerieView/>} />
+        <Route path="/serie/detail/:id" element={<DetailSerieView />} />
       </Routes>
     </BrowserRouter>
   );

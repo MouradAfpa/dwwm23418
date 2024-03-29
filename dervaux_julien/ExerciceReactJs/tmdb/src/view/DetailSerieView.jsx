@@ -1,6 +1,6 @@
 
 import { useParams } from 'react-router-dom';
-import { fetchMovieDetails, fetchSerieDetails } from '../components/ApiFilm';
+import {fetchSerieDetails } from '../components/ApiFilm';
 import { useEffect, useState } from 'react';
 import CardSerie from '../components/CardSerie';
 

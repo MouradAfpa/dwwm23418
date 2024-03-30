@@ -15,8 +15,9 @@ const DetailSerieView = () => {
             setSerie(serieDetails);
         };
         fetchDetails();
-    }, [id]);
     console.log("ici" + serie);
+
+    }, [id]);
     return (
         <div className="d-flex flex-wrap justify-content-center">
             {serie ? (

@@ -7,8 +7,9 @@ const CardSerie = ({serie, handleFavorite, isFavorite  }) => {
     
     const navigate = useNavigate();
     const [isFavorited, setIsFavorited] = useState(isFavorite);
+    console.log(serie);
 
-    const handleViewDetail = () => {
+    const handleViewDetailSerie = () => {
         navigate(`/serie/detail/${serie.id}`);
     };
     const toggleFavorite = () => {
@@ -21,7 +22,7 @@ const CardSerie = ({serie, handleFavorite, isFavorite  }) => {
             <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`} />
             <Card.Body>
                 <Card.Title>{serie.name}</Card.Title>
-                <Button variant="primary" onClick={handleViewDetail}>View Detail</Button>
+                <Button variant="primary" onClick={handleViewDetailSerie}>View Detail</Button>
                 <Button onClick={toggleFavorite}>
                     {isFavorited ? "Remove from Favorites" : "Add to Favorites"}
                 </Button>

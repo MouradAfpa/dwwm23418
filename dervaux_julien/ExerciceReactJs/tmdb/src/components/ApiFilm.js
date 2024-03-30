@@ -53,12 +53,13 @@ export const fetchMovieDetails = async (id) => {
 
     return data;
 };
+
 export const fetchSerieDetails = async (id) => {
     // Effectuer une requête GET à l'API pour les détails d'une serie avec l'ID spécifié
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/lists?api_key=${api_key}&language=fr-Fr`);
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&language=fr-Fr`);
     const data = await response.json();
     console.log("ici SeriesDetails");
-    return data.results;
+    return data;
 };
 
 // Fonction pour récupérer les séries tendance du jour depuis l'API

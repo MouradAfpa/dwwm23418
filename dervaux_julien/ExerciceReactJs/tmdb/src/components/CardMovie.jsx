@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
-const CardMovie = ({ movie, handleSearch, handleFavorite, isFavorite }) => {
+const CardMovie = ({ movie, handleFavorite, isFavorite }) => {
     const navigate = useNavigate();
     const [isFavorited, setIsFavorited] = useState(isFavorite);
 

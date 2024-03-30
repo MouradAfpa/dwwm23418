@@ -11,7 +11,7 @@ const HomeView = ({ movies }) => {
                             className="d-block w-100"
                             src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
                             alt={movie.title}
-                            style={{ maxHeight: '400px', objectFit: 'cover' }} // Ajout de styles pour ajuster la taille de l'image
+                            style={{ maxHeight: '400px', objectFit: 'cover', filter: 'brightness(0.5)'}} // Ajout de styles pour ajuster la taille de l'image
                         />
                         <Carousel.Caption>
                             <h3>{movie.title}</h3>

@@ -14,36 +14,34 @@ function App() {
   const [popularSeries, setPopularSeries] = useState([]); 
 
   useEffect(() => {
+
+    if (!search){
     const fetchData = async () => {
       setMovies(await fetchPopularMovies());
       setPopularSeries(await fetchSeries());
-    };
+    }  
     fetchData();
-  }, []);
+  }else{
+    const fetchData = async () => {
+        setMovies(await searchMovies(search));
+        setPopularSeries(await searchSeries(search));
+      } 
+    fetchData();
+      } 
+  }, [search]);
 
-  const handleSearch = async (title) => {
-    if (title === '') {
-      setMovies(await fetchPopularMovies());
-      setPopularSeries(await fetchSeries());
-    } else {
-      setMovies(await searchMovies(title));
-      setPopularSeries(await searchSeries(title));
-    }
-  };
-  
   return (
     <BrowserRouter>
       <NavbarJs
         search={search}
         setSearch={setSearch}
-        handleSearch={handleSearch}
         popularSeries={popularSeries}
         setPopularSeries={setPopularSeries}
       />
       <Routes>
         <Route path="/" element={<HomeView movies={movies} popularSeries={popularSeries} />} />
-        <Route path="/serie" element={<SerieView popularSeries={popularSeries} setPopularSeries={setPopularSeries} handleSearch={handleSearch} />} />
-        <Route path="/film" element={<FilmView handleSearch={handleSearch} movies={movies} setMovies={setMovies}  />} />
+        <Route path="/serie" element={<SerieView popularSeries={popularSeries} setPopularSeries={setPopularSeries}  />} />
+        <Route path="/film" element={<FilmView movies={movies} setMovies={setMovies}  />} />
         <Route path="/film/detail/:id" element={<DetailMovieView />} />
         <Route path="/serie/detail/:id" element={<DetailSerieView />} />
       </Routes>

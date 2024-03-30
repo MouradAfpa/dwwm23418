@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import CardSerie from "../components/CardSerie";
 
 const HomeView = ({ movies , popularSeries }) => {
+    
     return (
         <>
             <Carousel style={{ width: '80%', margin: 'auto', maxHeight: '500px' }}>

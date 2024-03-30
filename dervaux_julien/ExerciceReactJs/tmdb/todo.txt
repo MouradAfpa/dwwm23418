@@ -1,0 +1,7 @@
+
+
+
+HomeView : ajouter carousel non dynamique pour film/serie/favoris, revoir le fetch pour le carousel d'en tête, carousel "cela pourrait vous plaire !";
+
+SerieView/FilmView : Faire pagination;
+

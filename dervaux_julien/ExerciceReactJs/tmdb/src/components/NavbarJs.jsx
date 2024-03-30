@@ -4,15 +4,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const NavbarJs = ({ search, setSearch, handleSearch}) => {
+const NavbarJs = ({ search, setSearch }) => {
+
+  
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    handleSearch(search);
   };
 
   const navigate = useNavigate();
@@ -25,7 +22,7 @@ const NavbarJs = ({ search, setSearch, handleSearch}) => {
       <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
       <Link className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
       <Link className='text-dark m-3 pe-3' to={'/favorites'}>Favorite</Link>
-      <Form className='d-flex justify-content-center' onChange={handleSubmit}>
+      <Form className='d-flex justify-content-center'>
         <Row>
           <Col xs="auto">
             <Form.Control

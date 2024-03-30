@@ -30,8 +30,7 @@ function App() {
       setPopularSeries(await searchSeries(title));
     }
   };
-
-
+  
   return (
     <BrowserRouter>
       <NavbarJs

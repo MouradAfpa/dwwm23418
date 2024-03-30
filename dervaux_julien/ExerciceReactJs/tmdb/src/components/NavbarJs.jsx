@@ -20,10 +20,11 @@ const NavbarJs = ({ search, setSearch, handleSearch}) => {
   const goBack = () => { navigate(-1) }
 
   return (
-    <header className='navbar navbar-expand-lg bg-body-tertiary'>
+    <header className='navbar navbar-expand-lg bg-body-tertiary justify-content-center '>
       <Link className='text-dark m-3 pe-3' to={'/'}>Home</Link>
       <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
       <Link className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
+      <Link className='text-dark m-3 pe-3' to={'/favorites'}>Favorite</Link>
       <Form className='d-flex justify-content-center' onChange={handleSubmit}>
         <Row>
           <Col xs="auto">

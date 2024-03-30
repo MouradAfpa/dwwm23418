@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
-const CardMovie = ({ movie }) => {
+const CardMovie = ({ movie, handleFavorite, isFavorite }) => {
     const navigate = useNavigate();
+    const [isFavorited, setIsFavorited] = useState(isFavorite);
+
+    const toggleFavorite = () => {
+        handleFavorite(movie);
+        setIsFavorited(!isFavorited);
+    };
 
     return (
         <Card style={{ width: '18rem' }} className="m-3">
@@ -10,6 +17,9 @@ const CardMovie = ({ movie }) => {
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Button variant="primary" onClick={() => navigate(`/detail/${movie.id}`)}>View Detail</Button>
+                <Button onClick={toggleFavorite}>
+                    {isFavorited ? "Remove from Favorites" : "Add to Favorites"}
+                </Button>
             </Card.Body>
         </Card>
     );

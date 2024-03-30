@@ -1,10 +1,10 @@
 
 import { useParams } from 'react-router-dom';
-import { fetchMovieDetails } from '../components/ApiFilm';
+import { fetchMovieDetails} from '../components/ApiFilm';
 import CardMovie from '../components/CardMovie';
 import { useEffect, useState } from 'react';
 
-const DetailView = () => {
+const DetailMovieView = () => {
     
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -16,6 +16,7 @@ const DetailView = () => {
         };
         fetchDetails();
     }, [id]);
+    console.log(movie);
 
     return (
         <div className="d-flex flex-wrap justify-content-center">
@@ -28,4 +29,4 @@ const DetailView = () => {
     );
 };
 
-export default DetailView;
+export default DetailMovieView;

@@ -1,6 +1,6 @@
 import CardSerie from "../components/CardSerie";
 
-const SerieView = ({ handleSearch, popularSeries, favorite, handleFavorite }) => {
+const SerieView = ({ handleSearch, popularSeries }) => {
   return (
     <div>
       <h1>Serie</h1>
@@ -11,8 +11,6 @@ const SerieView = ({ handleSearch, popularSeries, favorite, handleFavorite }) =>
               key={series.id}
               serie={series}
               handleSearch={handleSearch} 
-              handleFavorite={handleFavorite}
-              isFavorite={favorite.some(favSerie => favSerie.id === series.id)}
             />
           ))}
       </div>

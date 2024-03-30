@@ -11,13 +11,11 @@ const DetailMovieView = () => {
 
     useEffect(() => {
         const fetchDetails = async () => {
-            const movieDetails = await fetchMovieDetails(id);
-            setMovie(movieDetails);
+        setMovie(await fetchMovieDetails(id)) ;
         };
         fetchDetails();
     }, [id]);
-    console.log(movie);
-
+    
     return (
         <div className="d-flex flex-wrap justify-content-center">
             {movie ? (

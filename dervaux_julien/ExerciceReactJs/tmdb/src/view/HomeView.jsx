@@ -1,7 +1,8 @@
 import CardMovie from "../components/CardMovie";
 import Carousel from 'react-bootstrap/Carousel';
+import CardSerie from "../components/CardSerie";
 
-const HomeView = ({ movies }) => {
+const HomeView = ({ movies , popularSeries }) => {
     return (
         <>
             <Carousel style={{ width: '80%', margin: 'auto', maxHeight: '500px' }}>
@@ -21,7 +22,12 @@ const HomeView = ({ movies }) => {
                 ))}
             </Carousel>
             <div className="d-flex flex-wrap justify-content-center">
+                <h1>FILM</h1>
                 {movies.map((movie) => <CardMovie key={movie.id} movie={movie} />)}
+            </div>
+            <div className="d-flex flex-wrap justify-content-center">
+                <h1>SERIE</h1>
+                {popularSeries.map((serie) => <CardSerie key={serie.id} serie={serie} />)}
             </div>
         </>
     )

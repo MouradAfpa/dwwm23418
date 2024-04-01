@@ -5,6 +5,7 @@ const CardSerie = ({ serie, setSearch, setShowModal }) => {
     const navigate = useNavigate();
 
     return (
+        <div className="d-flex flex-wrap justify-content-center">
         <Card style={{ width: '18rem', height: "100%" }} className="m-3">
             <Card.Img variant="top"
                 onClick={() => {
@@ -16,6 +17,7 @@ const CardSerie = ({ serie, setSearch, setShowModal }) => {
                 style={{ height: "100%", cursor: "pointer" }}
             />
         </Card>
+        </div>
     );
 };
 

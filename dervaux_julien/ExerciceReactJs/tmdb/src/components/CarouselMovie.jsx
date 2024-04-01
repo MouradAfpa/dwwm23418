@@ -8,7 +8,7 @@ export const CarouselMovie = ({ movies }) => {
     return (
         <Carousel 
         fade
-        style={{ width: '80%', margin: 'auto', maxHeight: '500px' }}>
+        style={{ width: '80%', margin: 'auto', maxHeight: '%' }}>
             {movies.map((movie) => (
                 <Carousel.Item key={movie.id} interval={10000}>
                     <img

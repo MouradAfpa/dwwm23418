@@ -14,14 +14,15 @@ function App() {
   const [search, setSearch] = useState(''); 
   const [popularSeries, setPopularSeries] = useState([]); 
   const [showModal, setShowModal] = useState(false);
+  const [page , setPage] = useState(1);
 
 
   useEffect(() => {
 
     if (!search){
     const fetchData = async () => {
-      setMovies(await fetchPopularMovies());
-      setPopularSeries(await fetchSeries());
+      setMovies(await fetchPopularMovies(page));
+      setPopularSeries(await fetchSeries(page));
     }  
     fetchData();
   }else{
@@ -31,7 +32,19 @@ function App() {
       } 
     fetchData();
       } 
-  }, [search]);
+  }, [search,page]);
+
+  console.log(movies);
+
+  const nextPage = () => page(setPage(page+1));
+  
+  const previousPage = () => {
+    if(page>1){
+    page(setPage(page-1))
+  }
+  }
+  console.log(page);
+
 
   return (
     <BrowserRouter>
@@ -44,6 +57,9 @@ function App() {
         setPopularSeries={setPopularSeries}
         showModal = {showModal}
         setShowModal = {setShowModal}
+        page={page}
+        nextPage={nextPage}
+        previousPage={previousPage}
       />
       <Routes>
         <Route path="/" element={<HomeView movies={movies} popularSeries={popularSeries} />} />

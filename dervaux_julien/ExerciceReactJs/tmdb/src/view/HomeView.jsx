@@ -18,15 +18,6 @@ const HomeView = ({ movies, popularSeries }) => {
             <h3>Trending Series</h3>
                 <CarouselCardSerie popularSeries={popularSeries} />
             </div>
-
-            {/* <div className="d-flex flex-wrap justify-content-center">
-                <h1>FILM</h1>
-                {movies.map((movie) => <CardMovie key={movie.id} movie={movie} />)}
-            </div>
-            <div className="d-flex flex-wrap justify-content-center">
-                <h1>SERIE</h1>
-                {popularSeries.map((serie) => <CardSerie key={serie.id} serie={serie} />)}
-            </div> */}
         </>
     )
 }

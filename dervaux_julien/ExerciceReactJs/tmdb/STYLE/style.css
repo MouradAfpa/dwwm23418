@@ -1,0 +1,12 @@
+
+
+.modalSize{
+    background-color: black;
+    width: '100vw';
+    max-width: '100%';
+    margin: '0';
+    position: 'fixed';
+    left: '0';
+    right: '';
+    top: '0'; 
+}

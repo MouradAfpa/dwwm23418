@@ -9,10 +9,12 @@ import DetailSerieView from "./view/DetailSerieView";
 import DetailMovieView from "./view/DetailMovieView";
 
 function App() {
+  
   const [movies, setMovies] = useState([]); 
   const [search, setSearch] = useState(''); 
   const [popularSeries, setPopularSeries] = useState([]); 
-  const [page,setPage] = useState (1);
+  const [showModal, setShowModal] = useState(false);
+
 
   useEffect(() => {
 
@@ -36,8 +38,12 @@ function App() {
       <NavbarJs
         search={search}
         setSearch={setSearch}
+        movies = {movies}
+        setMovies = {setMovies}
         popularSeries={popularSeries}
         setPopularSeries={setPopularSeries}
+        showModal = {showModal}
+        setShowModal = {setShowModal}
       />
       <Routes>
         <Route path="/" element={<HomeView movies={movies} popularSeries={popularSeries} />} />

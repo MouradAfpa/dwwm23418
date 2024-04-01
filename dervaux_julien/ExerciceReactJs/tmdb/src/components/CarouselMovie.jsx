@@ -34,20 +34,22 @@ export const CarouselCardMovie = ({ movies }) => {
     return (
         <>
             <Carousel 
-                slide={false}
                 interval={null}
                 style={{ width: '100%', margin: 'auto', maxHeight: '500px' }} 
                 activeIndex={index} 
                 onSelect={(selectedIndex) => setIndex(selectedIndex)}
                 prevLabel="Previous" 
                 nextLabel="Next"
+                indicators={false}
             >
                 {Array.from({ length: Math.ceil(movies.length / tabSize) }).map((e, slideIndex) => (
                     <Carousel.Item key={slideIndex} slide={false} >
                         <div className='d-flex'>
                             {movies.slice(slideIndex * tabSize, (slideIndex + 1) * tabSize).map((movie) => (
-                                <Col key={movie.id} className='p-2'>
-                                    <CardMovie movie={movie} />
+                                <Col key={movie.id} 
+                                style={{ height: "100%", width : "100%", cursor: "pointer" }}
+                                className="img-fluid p-2">
+                                    <CardMovie  movie={movie} />
                                 </Col>
                             ))}
                         </div>
@@ -64,13 +66,13 @@ export const CarouselCardSerie = ({ popularSeries }) => {
     return (
         <>
             <Carousel 
-                slide={false}
                 interval={null}
                 style={{ width: '100%', margin: 'auto', maxHeight: '500px' }} 
                 activeIndex={index} 
                 onSelect={(selectedIndex) => setIndex(selectedIndex)}
                 prevLabel="Previous" 
                 nextLabel="Next"
+                indicators={false}
             >
                 {Array.from({ length: Math.ceil(popularSeries.length / tabSize) }).map((e, slideIndex) => (
                     <Carousel.Item key={slideIndex} slide={false} >

@@ -5,4 +5,4 @@ HomeView : ajouter carousel non dynamique pour "cela pourrait vous plaire !";
 
 SerieView/FilmView : Faire pagination;
 
-Modal : Faire un filtre serie/film;
+Modal : Faire un filtre serie/film; ..

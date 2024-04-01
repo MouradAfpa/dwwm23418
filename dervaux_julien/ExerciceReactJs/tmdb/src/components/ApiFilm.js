@@ -42,7 +42,6 @@ export const fetchSeries = async () => {
 export const searchSeries = async (title) => {
     let data = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${title}&language=fr-Fr&page=1`);
     let response = await data.json();
-    console.log("ici SearchSeries");
     return response.results;
 };
 
@@ -51,7 +50,6 @@ export const searchSeries = async (title) => {
 export const fetchSerieDetails = async (id) => {
     const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&language=fr-Fr`);
     const data = await response.json();
-    console.log("ici SeriesDetails");
     return data;
 };
 

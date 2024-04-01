@@ -1,35 +1,32 @@
 import CardMovie from "../components/CardMovie";
-import Carousel from 'react-bootstrap/Carousel';
+import { CarouselCardSerie, CarouselMovie } from "../components/CarouselMovie";
+import { CarouselCardMovie } from "../components/CarouselMovie";
 import CardSerie from "../components/CardSerie";
 
-const HomeView = ({ movies , popularSeries }) => {
-    
+const HomeView = ({ movies, popularSeries }) => {
+
     return (
         <>
-            <Carousel style={{ width: '80%', margin: 'auto', maxHeight: '500px' }}>
-                {movies.map((movie) => (
-                    <Carousel.Item key={movie.id}>
-                        <img
-                            className="d-block w-100"
-                            src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-                            alt={movie.title}
-                            style={{ maxHeight: '400px', objectFit: 'cover', filter: 'brightness(0.5)'}} // Ajout de styles pour ajuster la taille de l'image
-                        />
-                        <Carousel.Caption>
-                            <h3>{movie.title}</h3>
-                            <p>{movie.overview}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-            <div className="d-flex flex-wrap justify-content-center">
+            <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
+                <CarouselMovie movies={movies} />
+            </div>
+            <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
+            <h3>Trending Movies</h3>
+                <CarouselCardMovie movies={movies} />
+            </div>
+            <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
+            <h3>Trending Series</h3>
+                <CarouselCardSerie popularSeries={popularSeries} />
+            </div>
+
+            {/* <div className="d-flex flex-wrap justify-content-center">
                 <h1>FILM</h1>
                 {movies.map((movie) => <CardMovie key={movie.id} movie={movie} />)}
             </div>
             <div className="d-flex flex-wrap justify-content-center">
                 <h1>SERIE</h1>
                 {popularSeries.map((serie) => <CardSerie key={serie.id} serie={serie} />)}
-            </div>
+            </div> */}
         </>
     )
 }

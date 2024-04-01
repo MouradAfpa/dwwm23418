@@ -12,6 +12,7 @@ function App() {
   const [movies, setMovies] = useState([]); 
   const [search, setSearch] = useState(''); 
   const [popularSeries, setPopularSeries] = useState([]); 
+  const [page,setPage] = useState (1);
 
   useEffect(() => {
 

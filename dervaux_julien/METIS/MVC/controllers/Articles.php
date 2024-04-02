@@ -1,5 +1,5 @@
 <?php
 
-class Articles{
-    
+class Articles extends Controller{
+
 }

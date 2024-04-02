@@ -59,6 +59,7 @@ function App() {
         setShowModal = {setShowModal}
         page={page}
         nextPage={nextPage}
+        setPage = {setPage}
         previousPage={previousPage}
       />
       <Routes>

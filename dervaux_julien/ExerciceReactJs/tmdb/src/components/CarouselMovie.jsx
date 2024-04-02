@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import CardMovie from './CardMovie';
-import { Button, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { useState } from 'react';
 import CardSerie from './CardSerie';
 
@@ -28,6 +28,7 @@ export const CarouselMovie = ({ movies }) => {
 };
 
 export const CarouselCardMovie = ({ movies }) => {
+
     const tabSize = 5; 
     const [index, setIndex] = useState(0); 
 
@@ -35,7 +36,7 @@ export const CarouselCardMovie = ({ movies }) => {
         <>
             <Carousel 
                 interval={null}
-                style={{ width: '100%', margin: 'auto', maxHeight: '500px' }} 
+                style={{ width: '100%', margin: 'auto'}} 
                 activeIndex={index} 
                 onSelect={(selectedIndex) => setIndex(selectedIndex)}
                 prevLabel="Previous" 
@@ -43,12 +44,19 @@ export const CarouselCardMovie = ({ movies }) => {
                 indicators={false}
             >
                 {Array.from({ length: Math.ceil(movies.length / tabSize) }).map((e, slideIndex) => (
-                    <Carousel.Item key={slideIndex} slide={false} >
+                    <Carousel.Item 
+                    key={slideIndex} 
+                    slide={false} 
+                style={{ width: '100%', margin: 'auto'}} 
+                    
+                    >
+
+                        
                         <div className='d-flex'>
                             {movies.slice(slideIndex * tabSize, (slideIndex + 1) * tabSize).map((movie) => (
                                 <Col key={movie.id} 
-                                style={{ height: "100%", width : "100%", cursor: "pointer" }}
-                                className="img-fluid p-2">
+                                style={{ height: "auto", width : "50%", cursor: "pointer" }}
+                                className="img-fluid">
                                     <CardMovie  movie={movie} />
                                 </Col>
                             ))}

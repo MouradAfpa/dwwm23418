@@ -6,7 +6,7 @@ const CardMovie = ({ movie, setShowModal, setSearch }) => {
 
     return (
         <div className="d-flex flex-wrap justify-content-center">
-            <Card style={{ width: '18rem', height: "100%" }} className="m-3">
+            <Card style={{ width: '10rem', height: "100%" }} className="m-3">
                 <Card.Img
                     variant="top"
                     onClick={() => {

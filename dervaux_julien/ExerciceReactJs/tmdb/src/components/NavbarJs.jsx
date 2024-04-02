@@ -8,7 +8,7 @@ import '/STYLE/style.css'
 import CardSerie from './CardSerie';
 import { useState } from 'react';
 
-const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShowModal, nextPage , previousPage, page }) => {
+const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShowModal, nextPage , previousPage, page, setPage }) => {
 
   const [showMovies, setShowMovies] = useState(true);
   const [showSeries, setShowSeries] = useState(true);
@@ -36,8 +36,8 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
     <div>
       <header className='navbar navbar-expand-lg bg-body-tertiary justify-content-center '>
         <Link className='text-dark m-3 pe-3' to={'/'}>Home</Link>
-        <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
         <Link className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
+        <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
         <Link className='text-dark m-3 pe-3' to={'/favorites'}>Favorite</Link>
         <a onClick={() => setShowModal(true)} className='text-dark m-3 pe-3 cursor-pointer'>Open Modal</a>
         <Button onClick={toSerieView}>Next</Button>
@@ -50,7 +50,7 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
         <Modal
           dialogClassName="modal-dialog-scrollable modal-fullscreen"
           show={showModal}
-          onHide={() => {setShowModal(false); setSearch(''); setShowMovies(true);}}>
+          onHide={() => {setShowModal(false); setSearch(''); setShowMovies(true); setPage(1)}}>
 
           <Modal.Header closeButton className='d-flex justify-content-center' >
             <Col md="auto" className="d-flex justify-content-end  mr-sm-2">

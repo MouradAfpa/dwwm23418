@@ -11,11 +11,9 @@ const HomeView = ({ movies, popularSeries }) => {
                 <CarouselMovie movies={movies} />
             </div>
             <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
-            <h3>Trending Movies</h3>
                 <CarouselCardMovie movies={movies} />
             </div>
             <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
-            <h3>Trending Series</h3>
                 <CarouselCardSerie popularSeries={popularSeries} />
             </div>
         </>

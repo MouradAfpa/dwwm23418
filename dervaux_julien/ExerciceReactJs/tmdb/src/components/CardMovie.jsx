@@ -6,16 +6,17 @@ const CardMovie = ({ movie, setShowModal, setSearch }) => {
 
     return (
         <div className="d-flex flex-wrap justify-content-center">
-            <Card style={{ width: '10rem', height: "100%" }} className="m-3">
+            <Card style={{ width: '17rem', height: "100%" }} className="m-3">
                 <Card.Img
                     variant="top"
                     onClick={() => {
                         navigate(`/film/detail/${movie.id}`);
-                        setShowModal(false);
-                        setSearch('');
+                        ()=>setShowModal(false);
+                        ()=>setSearch('');
                     }}
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
                     style={{ height: "100%", cursor: "pointer" }}
+                    className="img-fluid"
                 />
             </Card>
         </div>

@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import CardMovie from './CardMovie';
-import { Col } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import CardSerie from './CardSerie';
 
@@ -29,71 +29,48 @@ export const CarouselMovie = ({ movies }) => {
 
 export const CarouselCardMovie = ({ movies }) => {
 
-    const tabSize = 5; 
-    const [index, setIndex] = useState(0); 
-
     return (
-        <>
-            <Carousel 
-                interval={null}
-                style={{ width: '100%', margin: 'auto'}} 
-                activeIndex={index} 
-                onSelect={(selectedIndex) => setIndex(selectedIndex)}
-                prevLabel="Previous" 
-                nextLabel="Next"
-                indicators={false}
-            >
-                {Array.from({ length: Math.ceil(movies.length / tabSize) }).map((e, slideIndex) => (
-                    <Carousel.Item 
-                    key={slideIndex} 
-                    slide={false} 
-                style={{ width: '100%', margin: 'auto'}} 
-                    
-                    >
 
-                        
-                        <div className='d-flex'>
-                            {movies.slice(slideIndex * tabSize, (slideIndex + 1) * tabSize).map((movie) => (
-                                <Col key={movie.id} 
-                                style={{ height: "auto", width : "50%", cursor: "pointer" }}
-                                className="img-fluid">
-                                    <CardMovie  movie={movie} />
-                                </Col>
-                            ))}
-                        </div>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-        </>
+        <div className='d-flex flex-column align-items-center mt-4'>
+        <h1>Films tendances</h1>
+        <Carousel 
+        className='d-flex flex-wrap justify-content-center' 
+        interval={null}
+        >
+      {movies.map((films, index) => (
+        index % 5 === 0 && (
+          <Carousel.Item key={index}>
+            <div className="d-flex">
+                {console.log("ici films" + films)}
+              {movies.slice(index, index + 5).map((film, filmIndex) => (
+                <CardMovie movie={film} key={filmIndex} />
+              ))}
+            </div>
+          </Carousel.Item>
+        )
+      ))}
+    </Carousel>
+      </div>
     );
 };
 export const CarouselCardSerie = ({ popularSeries }) => {
-    const tabSize = 5; 
-    const [index, setIndex] = useState(0); 
 
     return (
-        <>
-            <Carousel 
-                interval={null}
-                style={{ width: '100%', margin: 'auto', maxHeight: '500px' }} 
-                activeIndex={index} 
-                onSelect={(selectedIndex) => setIndex(selectedIndex)}
-                prevLabel="Previous" 
-                nextLabel="Next"
-                indicators={false}
-            >
-                {Array.from({ length: Math.ceil(popularSeries.length / tabSize) }).map((e, slideIndex) => (
-                    <Carousel.Item key={slideIndex} slide={false} >
-                        <div className='d-flex'>
-                            {popularSeries.slice(slideIndex * tabSize, (slideIndex + 1) * tabSize).map((serie) => (
-                                <Col key={serie.id} className='p-2'>
-                                    <CardSerie serie={serie} />
-                                </Col>
-                            ))}
-                        </div>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-        </>
+        <div className='d-flex flex-column align-items-center mt-4'>
+        <h1>Series tendances</h1>
+        <Carousel className='d-flex flex-wrap justify-content-center' interval={null}>
+      {popularSeries.map((series, index) => (
+        index % 5 === 0 && (
+          <Carousel.Item key={index}>
+            <div className="d-flex">
+              {popularSeries.slice(index, index + 5).map((serie, serieIndex) => (
+                <CardSerie serie={serie} key={serieIndex}/>
+              ))}
+            </div>
+          </Carousel.Item>
+        )
+      ))}
+    </Carousel>
+      </div>
     );
 };

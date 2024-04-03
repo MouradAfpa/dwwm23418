@@ -1,15 +1,19 @@
 <?php
 
-define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
-die(ROOT);
+// var_dump($_GET);
 
-require_once(ROOT.'app/Model.php');
-require_once(ROOT.'app/Controller.php');
+define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
+
+var_dump(ROOT);
+
+// require_once(ROOT.'app/Model.php');
+// require_once(ROOT.'app/Controller.php');
 
  // On sépare les paramètres et on les met dans le tableau $params
-$params = explode('/', $_GET['p']);
-var_dump($_GET['p']);
 
+$params = explode('/', $_GET['p']);
+
+// var_dump($params);
 // Si au moins 1 paramètre existe
 if($params[0] != ""){
     // On sauvegarde le 1er paramètre dans $controller en mettant sa 1ère lettre en majuscule
@@ -18,7 +22,7 @@ if($params[0] != ""){
     // On sauvegarde le 2ème paramètre dans $action si il existe, sinon index
     $action = isset($params[1]) ? $params[1] : 'index';
 
-    require_once("ROOTcontrollers/$controller.php");
+    require_once(ROOT . 'controllers/' . $controller .'.php');
 
     $controller = new $controller();
 
@@ -32,4 +36,4 @@ if($params[0] != ""){
     // Ici aucun paramètre n'est défini
 }
 
-?>
+// ?>

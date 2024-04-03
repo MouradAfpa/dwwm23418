@@ -1,9 +1,10 @@
 <?php
 
-class Articles extends Controller{
+class Articles{
     public function index(){
-    $this->loadModel("Article");
-    $articles = $this->Article->getAll();
-    $this->render('index');
+        echo "Salut";
+    // $this->loadModel("Article");
+    // // $articles = $this->Article->getAll();
+    // $this->render('index');
 }
 }

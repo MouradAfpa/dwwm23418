@@ -28,6 +28,14 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
     setSearch(event.target.value);
   };
 
+  // regarder pour time la recherche 
+
+
+  // const handleInputChange = (event) => {
+  //   setTimeout(()=>{setSearch(event.target.value)},100)
+  //   ;
+  // };
+
   const navigate = useNavigate();
   const toSerieView = () => { navigate("/serie") }
   const goBack = () => { navigate(-1) }
@@ -59,6 +67,7 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
                 placeholder="Search"
                 value={search}
                 onChange={handleInputChange}
+                // onKeyUp={handleInputChange}
               />
             </Col>
             <Button onClick={handleMovieFilter}>Films</Button>

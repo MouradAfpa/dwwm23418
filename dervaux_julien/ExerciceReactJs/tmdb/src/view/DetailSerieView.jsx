@@ -1,15 +1,15 @@
 import { fetchSerieDetails } from '../components/ApiFilm';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import CardSerie from '../components/CardSerie';
 import { Card } from 'react-bootstrap';
-import StarRating from '../components/StarRating';
+import {StarSerieRating} from '../components/StarRating';
 
 
 const DetailSerieView = () => {
 
     const { id } = useParams();
     const [detailSerie, setDetailSerie] = useState([]);
+    let finalNote = ((detailSerie.vote_average) /2).toFixed(1);
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -29,8 +29,8 @@ const DetailSerieView = () => {
                         <Card.Body className='bg-dark'>
                             <Card.Title className='text-white'><h1>{detailSerie.name}</h1></Card.Title>
                             <Card.Title className='text-white'>{detailSerie.overview}</Card.Title>
-                            <Card.Title className='text-white'>{detailSerie.vote_average}</Card.Title>
-                            <StarRating detailSerie={detailSerie}/>
+                            <Card.Title className='text-white'>{finalNote}</Card.Title>
+                            <StarSerieRating detailSerie={detailSerie}/>
 
                         </Card.Body>
                     </Card>

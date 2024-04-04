@@ -1,6 +1,6 @@
 import CardMovie from "../components/CardMovie";
 
-const FilmView = ({ movies, setMovies, handleSearch}) => {
+const FilmView = ({ movies, handleSearch, setFavorite, favorite}) => {
 
     return (
         <div>
@@ -10,7 +10,9 @@ const FilmView = ({ movies, setMovies, handleSearch}) => {
                     <CardMovie 
                         key={movie.id} 
                         movie={movie} 
-                        handleSearch={handleSearch} 
+                        handleSearch={handleSearch}
+                        favorite={favorite} 
+                        setFavortie = {setFavorite}
                     />
                 ))}
             </div>

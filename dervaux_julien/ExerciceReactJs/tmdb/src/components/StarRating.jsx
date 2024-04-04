@@ -47,7 +47,8 @@ export function StarMovieRating( {movie} ) {
         }
         
         // Vérifie s'il y a une demi-étoile en fonction de la partie décimale de la note
-        if (Math.floor(parseInt(starTab[1])) >= 50) {
+
+        if (Math.floor(parseInt(starTab[1])) >= 5) {
             tab.push(<img src={halfStar} alt="" key="demiEtoile" />);
         }
         

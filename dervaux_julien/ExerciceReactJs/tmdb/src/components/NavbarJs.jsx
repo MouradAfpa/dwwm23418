@@ -4,14 +4,23 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Modal } from 'react-bootstrap';
 import CardMovie from './CardMovie';
-import '/STYLE/style.css'
 import CardSerie from './CardSerie';
 import { useState } from 'react';
+import '/STYLE/style.css'
+
 
 const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShowModal, nextPage , previousPage, page, setPage }) => {
 
   const [showMovies, setShowMovies] = useState(true);
   const [showSeries, setShowSeries] = useState(true);
+
+  const handleClick = () => {
+    navigate(`/film/detail/${movie.id}`);
+    setShowModal(false); 
+    setSearch('');
+    setShowMovies(true); 
+    setPage(1);
+};
 
 
   const handleMovieFilter = () => {
@@ -46,10 +55,14 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
         <Link className='text-dark m-3 pe-3' to={'/'}>Home</Link>
         <Link className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
         <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
-        <Link className='text-dark m-3 pe-3' to={'/favorites'}>Favorite</Link>
-        <a onClick={() => setShowModal(true)} className='text-dark m-3 pe-3 cursor-pointer'>Open Modal</a>
-        <Button onClick={toSerieView}>Next</Button>
-        <Button onClick={goBack}>Previous</Button>
+        <Link className='text-dark m-3 pe-3' to={'/favoris'}>Favorite</Link>
+        <a 
+        onClick={() => setShowModal(true)} 
+        className='text-dark m-3 pe-3 cursor-pointer'
+        style={{cursor: "pointer" }}
+        >Open Modal</a>
+        {/* <Button onClick={toSerieView}>Next</Button>
+        <Button onClick={goBack}>Previous</Button> */}
       </header>
 
 
@@ -58,7 +71,13 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
         <Modal
           dialogClassName="modal-dialog-scrollable modal-fullscreen"
           show={showModal}
-          onHide={() => {setShowModal(false); setSearch(''); setShowMovies(true); setPage(1)}}>
+          onHide={() => 
+          {setShowModal(false); 
+          setSearch(''); 
+          setShowMovies(true); 
+          setPage(1)
+          navigate("/")
+          }}>
 
           <Modal.Header closeButton className='d-flex justify-content-center' >
             <Col md="auto" className="d-flex justify-content-end  mr-sm-2">
@@ -87,11 +106,14 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
                   movie={movie}
                   setShowModal={setShowModal}
                   setSearch={setSearch}
+                  setPage={setPage}
+                  onClick={handleClick}
                 />
               ))}
             {showSeries &&
               popularSeries.map((serie) => (
                 <CardSerie
+                  className="border-5"
                   key={serie.id}
                   serie={serie}
                   setShowModal={setShowModal}

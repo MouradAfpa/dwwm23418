@@ -7,6 +7,7 @@ import NavbarJs from "./components/NavbarJs";
 import { fetchPopularMovies, searchMovies, fetchSeries, searchSeries } from "./components/ApiFilm";
 import DetailSerieView from "./view/DetailSerieView";
 import DetailMovieView from "./view/DetailMovieView";
+import FavoritesView from "./view/FavoritesView";
 
 function App() {
   
@@ -15,7 +16,6 @@ function App() {
   const [popularSeries, setPopularSeries] = useState([]); 
   const [showModal, setShowModal] = useState(false);
   const [page , setPage] = useState(1);
-
 
   useEffect(() => {
 
@@ -34,8 +34,6 @@ function App() {
       } 
   }, [search,page]);
 
-  console.log(movies);
-
   const nextPage = () => page(setPage(page+1));
   
   const previousPage = () => {
@@ -43,11 +41,11 @@ function App() {
     page(setPage(page-1))
   }
   }
-  console.log(page);
-
 
   return (
+
     <BrowserRouter>
+
       <NavbarJs
         search={search}
         setSearch={setSearch}
@@ -58,16 +56,30 @@ function App() {
         showModal = {showModal}
         setShowModal = {setShowModal}
         page={page}
-        nextPage={nextPage}
         setPage = {setPage}
         previousPage={previousPage}
+        nextPage={nextPage}
       />
+
       <Routes>
-        <Route path="/" element={<HomeView movies={movies} popularSeries={popularSeries} />} />
-        <Route path="/serie" element={<SerieView popularSeries={popularSeries} setPopularSeries={setPopularSeries}  />} />
-        <Route path="/film" element={<FilmView movies={movies} setMovies={setMovies}  />} />
+
+        <Route path="/" element={<HomeView 
+        movies={movies} 
+        popularSeries={popularSeries} />} />
+
+        <Route path="/film" element={<FilmView 
+        movies={movies} 
+        />} />
+
+        <Route path="/serie" element={<SerieView 
+        popularSeries={popularSeries} 
+        />}/>
+
+        <Route path="/favoris" element={<FavoritesView/>}/>
+
         <Route path="/film/detail/:id" element={<DetailMovieView />} />
         <Route path="/serie/detail/:id" element={<DetailSerieView />} />
+
       </Routes>
     </BrowserRouter>
   );

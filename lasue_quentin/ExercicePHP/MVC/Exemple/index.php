@@ -17,7 +17,17 @@ if ($params[0] == "login" || $params[0] == "home" || $params[0] == "register" ||
     //
     $controller = ucfirst($params[0]); // ucfirst première lettre en majuscule
 
-    $action = isset($params[1]) ? $params[1] : "index";
+    if (!isset($params[1])) { // Si l'utilisateur n'a pas renseigner dans l'url de $params[1]
+        // alors je l'ajoute
+        $info = '/index';
+        $current_url = $_SERVER['REQUEST_URI']; // contient l'URL de la page demandé par l'utilisateur aprés le nom de domaine
+        $new_url = $current_url . $info;
+        header('Location: ' . $new_url); // Redirection vers l'URL complet
+        $action = "index";
+    } else {
+        $action =  $params[1];
+    }
+    // $action = isset($params[1]) ? $params[1] : "index";
 
     // chemin vers le projet + entrez dans controller + nom du controller + .php pour prendre le bon fichier 
     require_once(ROOT . 'controllers/' . $controller . '.php');

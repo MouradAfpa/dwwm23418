@@ -11,10 +11,10 @@
 <body>
     <h1 class="text-center">Login</h1>
     <div class="d-flex justify-content-center">
-        <a class="btn btn-primary m-3 " href="./home">Home</a>
-        <a class="btn btn-primary m-3 disabled" href="./login">Login</a>
-        <a class="btn btn-primary m-3" href="./register">Register</a>
-        <a class="btn btn-primary m-3" href="./dashboard">Dashboard</a>
+        <a class="btn btn-primary m-3" href="?p=Home">Home</a>
+        <a class="btn btn-primary m-3 disabled" href="?p=Login">Login</a>
+        <a class="btn btn-primary m-3" href="?p=Register">Register</a>
+        <a class="btn btn-primary m-3" href="?p=Dashboard">Dashboard</a>
     </div>
 </body>
 

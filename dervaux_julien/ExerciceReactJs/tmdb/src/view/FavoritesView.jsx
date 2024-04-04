@@ -48,7 +48,7 @@ const FavoritesView = () => {
               style={{ height: "100%", cursor: "pointer" }}
               className="img-fluid"
             />
-            <Button onClick={() => removeFavorite("movie", movie.id)}>REMOVE</Button>
+            <Button onClick={() => removeFavorite("movie", movie.id)}><img src="addfav.svg" alt="Remove from favorites" /></Button>
           </Card>
         ))}
         {/* Afficher les favoris des séries */}
@@ -60,7 +60,7 @@ const FavoritesView = () => {
               style={{ height: "100%", cursor: "pointer" }}
               className="img-fluid"
             />
-            <Button onClick={() => removeFavorite("serie", serie.id)}>REMOVE</Button>
+            <Button onClick={() => removeFavorite("serie", serie.id)}><img src="addfav.svg" alt="Remove from favorites" /></Button>
           </Card>
         ))}
       </div>

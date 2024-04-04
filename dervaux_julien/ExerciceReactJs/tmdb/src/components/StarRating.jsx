@@ -39,6 +39,7 @@ export function StarMovieRating( {movie} ) {
         let starTab = test.split(".");
         let firstNote = Math.floor(parseInt(starTab[0]) / 2);
         
+        
         // Ajoute les étoiles pleines en fonction de la partie entière de la note
         if (firstNote <= 5) {
             for (let i = 0; i < firstNote; i++) {
@@ -51,8 +52,10 @@ export function StarMovieRating( {movie} ) {
         if (Math.floor(parseInt(starTab[1])) >= 5) {
             tab.push(<img src={halfStar} alt="" key="demiEtoile" />);
         }
+
         
     }
+
         return (
             <div>
             {tab.length > 0 ? tab : <span>pasDetoile</span>}

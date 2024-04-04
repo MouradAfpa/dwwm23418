@@ -1,0 +1,22 @@
+
+.case{
+    border: 1px solid #ffffff;
+    height: 100px;
+    width: 100px;
+    background-color: #fdfdfd65;
+    line-height: 100%;
+    font-size: 80px;   
+    color: white; 
+}
+
+
+#jeu{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 300px;
+    margin: auto;
+    box-shadow: 3px 2px 2px;
+    background-color: black;
+}
+
+

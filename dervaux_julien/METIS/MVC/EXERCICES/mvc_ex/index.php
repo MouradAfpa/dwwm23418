@@ -1,17 +1,16 @@
 <?php
 
-// var_dump($_GET);
 
 define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
 
-var_dump(ROOT);
-
-// require_once(ROOT.'app/Model.php');
-// require_once(ROOT.'app/Controller.php');
+require_once(ROOT.'app/Model.php');
+require_once(ROOT.'app/Controller.php');
 
  // On sépare les paramètres et on les met dans le tableau $params
 
 $params = explode('/', $_GET['p']);
+
+var_dump($params);
 
 // var_dump($params);
 // Si au moins 1 paramètre existe

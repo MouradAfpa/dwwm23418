@@ -7,6 +7,6 @@ abstract class Controller{
         $this->$model = new $model();
     }
     public function render(string $ficher){
-        require_once(ROOT. 'views/' .strtolower(get_class($this)). '/' .$fichier . '.php');
+        require_once(ROOT. 'views/' . strtolower(get_class($this)). '/' .$fichier . '.php');
     }
 }

@@ -1,22 +1,21 @@
-import CardMovie from "../components/CardMovie";
 import { CarouselCardSerie, CarouselMovie } from "../components/CarouselMovie";
 import { CarouselCardMovie } from "../components/CarouselMovie";
-import CardSerie from "../components/CardSerie";
+import Footer from "../components/Footer";
 
 const HomeView = ({ movies, popularSeries }) => {
 
     return (
-        <>
-            <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
+
+        <div className="fullScreen">
+            <div className="d-flex flex-wrap justify-content-center  pb-2 ">
                 <CarouselMovie movies={movies} />
             </div>
-            <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
+            <div className="d-flex flex-wrap justify-content-center  pb-2 ">
                 <CarouselCardMovie movies={movies} />
-            </div>
-            <div className="d-flex flex-wrap justify-content-center m-2 pb-2 ">
                 <CarouselCardSerie popularSeries={popularSeries} />
             </div>
-        </>
+            <Footer/>
+        </div>
     )
 }
 

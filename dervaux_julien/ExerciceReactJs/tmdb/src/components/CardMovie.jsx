@@ -16,6 +16,7 @@ const CardMovie = ({ movie, setShowModal, setSearch, setPage, setFavorite}) => {
     };
 
     // Vérifier si le film est dans les favoris lors du chargement initial
+
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('favorites/movie')) || {};
         setIsInFavorites(favorites[movie.id]);

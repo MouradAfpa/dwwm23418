@@ -4,7 +4,7 @@ import CardSerie from './CardSerie';
 
 export const CarouselMovie = ({ movies }) => {
     return (
-        <Carousel fade style={{ width: '80%', margin: 'auto', maxHeight: '400px' }}>
+        <Carousel fade className='carouselEnTete'>
             {movies.map((movie) => (
                 <Carousel.Item key={movie.id} interval={10000}>
                     <img
@@ -14,8 +14,8 @@ export const CarouselMovie = ({ movies }) => {
                         style={{ height: '400px', objectFit: 'cover', filter: 'brightness(0.5)' }}
                     />
                     <Carousel.Caption>
-                        <h3 style={{ color: 'white' }}>{movie.title}</h3>
-                        <p style={{ color: 'white' }}>{movie.overview}</p>
+                        <h3>{movie.title}</h3>
+                        <p>{movie.overview}</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}
@@ -25,7 +25,7 @@ export const CarouselMovie = ({ movies }) => {
 
 export const CarouselCardMovie = ({ movies }) => {
     return (
-        <div className='d-flex flex-column align-items-center mt-4'>
+        <div className='d-flex flex-column align-items-center mt-4 carouselStyle'>
             <h1>Films tendances</h1>
             <Carousel fade className='justify-content-center' interval={null} indicators={false}>
                 {movies.map((films, index) => (

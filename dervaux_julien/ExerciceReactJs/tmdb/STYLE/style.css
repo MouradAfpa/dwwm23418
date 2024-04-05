@@ -1,2 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+}
 
+html {
+    background-color: black;
+}
 
+.cardStyle {
+    max-width: 20vw;
+    height: 100%;
+    cursor: pointer;
+}
+
+.carouselEnTete {
+    width: 80%;
+    margin: auto; 
+    max-height: 400px; 
+}
+
+.carouselStyle {
+    max-width: 100vw;
+}

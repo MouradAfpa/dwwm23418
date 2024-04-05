@@ -43,23 +43,23 @@ const CardMovie = ({ movie, setShowModal, setSearch, setPage, setFavorite}) => {
     };
 
     return (
-        <div className="d-flex flex-wrap justify-content-center">
-            <Card style={{ width: '17rem', height: "100%" }} className="m-3 position-relative">
+        <div className="d-flex flex-wrap justify-content-center cardStyle">
+            <Card className="m-3 position-relative">
                 <Card.Img
                     variant="top"
                     onClick={handleClick}
                     src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-                    style={{ height: "100%", cursor: "pointer" }}
-                    className="img-fluid"
+                    className="cardStyle img-fluid"
                 />
                 {/* Utiliser la variable d'état pour afficher dynamiquement le lien d'ajout ou de suppression */}
                 {isInFavorites ? (
                     <img 
+                    
                         src="addfav.svg" 
                         alt="Remove from favorites" 
-                        className="position-absolute bottom-0 start-50 translate-middle-x m-3"// Utilisation de position-absolute pour positionner l'icône en bas à droite
+                        className="position-absolute bottom-0 start-50 translate-middle-x m-3 "// Utilisation de position-absolute pour positionner l'icône en bas à droite
                         onClick={removeFavorite}
-                        style={{ cursor: "pointer" }}
+                        style={{  }}
                     />
                 ) : (
                     <img 

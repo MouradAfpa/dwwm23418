@@ -7,6 +7,7 @@ import CardMovie from './CardMovie';
 import CardSerie from './CardSerie';
 import { useState } from 'react';
 import '/STYLE/style.css'
+import PaginationComponent from './PaginationComponent';
 
 
 const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShowModal, nextPage , previousPage, page, setPage }) => {
@@ -21,7 +22,6 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
     setShowMovies(true); 
     setPage(1);
 };
-
 
   const handleMovieFilter = () => {
     setShowMovies(true);
@@ -61,8 +61,6 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
         className='text-dark m-3 pe-3 cursor-pointer'
         style={{cursor: "pointer" }}
         >Open Modal</a>
-        {/* <Button onClick={toSerieView}>Next</Button>
-        <Button onClick={goBack}>Previous</Button> */}
       </header>
 
 
@@ -86,15 +84,11 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
                 placeholder="Search"
                 value={search}
                 onChange={handleInputChange}
-                // onKeyUp={handleInputChange}
               />
             </Col>
             <Button onClick={handleMovieFilter}>Films</Button>
             <Button onClick={handleSerieFilter}>Séries</Button>
-           <Button onClick={nextPage}>Next Page</Button>
-           <p>{page}</p>
-           <Button onClick={previousPage}>Previous Page</Button>
-
+            <PaginationComponent page={page} setPage={setPage}/>
           </Modal.Header>
 
           <Modal.Body className='d-flex flex-wrap justify-content-center  '>

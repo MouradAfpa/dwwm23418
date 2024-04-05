@@ -8,10 +8,9 @@ export const CarouselMovie = ({ movies }) => {
             {movies.map((movie) => (
                 <Carousel.Item key={movie.id} interval={10000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 carouselImgEnTete"
                         src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-                        alt={movie.title}
-                        style={{ height: '400px', objectFit: 'cover', filter: 'brightness(0.5)' }}
+                        alt={movie.title} 
                     />
                     <Carousel.Caption>
                         <h3>{movie.title}</h3>
@@ -46,7 +45,7 @@ export const CarouselCardMovie = ({ movies }) => {
 
 export const CarouselCardSerie = ({ popularSeries }) => {
     return (
-        <div className='d-flex flex-column align-items-center mt-4'>
+        <div className='d-flex flex-column align-items-center mt-4 carouselStyle'>
             <h1>Séries tendances</h1>
             <Carousel fade className='justify-content-center' interval={null} indicators={false}>
                 {popularSeries.map((series, index) => (

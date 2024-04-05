@@ -10,7 +10,7 @@ export const fetchPopularMovies = async (page) => {
     let data = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=fr-Fr&page=${page}`);
     console.log("ici fetchpopularMovies");
     let response = await data.json();
-    return response.results;
+    return (response.results);
 };
 
 // Fonction pour rechercher des films en fonction d'un titre

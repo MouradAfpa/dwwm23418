@@ -16,6 +16,7 @@ function App() {
   const [popularSeries, setPopularSeries] = useState([]); 
   const [showModal, setShowModal] = useState(false);
   const [page , setPage] = useState(1);
+  
 
   useEffect(() => {
 
@@ -65,18 +66,22 @@ function App() {
 
         <Route path="/" element={<HomeView 
         movies={movies} 
-        popularSeries={popularSeries} />} />
+        popularSeries={popularSeries}
+        />} />
 
         <Route path="/film" element={<FilmView 
         movies={movies} 
+        page={page}
+        setPage={setPage} 
         />} />
 
         <Route path="/serie" element={<SerieView 
         popularSeries={popularSeries} 
-        />}/>
+        page={page}
+        setPage={setPage} 
+        />} />
 
         <Route path="/favoris" element={<FavoritesView/>}/>
-
         <Route path="/film/detail/:id" element={<DetailMovieView />} />
         <Route path="/serie/detail/:id" element={<DetailSerieView />} />
 

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { useEffect, useState } from 'react';
+import PaginationComponent from "./PaginationComponent";
 
 const CardMovie = ({ movie, setShowModal, setSearch, setPage, setFavorite}) => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const CardMovie = ({ movie, setShowModal, setSearch, setPage, setFavorite}) => {
     // Vérifier si le film est dans les favoris lors du chargement initial
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('favorites/movie')) || {};
-        setIsInFavorites(!!favorites[movie.id]);
+        setIsInFavorites(favorites[movie.id]);
     }, []);
 
     const addFavorite = () => {
@@ -44,12 +45,13 @@ const CardMovie = ({ movie, setShowModal, setSearch, setPage, setFavorite}) => {
 
     return (
         <div className="d-flex flex-wrap justify-content-center cardStyle">
+
             <Card className="m-3 position-relative">
                 <Card.Img
                     variant="top"
                     onClick={handleClick}
                     src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-                    className="cardStyle img-fluid"
+                    className="img-fluid"
                 />
                 {/* Utiliser la variable d'état pour afficher dynamiquement le lien d'ajout ou de suppression */}
                 {isInFavorites ? (

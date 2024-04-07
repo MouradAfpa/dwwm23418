@@ -10,7 +10,7 @@ import '/STYLE/style.css'
 import PaginationComponent from './PaginationComponent';
 
 
-const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShowModal, nextPage, previousPage, page, setPage }) => {
+const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShowModal, page, setPage }) => {
 
   const [showMovies, setShowMovies] = useState(true);
   const [showSeries, setShowSeries] = useState(true);
@@ -29,11 +29,11 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
     let darkModeOn = getDiv.classList.contains('darkMode');
 
     if (!darkModeOn) {
-        getDiv.classList.add('darkMode'); 
+      getDiv.classList.add('darkMode');
     } else {
-        getDiv.classList.remove('darkMode'); 
+      getDiv.classList.remove('darkMode');
     }
-}
+  }
 
   const handleMovieFilter = () => {
     setShowMovies(true);
@@ -65,7 +65,7 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
 
     <div className='position-sticky'>
       <header className='navbar navbar-expand-lg bg-body-tertiary justify-content-center '>
-        <Link className='text-dark m-3 pe-3' to={'/'}>Home</Link>
+        <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/'}>Home</Link>
         <Link className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
         <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
         <Link className='text-dark m-3 pe-3' to={'/favoris'}>Favorite</Link>
@@ -73,70 +73,76 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
           onClick={() => setShowModal(true)}
           className='text-dark m-3 pe-3 cursor-pointer'
           style={{ cursor: "pointer" }}
-        ><img src="search.svg" alt="search" /></a>
-              <Form>
-      <Form.Check // prettier-ignore
-        type="switch"
-        onClick={darkMode}
-      />
-      </Form>
+        >
+          <img src="search.svg" alt="search" />
+        </a>
+        <Form>
+          <Form.Check
+            type="switch"
+            onClick={darkMode}
+          />
+        </Form>
       </header>
 
+      <div className='container-fluid'>
+        <Modal
+          dialogClassName="modal-dialog-scrollable modal-fullscreen"
+          show={showModal}
+          onHide={() => {
+            setShowModal(false);
+            setSearch('');
+            setShowMovies(true);
+            setPage(1)
+            navigate("/")
+          }}>
 
-
-      {/* Modal */}
-      <Modal
-        dialogClassName="modal-dialog-scrollable modal-fullscreen"
-        show={showModal}
-        onHide={() => {
-          setShowModal(false);
-          setSearch('');
-          setShowMovies(true);
-          setPage(1)
-          navigate("/")
-        }}>
-
-        <Modal.Header closeButton className='d-flex justify-content-center' >
-          <Col md="auto" className="d-flex justify-content-end  mr-sm-2">
-            <Form.Control
-              type="text"
-              placeholder="Search"
-              value={search}
-              onChange={handleInputChange}
-            />
-          </Col>
-          <Button onClick={handleMovieFilter}>Films</Button>
-          <Button onClick={handleSerieFilter}>Séries</Button>
-          <PaginationComponent page={page} setPage={setPage} />
-        </Modal.Header>
-
-        <Modal.Body className='d-flex flex-wrap justify-content-center  '>
-          {showMovies &&
-            movies.map((movie) => (
-              <CardMovie
-                className="border-5"
-                key={movie.id}
-                movie={movie}
-                setShowModal={setShowModal}
-                setSearch={setSearch}
-                setPage={setPage}
-                onClick={handleClick}
+          <Modal.Header closeButton className='d-flex justify-content-center' >
+            <Col md="auto" className="d-flex justify-content-end mr-sm-2">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                value={search}
+                onChange={handleInputChange}
               />
-            ))}
-          {showSeries &&
-            popularSeries.map((serie) => (
-              <CardSerie
-                className="border-5"
-                key={serie.id}
-                serie={serie}
-                setShowModal={setShowModal}
-                setSearch={setSearch}
-              />
-            ))}
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
+            </Col>
+            <Button onClick={handleMovieFilter}>Films</Button>
+            <Button onClick={handleSerieFilter}>Séries</Button>
+            <Col md="auto" className="d-flex justify-content-center align-items-center">
+              <PaginationComponent page={page} setPage={setPage} />
+            </Col>
+          </Modal.Header>
+
+
+          <Modal.Body className='d-flex flex-wrap justify-content-center'>
+
+            {showMovies &&
+              movies.map((movie) => (
+                <CardMovie
+                  className="border-5"
+                  key={movie.id}
+                  movie={movie}
+                  setShowModal={setShowModal}
+                  setSearch={setSearch}
+                  setPage={setPage}
+                  onClick={handleClick}
+                />
+              ))}
+
+            {showSeries &&
+              popularSeries.map((serie) => (
+                <CardSerie
+                  className="border-5"
+                  key={serie.id}
+                  serie={serie}
+                  setShowModal={setShowModal}
+                  setSearch={setSearch}
+                />
+              ))}
+          </Modal.Body>
+          <Modal.Footer>
+          </Modal.Footer>
+        </Modal>
+      </div>
     </div>
   );
 }

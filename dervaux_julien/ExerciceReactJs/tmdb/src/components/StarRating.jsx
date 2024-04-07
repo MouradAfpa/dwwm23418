@@ -1,9 +1,9 @@
 import fullStar from "../assets/fullstar.svg";
 import halfStar from "../assets/halfstar.svg";
 
-export function StarSerieRating({detailSerie}){
+export function StarSerieRating({serie}){
 
-    let starNote = detailSerie.vote_average;
+    let starNote = serie.vote_average;
     // starNote = starNote.toFixed(1);
     let starTab = ("" +  starNote).split(".");
     let firstNote = Math.floor(parseInt(starTab[0]) / 2);

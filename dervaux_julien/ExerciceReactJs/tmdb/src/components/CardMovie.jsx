@@ -17,7 +17,7 @@ const CardMovie = ({ movie, setShowModal, setSearch}) => {
                     variant="top"
                     onClick={handleClick}
                     src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-                    className="img-fluid cardStyle"
+                    className="w-100 h-100 "
                 />
             </Card>
         </div>

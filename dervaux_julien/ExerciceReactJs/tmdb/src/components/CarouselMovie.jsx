@@ -30,7 +30,7 @@ export const CarouselCardMovie = ({ movies }) => {
                 {movies.map((films, index) => (
                     index % 5 === 0 && (
                         <Carousel.Item key={index}>
-                            <div className="d-flex justify-content-center">
+                            <div className="d-flex justify-content-center carouselStyle">
                                 {movies.slice(index, index + 5).map((film, filmIndex) => (
                                     <CardMovie movie={film} key={filmIndex} />
                                 ))}

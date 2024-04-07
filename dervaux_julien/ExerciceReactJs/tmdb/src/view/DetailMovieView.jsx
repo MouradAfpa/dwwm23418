@@ -1,13 +1,10 @@
-
 import { useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../components/ApiFilm';
 import { useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { StarMovieRating } from '../components/StarRating';
 
 const DetailMovieView = () => {
-
-
     const { id } = useParams();
     const [movie, setMovie] = useState([]);
 
@@ -23,10 +20,7 @@ const DetailMovieView = () => {
     // État pour suivre si le film est dans les favoris
     const [isInFavorites, setIsInFavorites] = useState(false);
 
-
-
     // Vérifier si le film est dans les favoris lors du chargement initial
-
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('favorites/movie')) || {};
         setIsInFavorites(favorites[movie.id]);
@@ -55,40 +49,43 @@ const DetailMovieView = () => {
     };
 
     return (
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="d-flex justify-content-center align-items-center vh-100">
             {movie ? (
-                <>
-                    <Card style={{ width: '20rem' }} className="border-3 m-3">
-                        <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-                    </Card>
-                    <Card style={{ width: '30rem' }} className="border-3 m-3">
-                        <Card.Body className='bg-dark'>
-                            <Card.Title className='text-white'><h1>{movie.title}</h1></Card.Title>
-                            <Card.Title className='text-white'>{movie.overview}</Card.Title>
-                            <Card.Title className='text-white'>{finalNote}</Card.Title>
-                            <StarMovieRating movie={movie} />
-                        </Card.Body>
-                        {/* Utiliser la variable d'état pour afficher dynamiquement le lien d'ajout ou de suppression */}
-                        {isInFavorites ? (
-                            <img
-
-                                src="addfav.svg"
-                                alt="Remove from favorites"
-                                className="position-absolute bottom-0 start-50 translate-middle-x m-3 "// Utilisation de position-absolute pour positionner l'icône en bas à droite
-                                onClick={removeFavorite}
-                                style={{}}
-                            />
-                        ) : (
-                            <img
-                                src="removefav.svg"
-                                alt="Add to favorites"
-                                className="position-absolute bottom-0 start-50 translate-middle-x m-3" // Utilisation de position-absolute pour positionner l'icône en bas au centre
-                                onClick={addFavorite}
-                                style={{ cursor: "pointer" }}
-                            />
-                        )}
-                    </Card>
-                </>
+                <Row className="justify-content-center align-items-center">
+                    <Col>
+                        <Card className="cardStyle border-3 m-3">
+                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`} />
+                        </Card>
+                    </Col>
+                    <Col>
+                        <Card className="cardStyle border-3 m-3">
+                            <Card.Body className='cardStyle bg-dark'>
+                                <Card.Title className='text-white'><h1>{movie.title}</h1></Card.Title>
+                                <Card.Title className='text-white'>{movie.overview}</Card.Title>
+                                <Card.Title className='text-white'>{finalNote}</Card.Title>
+                                <StarMovieRating movie={movie} />
+                            </Card.Body>
+                            {/* Utiliser la variable d'état pour afficher dynamiquement le lien d'ajout ou de suppression */}
+                            {isInFavorites ? (
+                                <img
+                                    src="addfav.svg"
+                                    alt="Remove from favorites"
+                                    className="m-3"
+                                    onClick={removeFavorite}
+                                    style={{}}
+                                />
+                            ) : (
+                                <img
+                                    src="removefav.svg"
+                                    alt="Add to favorites"
+                                    className="m-3"
+                                    onClick={addFavorite}
+                                    style={{ cursor: "pointer" }}
+                                />
+                            )}
+                        </Card>
+                    </Col>
+                </Row>
             ) : (
                 <p>Loading...</p>
             )}

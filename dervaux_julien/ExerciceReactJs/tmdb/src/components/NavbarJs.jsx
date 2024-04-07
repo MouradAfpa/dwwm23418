@@ -66,8 +66,8 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
     <div className='position-sticky'>
       <header className='navbar navbar-expand-lg bg-body-tertiary justify-content-center '>
         <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/'}>Home</Link>
-        <Link className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
-        <Link className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
+        <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
+        <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
         <Link className='text-dark m-3 pe-3' to={'/favoris'}>Favorite</Link>
         <a
           onClick={() => setShowModal(true)}

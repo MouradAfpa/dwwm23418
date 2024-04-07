@@ -14,7 +14,7 @@
 }
 
 .cardStyle {
-    max-width: 16vw;
+    max-width: 17vw;
     height: auto;
     cursor: pointer;
 }
@@ -25,7 +25,7 @@
     max-height: 400px; 
 }
 .carouselImgEnTete {
-    height: 400px;
+    height: 40vh;
     object-fit: cover;
     filter: brightness(0.5); 
 }

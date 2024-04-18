@@ -1,10 +1,11 @@
 import CardMovie from "../components/CardMovie";
+import Footer from "../components/Footer";
 import PaginationComponent from "../components/PaginationComponent";
 
 const FilmView = ({ movies, handleSearch, setFavorite, favorite, page, setPage }) => {
     return (
         <div>
-            <div className="d-flex justify-content-center ">
+            <div className="d-flex justify-content-center m-3">
                 <PaginationComponent
                     movies={movies}
                     page={page}
@@ -24,6 +25,9 @@ const FilmView = ({ movies, handleSearch, setFavorite, favorite, page, setPage }
                         setFavortie={setFavorite}
                     />
                 ))}
+            </div>
+            <div className="d-flex justify-content-center bg-black">
+                <Footer />
             </div>
         </div>
     );

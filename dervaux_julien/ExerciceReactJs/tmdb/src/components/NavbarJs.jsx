@@ -58,20 +58,20 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
 
   return (
 
-    <div className='position-sticky'>
-      <Navbar expand="sm"  className='navbar navbar-expand-lg bg-body-tertiary justify-content-center align-items-center'>
+    <div className='position-sticky sticky'>
+      <Navbar expand="sm" className='navbar navbar-expand-lg bg-body-tertiary justify-content-center align-items-center '>
         <Nav className='align-items-center'>
-        <Link onClick={() => setPage(1)} className='text-dark  m-3 pe-3 ' to={'/'}>Home</Link>
-        <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
-        <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
-        <Link className='text-dark m-3 pe-3' to={'/favoris'}>Favorite</Link>
-        <Link onClick={() => setShowModal(true)} className='text-dark m-3 cursor-pointer pe-3'>Rechercher</Link>
-        <Form>
-          <Form.Check
-            type="switch"
-            onClick={darkMode}
-          />
-        </Form>
+          <Link onClick={() => setPage(1)} className='text-dark  m-3 pe-3 ' to={'/'}>Home</Link>
+          <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
+          <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
+          <Link className='text-dark m-3 pe-3' to={'/favoris'}>Favorite</Link>
+          <Link onClick={() => setShowModal(true)} className='text-dark m-3 cursor-pointer pe-3'>Rechercher</Link>
+          <Form>
+            <Form.Check
+              type="switch"
+              onClick={darkMode}
+            />
+          </Form>
         </Nav>
       </Navbar>
 
@@ -87,8 +87,8 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
             navigate("/")
           }}>
 
-          <Modal.Header closeButton className='d-flex justify-content-center' >
-            <Col md="auto" className="d-flex justify-content-end mr-sm-2">
+          <Modal.Header closeButton>
+            <Col sm="5" className='pe-3'>
               <Form.Control
                 type="text"
                 placeholder="Search"
@@ -96,42 +96,44 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
                 onChange={handleInputChange}
               />
             </Col>
-            <Button onClick={handleMovieFilter}>Films</Button>
-            <Button onClick={handleSerieFilter}>Séries</Button>
-            <Col md="auto" className="d-flex justify-content-center align-items-center">
-              <PaginationComponent page={page} setPage={setPage} />
-            </Col>
+            <Button onClick={handleMovieFilter} className="me-2">Films</Button>
+            <Button onClick={handleSerieFilter} className="me-2">Séries</Button>
           </Modal.Header>
 
+          <Modal.Body className='d-flex flex-wrap justify-content-center bg-black'>
 
-          <Modal.Body className='d-flex flex-wrap justify-content-center'>
+            <div className='d-flex justify-content-center'>
+              <PaginationComponent
+                page={page}
+                setPage={setPage} />
+            </div>
 
-            {showMovies &&
-              movies.map((movie) => (
-                <CardMovie
-                  className="border-5"
-                  key={movie.id}
-                  movie={movie}
-                  setShowModal={setShowModal}
-                  setSearch={setSearch}
-                  setPage={setPage}
-                  onClick={handleClick}
-                />
-              ))}
+            <div className='d-flex justify-content-center flex-wrap'>
+              {showMovies &&
+                movies.map((movie) => (
+                  <CardMovie
+                    className="border-5"
+                    key={movie.id}
+                    movie={movie}
+                    setShowModal={setShowModal}
+                    setSearch={setSearch}
+                    setPage={setPage}
+                    onClick={handleClick}
+                  />
+                ))}
 
-            {showSeries &&
-              popularSeries.map((serie) => (
-                <CardSerie
-                  className="border-5"
-                  key={serie.id}
-                  serie={serie}
-                  setShowModal={setShowModal}
-                  setSearch={setSearch}
-                />
-              ))}
+              {showSeries &&
+                popularSeries.map((serie) => (
+                  <CardSerie
+                    className="border-5"
+                    key={serie.id}
+                    serie={serie}
+                    setShowModal={setShowModal}
+                    setSearch={setSearch}
+                  />
+                ))}
+            </div>
           </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
         </Modal>
       </div>
     </div>

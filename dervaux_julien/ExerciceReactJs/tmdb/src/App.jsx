@@ -12,12 +12,11 @@ import FavoritesView from "./view/FavoritesView";
 function App() {
   
   const [movies, setMovies] = useState([]); 
-  const [search, setSearch] = useState(''); 
   const [popularSeries, setPopularSeries] = useState([]); 
+  const [search, setSearch] = useState(''); 
   const [showModal, setShowModal] = useState(false);
   const [page , setPage] = useState(1);
   
-
   useEffect(() => {
 
     if (!search){
@@ -46,7 +45,6 @@ function App() {
   return (
 
     <BrowserRouter>
-
       <NavbarJs
         search={search}
         setSearch={setSearch}
@@ -68,25 +66,23 @@ function App() {
         movies={movies} 
         popularSeries={popularSeries}
         />} />
-
         <Route path="/film" element={<FilmView 
         movies={movies} 
         page={page}
         setPage={setPage} 
         />} />
-
         <Route path="/serie" element={<SerieView 
         popularSeries={popularSeries} 
         page={page}
         setPage={setPage} 
         />} />
-
         <Route path="/favoris" element={<FavoritesView/>}/>
         <Route path="/film/detail/:id" element={<DetailMovieView />} />
         <Route path="/serie/detail/:id" element={<DetailSerieView />} />
 
       </Routes>
     </BrowserRouter>
+    
   );
 }
 

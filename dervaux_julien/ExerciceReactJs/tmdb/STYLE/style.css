@@ -3,6 +3,12 @@
     margin: 0;
 }
 
+html{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
 .fullScreen{
     height: 100vh;
     width: 100vw;
@@ -36,4 +42,12 @@
 
 .search{
     cursor: pointer;
+}
+
+.sticky{
+    position: sticky;
+}
+
+.fullScreen{
+    height: 100vh;
 }

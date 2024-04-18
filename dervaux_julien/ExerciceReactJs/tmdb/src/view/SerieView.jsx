@@ -1,10 +1,11 @@
 import CardSerie from "../components/CardSerie";
+import Footer from "../components/Footer";
 import PaginationComponent from "../components/PaginationComponent";
 
 const SerieView = ({ handleSearch, popularSeries, page, setPage }) => {
   return (
     <div>
-      <div className="d-flex justify-content-center ">
+      <div className="d-flex justify-content-center m-3">
         <PaginationComponent
           serie={popularSeries}
           page={page}
@@ -24,6 +25,9 @@ const SerieView = ({ handleSearch, popularSeries, page, setPage }) => {
               />
             ))}
       </div>
+      <div className="d-flex justify-content-center bg-black">
+                <Footer />
+            </div>
     </div>
   );
 };

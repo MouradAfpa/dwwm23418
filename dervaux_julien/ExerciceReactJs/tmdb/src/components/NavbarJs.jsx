@@ -1,4 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -16,7 +18,7 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
   const [showSeries, setShowSeries] = useState(true);
 
   const handleClick = () => {
-    navigate(`/film/detail/${movie.id}`);
+    navigate(`/film/detail/${movies.id}`);
     setShowModal(false);
     setSearch('');
     setShowMovies(true);
@@ -49,13 +51,6 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
     setSearch(event.target.value);
   };
 
-  // regarder pour time la recherche 
-
-
-  // const handleInputChange = (event) => {
-  //   setTimeout(()=>{setSearch(event.target.value)},100)
-  //   ;
-  // };
 
   const navigate = useNavigate();
   const toSerieView = () => { navigate("/serie") }
@@ -64,25 +59,21 @@ const NavbarJs = ({ search, setSearch, movies, popularSeries, showModal, setShow
   return (
 
     <div className='position-sticky'>
-      <header className='navbar navbar-expand-lg bg-body-tertiary justify-content-center '>
-        <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/'}>Home</Link>
+      <Navbar expand="sm"  className='navbar navbar-expand-lg bg-body-tertiary justify-content-center align-items-center'>
+        <Nav className='align-items-center'>
+        <Link onClick={() => setPage(1)} className='text-dark  m-3 pe-3 ' to={'/'}>Home</Link>
         <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/film'}>Film</Link>
         <Link onClick={() => setPage(1)} className='text-dark m-3 pe-3' to={'/serie'}>Serie</Link>
         <Link className='text-dark m-3 pe-3' to={'/favoris'}>Favorite</Link>
-        <a
-          onClick={() => setShowModal(true)}
-          className='text-dark m-3 pe-3 cursor-pointer'
-          style={{ cursor: "pointer" }}
-        >
-          <img src="search.svg" alt="search" />
-        </a>
+        <Link onClick={() => setShowModal(true)} className='text-dark m-3 cursor-pointer pe-3'>Rechercher</Link>
         <Form>
           <Form.Check
             type="switch"
             onClick={darkMode}
           />
         </Form>
-      </header>
+        </Nav>
+      </Navbar>
 
       <div className='container-fluid'>
         <Modal

@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 const CardMovie = ({ movie, setShowModal, setSearch}) => {
+
+    
     const navigate = useNavigate();
 
     const handleClick = () => {

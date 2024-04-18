@@ -33,3 +33,7 @@
 .carouselStyle {
     max-width: 100vw;
 }
+
+.search{
+    cursor: pointer;
+}

@@ -39,6 +39,7 @@ const FavoritesView = () => {
     <div>
       <h1>My Favorites</h1>
       <div className="d-flex flex-wrap justify-content-center">
+        <h1>FILM</h1>
         {/* Afficher les favoris des films */}
         {movieFavorites.map((movie) => (
           <Card key={movie.id} style={{ width: '17rem', height: "100%" }} className="m-3">
@@ -51,6 +52,7 @@ const FavoritesView = () => {
             <Button onClick={() => removeFavorite("movie", movie.id)}><img src="addfav.svg" alt="Remove from favorites" /></Button>
           </Card>
         ))}
+        <h1>SERIE</h1>
         {/* Afficher les favoris des séries */}
         {serieFavorites.map((serie) => (
           <Card key={serie.id} style={{ width: '17rem', height: "100%" }} className="m-3">

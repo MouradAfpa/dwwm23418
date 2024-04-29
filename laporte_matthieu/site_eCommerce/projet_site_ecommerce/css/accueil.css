@@ -1,0 +1,25 @@
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.catalog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.catalog img {
+    display: flex;
+    width: 100%;
+}
+.catalog:hover {
+    opacity: 0.8;
+    transition: 0.5s ease-in-out;
+}
+.catalog:first-child {
+    margin-right: 5px;
+}
+.catalog:last-child {
+    margin-left: 5px;
+}

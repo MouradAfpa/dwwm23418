@@ -1,0 +1,16 @@
+#horloge{
+    background-color: rgb(90, 83, 142);
+    color: rgb(230, 217, 217);
+    font-size:200px;
+    margin-right: 60%;
+    border: solid 5px rgb(48, 59, 33);
+}
+
+#timer{
+    font-size: 100px;
+}
+
+fieldset{
+    width: 60px;
+    border: solid 5px;
+}

@@ -1,0 +1,190 @@
+/* Déclaration des polices */
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    src: url('/fonts/Montserrat-Light.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    src: url('/fonts/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: url('/fonts/Montserrat-Medium.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    src: url('/fonts/Montserrat-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    src: url('/fonts/Montserrat-Bold.ttf');
+}
+
+/* Style du header et de la bannière */
+body {
+    font-family: 'Montserrat';
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.logoSite {
+    display: flex;
+    width: 160px;
+    height: 75px;
+    border: solid 1px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 24px;
+    background-color: #D2B48C ;
+}
+.logoSite a {
+    text-decoration: none;
+    color: black;
+}
+.logoSite a:hover {
+    color: rgba(0, 0, 0, 0.65);
+}
+.searchbar {
+    display: flex;
+    width: 690px;
+    height: 50px;
+    border: solid 1px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10em;
+}
+
+.searchbar input {
+    border: none;
+    margin-left: 15px;
+    width: 90%;
+    height: 90%;
+    margin-right: 10px;
+    font-family: 'Montserrat';
+}
+
+.searchLogo {
+    display: flex;
+    background-color: #9980FA ;
+    width: 10%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 10em;
+    border-bottom-right-radius: 10em;
+    border-left: solid 1px;
+}
+
+.searchLogo:hover {
+    background-color: #9880faa9;
+}
+
+.searchbar input:focus {
+    /* enlever la bordure quand on clique dans la searchbar */
+    outline: none;
+}
+
+.accountBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.accountBtn button {
+    display: flex;
+    border: none;
+    background: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.basketBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.basketBtn button {
+    display: flex;
+    border: none;
+    background: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.blocLogos {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
+
+.accountBtn button:hover {
+    color: rgba(0, 0, 0, 0.466);
+}
+.basketBtn button:hover{
+    color: rgba(0, 0, 0, 0.466);
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+}
+.men {
+    display: flex;
+    width: 118px;
+    height: 40px;
+    border: solid 1px;
+    border-radius: 10em;
+    justify-content: center;
+    align-content: center;
+}
+.men input{
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+}
+.woman {
+    display: flex;
+    width: 118px;
+    height: 40px;
+    border: solid 1px;
+    border-radius: 10em;
+    font-weight: 600;
+    font-size: 16px;
+    justify-content: center;
+    align-content: center;
+}
+.woman input{
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.cataloguesHeader{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.men:hover{
+    background-color: #9980FA;
+}
+.woman:hover {
+    background-color: #9980FA;
+}

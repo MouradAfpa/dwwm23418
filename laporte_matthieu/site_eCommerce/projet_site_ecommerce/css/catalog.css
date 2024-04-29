@@ -1,0 +1,7 @@
+main {
+    border: solid 1px;  
+}
+.sidebar_catalog {
+    display: flex;
+    width: 15%;
+}

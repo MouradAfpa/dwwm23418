@@ -1,0 +1,35 @@
+
+
+
+
+Vous développez une application de gestion de tâches en ligne. Voici les fonctionnalités principales que vous devez implémenter :
+
+Inscription des utilisateurs :
+
+Créez un formulaire d'inscription avec des champs pour le nom d'utilisateur, l'adresse e-mail, le mot de passe et sa confirmation.
+Vérifiez que tous les champs sont remplis et que l'adresse e-mail est valide ( renseignez-vous sur la methode filter_var() ) .
+Vérifiez que le mot de passe et sa confirmation correspondent.
+Si tout est valide, enregistrez les informations de l'utilisateur dans un tableau associatif stocké en session.
+le mot de passe de devra pas être stocker en claire dans la session ( voir password_hash() ) 
+
+
+Connexion des utilisateurs :
+
+Créez un formulaire de connexion avec des champs pour l'adresse e-mail et le mot de passe.
+Vérifiez que les champs sont remplis.
+Vérifiez que l'adresse e-mail et le mot de passe correspondent à ceux enregistrés lors de l'inscription. ( voir password_verify)
+Si les informations sont correctes, démarrez une session et enregistrez l'adresse e-mail de l'utilisateur connecté.
+
+
+Gestion des tâches :
+
+Permettez aux utilisateurs connectés de créer, afficher, et supprimer des tâches.
+Les tâches doivent être stockées dans un tableau associatif dans la session de l'utilisateur.
+Une tache est composée par un titre, une déscription , et une date butoire.
+Créez des pages distinctes pour afficher la liste des tâches, ajouter une nouvelle tâche, et supprimer une tâche.
+Déconnexion des utilisateurs :
+
+Permettez aux utilisateurs de se déconnecter en supprimant leur session.
+Redirigez-les vers la page de connexion après la déconnexion.
+
+oP@4523654

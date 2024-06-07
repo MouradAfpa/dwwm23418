@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+</head>
+<body>
+    <h1>Un petit formulaire (pour commencer)</h1><br>
+
+    <p>Merci de renseigner les informations suivantes : </p><br>
+
+    <form action="formulaire.php" method="get">
+        <label for="">Votre nom :  <input type="text" name="nom" required></label><br><br>
+        <label for=""></label>Votre âge : <input type="number" name="age" required></label><br><br>
+        <label for="">Votre situation maritale <input type="radio" name="maritale" value="Marié"> Marié <input type="radio" name="maritale" value="Veuf(ve)"> Veuf(ve) <input type="radio" name="maritale" value="Célibataire">Célibataire</label><br><br>
+        <label for="">Vos centres d'intérêt <input type="checkbox" name="internet"> Internet<input type="checkbox" name="micro">Micro-informatique<input type="checkbox" name="jeux">Jeux Vidéo</label><br><br>
+        <button>Recommencer</button>
+        <button>Envoyer</button>
+    </form>
+
+    
+</body>
+</html>

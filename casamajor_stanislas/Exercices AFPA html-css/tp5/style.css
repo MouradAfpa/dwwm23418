@@ -1,0 +1,139 @@
+html {
+    background-image: url(/Images/fond.jpg);
+}
+
+body{
+    background-color: gray;
+    font-family: sans-serif;
+    width: 80%;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid black;
+}
+
+ h1 {
+    font-size: 36pt;
+    text-align: center;
+    color: #191970;
+    letter-spacing: 6px;
+    border: 5px groove;
+    background-color: #f0f8f8;
+
+}
+
+ h2 {
+    font-size: 24pt;
+    color: #b0c4de;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #dcdcdc;
+    margin-left: -20px;
+}
+
+h1,h2 {
+    text-transform: capitalize;
+}
+
+ p {
+    text-align: justify;
+    text-indent: 15px;
+
+}
+p::first-letter {
+    font-size: 150%;
+    font-weight: bold;
+    font-style: italic;
+}
+
+a:link {
+    color: #612345;
+    
+}
+
+a:active, a:focus {
+    text-decoration: none;
+}
+
+
+
+a:hover {
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;}
+
+li a:visited {
+    text-decoration: line-through;
+}
+
+
+li {
+    font-size: 20pt;
+    color: #456123;
+    list-style-type: upper-roman;
+    
+}
+
+ol {
+    display: block;
+}
+
+#sommaire:hover {
+    color: gray;
+}
+
+li:hover {
+    font-weight: bold;
+}
+
+table
+{
+    border: dotted white 2px;
+    margin:auto;
+    border-collapse: collapse;
+
+}
+
+th, td{
+text-align: center;
+border: dotted white 2px;
+
+
+}
+
+thead {
+    letter-spacing: 3px;
+}
+
+
+span {
+    font-style: italic;
+}
+
+#introduction {
+    font-style: italic;
+    width: 90%;
+    margin: auto;
+
+
+}
+
+.retoursommaire a {
+    font-style: italic;
+    text-decoration: none;
+    color: #4682b4;
+    float: right;
+}
+
+#formule {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#wiki {
+    font-size: 120%;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+    text-decoration: underline;
+    text-align: right;
+}

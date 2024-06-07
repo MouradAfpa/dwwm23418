@@ -1,0 +1,21 @@
+.fullCarte {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.carte {
+    display: flex;
+    background-color: rgb(197, 197, 197);
+    font-size: large;
+    width: 15%;
+    border: thick double #ce9032;
+    float: left;
+    flex-direction: column;
+    
+}
+
+.boutton {
+  padding-top: 2%;
+    
+}

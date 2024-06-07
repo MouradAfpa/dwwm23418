@@ -1,0 +1,83 @@
+.navbar {
+    display: flex;
+    background-color: rgb(255, 0, 0);   
+    
+}
+
+.navdroit {
+    padding-left: 20px;
+    display: flex;
+}
+
+#Titre_pok {
+    color: white;
+    padding-left: 20px;
+}
+
+#searchbar {
+    width: 600px;
+}
+
+#search {
+    float: right;
+}
+
+#mysearch {
+    display: flex;
+}
+
+#lab {
+    padding-right: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.sprite {
+    width: 5rem;
+}
+
+.nani {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 0, 0);
+    border-radius: 12px;
+}
+
+.deuxElem {
+    display: flex;
+    background-color: rgb(238, 238, 238);
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    border-radius: 100px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.Elem {
+    display: flex;
+    background-color: rgb(238, 238, 238);
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    width: 30%;
+
+}
+
+#nameCard {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+}
+
+#imgCard {
+    width: 100%;
+}
+
+#boutonfav {
+    background-color: rgba(160, 81, 16, 0.301);
+}

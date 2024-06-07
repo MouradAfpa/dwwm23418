@@ -1,0 +1,331 @@
+
+
+body {
+    background-color: #17171e;
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Lato', sans-serif;
+}
+
+
+header {
+    display: flex;
+    height: 140px;
+    background-color: #17171e;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sec1 {
+    display: flex;
+    background-color:#17171e;
+    margin-left: 25%;
+    margin-right: 20%;
+    margin-bottom: 200px;
+
+}
+
+.div1h  {
+    color: #FFF;
+
+font-family: SF Pro Display;
+font-size: 30px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+display: flex;
+margin-left: 100px;
+
+
+}
+
+.div1h h6 {
+    margin-left: 50px;
+}
+
+#barre {
+    width: 340px;
+height: 40px;
+flex-shrink: 0;
+border-radius: 50px;
+border: 1px solid #FFF;
+background: rgba(255, 255, 255, 0.00);
+margin-right: 50px;
+}
+
+.div2h  {
+    display: flex;
+    color: #FFF;
+font-family: Lato;
+font-size: 28px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+list-style: none;
+width: 30%;
+justify-content: space-evenly;
+padding-left: 200px;
+}
+
+.div1s1 h1 {
+    color: #FFF;
+font-family: Lato;
+font-size: 80.5px;
+font-style: normal;
+font-weight: 800;
+line-height: 106.523%; /* 85.751px */
+text-transform: uppercase;
+}
+
+.titre2 h3 {
+    color: #FFF;
+font-family: Lato;
+font-size: 50px;
+font-style: normal;
+font-weight: 800;
+line-height: 106.523%; /* 53.261px */
+text-transform: uppercase;
+}
+
+.titre2 p {
+    color: #FFF;
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.div1s1 p  {
+    color: #FFF;
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.start {
+    color: #FFF;
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+    display: inline-flex;
+    padding: 25px 65px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+background: #178DE1;
+}
+
+#moreinfo {
+    color: white;
+    display: inline-flex;
+padding: 25px 65px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 50px;
+border: 1px solid #FFF;
+background: rgba(255, 255, 255, 0.00);
+color: #FFF;
+
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+.bouton {
+    display: flex;
+}
+
+.sec2   {
+    margin-left: 5%;
+    margin-right: 5%;
+display: flex;
+justify-content: space-between;
+
+
+}
+
+.sec2 h4 {
+    color: #FFF;
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+.sec2 p {
+    color: #FFF;
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.div1s2 {
+    flex-shrink: 0;
+border-radius: 20px;
+    background: rgba(217, 217, 217, 0.12);
+    width: 362px;
+height: 244px;
+flex-shrink: 0;
+padding-top: 20px;
+padding-left: 20px;
+padding-bottom: 20px;
+}
+
+.div1s2b {
+    display: flex;
+    gap: 50px;
+}
+
+
+.sec3 {
+    display: flex;
+    background-color:#17171e;
+    margin-left: 25%;
+    margin-right: 20%;
+    margin-bottom: 200px;
+    padding-top: 100px;
+}
+
+.sec4 {
+    display: flex;
+    background-color:#17171e;
+    margin-left: 20%;
+    margin-right: 25%;
+    margin-bottom: 200px;
+    padding-top: 100px;
+    flex-direction: row-reverse;
+}
+
+.div1s5 h4 {
+    color: #FFF;
+
+font-family: Lato;
+font-size: 32px;
+font-style: normal;
+font-weight: 800;
+line-height: 0%; /* 0px */
+text-transform: uppercase;
+}
+
+.sec5 {
+    background-color: black;
+    height: 200px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+
+#partners {
+    display: flex;
+    color: #FFF;
+font-family: Lato;
+font-size: 32px;
+font-style: normal;
+font-weight: 800;
+line-height: 0%; /* 0px */
+text-transform: uppercase;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.sec5 h2 {
+    color: white;
+
+}
+
+.FAQ {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 50px;
+}
+
+#logobestseo {
+    padding-top: 20px;
+}
+
+.textfaq {
+    color: #FFF;
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.FAQ h2 {
+    color: #FFF;
+font-family: Lato;
+font-size: 50px;
+font-style: normal;
+font-weight: 800;
+line-height: 106.523%; /* 53.261px */
+text-transform: uppercase;
+}
+
+footer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+
+}
+
+footer h4 {
+    color: white;
+}
+
+.foot {
+    color: #FFF;
+
+font-family: Lato;
+font-size: 19.3px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+text-decoration-line: underline;
+text-transform: capitalize;
+display: flex;
+flex-direction: column;
+
+
+}
+
+#sousfooter {
+    color: #FFF;
+text-align: center;
+font-family: Lato;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 18px;
+}
+
+@media screen and (max-width: 640px)
+{
+.tete {background-color: pink;
+    
+}
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation 1</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+    <h2>PARTIE 1 - QCM (5 points)</h2>
+
+        <h4>1. Un octet est odé sur</h4>
+            <p>8 bits</p>
+
+        <h4>2. Un 1Go est équivaut à</h4>
+            <p>10 puissance 3 Mo</p>
+        
+        <h4>3. Cocher les protocoles Internet parmi ce qui suit</h4>    
+            <p>HTTP ; FTP ; SMTP</p>
+
+        <h4>4. Que signifie WWW</h4>
+            <p>World Wide Web</p>
+
+        <h4>5. Que signifie HTTP</h4>  
+            <p>Hyper Text Transfert Protocol</p> 
+
+        <h4>6. DNS est le sigle de</h4>         
+            <p>Domain Name Service</p>
+
+        <h4>7. CSS signifie</h4> 
+            <p>Cascading Style Sheets</p>   
+
+        <h4>8. URL désigne</h4>
+            <p>Unifor Resource Locator</p>   
+            
+        <h4>9. Que signifie le sigle XHTML</h4>   
+            <p>Extensible Hyper Text Markup Language</p> 
+           
+    <h2>PARTIE 2 (4 points)</h2>
+
+        <h4>10. Quel est le protocole de communication utilisé pour consulter des pages web</h4>
+            <p>Le protocole utilisé est l'HTTP</p>
+
+        <h4>11. Donner une courte définition du DNS</h4>   
+            <p> C'est un type de serveur qui traduit les adresses internet en adresses numérique utilisable par les ordinateurs</p> 
+
+        <h4>12. Donner une déclaration de la balise "meta"</h4>    
+            <p>Les balises meta sont des balises que l'on place dans la balisa head, elle fournit des meta-données au navigateur et sont invisible pour l'internaute</p>
+
+        <h4>13. A quoi sert une feuille de style et quelle est l'extension d'un fichier de ce type</h4>    
+            <p>Une feuille de style sert à mettre en page où à apporter des éléments de "design" à une page, on s'en sert pour la typographie, la police, les couleurs etc... l'extension d'un fichier de ce type est ".css"</p>
+
+        <h4>14. Rappelez en une phrase l'intérêt de l'utilisation des feuilles de style, par rapport à la méthode qui consiste à inclure les éléments de style dans le code HTML</h4>
+            <p>Ca rend le code plus lisible est plus épuré</p>   
+            
+        <h4>15. Quelle est la différence entre un lien interne et un lien externe</h4>   
+            <p>Un lien interne est un lien qui redirige vers une parti d'un même site, alors qu'un lien externe redirige vers un autre site</p> 
+
+        <h4>16. En HTML, quelle est la différence entre "margin" et padding"</h4>
+            <p>La différence est que un margin va créer une marge à l'extérieur d'un objet alors qu'un padding va créer une marge dans l'objet</p>   
+            
+        <h4>17. Que signifie le flottement</h4>
+            <p>Le flottement est utilisé avec la ligne "float" en css, ça constitue à forcer un objet à se coller sur un bord prédéfini, par exemple avec un float-right, un objet va se coller sur la partie droite de la page</p> 
+            
+    <h2>PARTIE 3 (11 points)</h2>        
+        <h4>18. Voici un court document écrit en XHTML, réecrivez-le en corrigent les erreus qui s'y sont glissées</h4>
+
+            <p>Dans le document XHTML ci contre il y a plusieurs erreurs : <br>
+                -Noël est écrit dans le head sans balise de title, celui-ci apparaitra donc en haut de la page et non en titre de document. <br>
+                -Il n'y a pas de body dans le dossier. <br>
+                -La balise b est mal placée, elle devrait être à l'intérieur des balises h1<br>
+                -La balise u sert à souligner les texte, ici on recherche la balise ul pour faire une liste non ordonnée puisque elle englobe des balises li. <br>
+                -la balise b sert à mettre en gras, ici uniquement le point d'exclamation est en gras, on aurait du faire commencer la balise b avant la phrase.<br>
+                -les balises pour la tableau ne sont pas bonnes.<br>
+                -les balises td doivent être entourées de "< >" et non de "[ ]".<br>
+                -Il doit avoir des balises tr pour indiquer le nombre de lignes au tableau.<br>
+                -il n'y a pas de balise p utilisées pour le texte.<br>
+                -lorsqu'on utilise une balise img il faut écrire src"" et non source en entier.<br>
+                
+            </p>
+
+    <h2>Fiche de style</h2>   
+    
+    <!--html{
+        background-color: orange;
+    }
+    
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        background-color: gray;
+        width: 80%;
+    
+    }
+    
+    h2 {
+        font-size: 14pt;
+        font-style: italic;
+    }
+    
+    p {
+        text-justify: auto;
+    }
+    
+    a {
+        color: red;
+    }
+    
+    a:visited {
+        font-weight: bold;
+    }
+    
+    table, th, td {
+        border: 2px solid red
+    }-->
+
+    <h2>Tableau éval</h2>
+
+    <table class="table-bordered mx-auto w-25 text-center">
+        <tr>
+            <td colspan="5">A</td>
+        </tr>
+        
+        <tr>
+            <td rowspan="4">D</td>
+            <td colspan="2">B</td>
+            <td colspan="2">C</td>
+        </tr>
+
+        <tr>
+            <td>E</td>
+            <td colspan="2" rowspan="2">F</td>
+            <td rowspan="2">G</td>
+        </tr>
+
+        <tr>
+            <td>H</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">I</td>
+            <td colspan="2">J</td>
+        </tr>
+    </table>
+    
+
+
+                 
+        
+    
+</body>
+</html>

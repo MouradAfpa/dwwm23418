@@ -1,0 +1,52 @@
+.tarif{
+    text-align: center;
+    align-content: center;
+}
+.navbar {
+    display: flex;
+    background-color: rgb(16, 86, 26);
+    justify-content: space-between;
+}
+
+#title {
+    color: white;
+    padding-left: 2%;
+}
+
+.bouton{
+    display: flex;   
+    align-items: center;
+    float: right;
+    gap: 10px;
+    padding-right: 10px;
+    
+}
+
+.rouge{
+    color: red;
+    font-size: 20px;
+}
+.orange{
+    color: orange;
+    font-size: 20px;
+}
+.vert{
+    color: green;
+    font-size: 20px;
+}
+.bleu{
+    color: blue;
+}
+
+#tariftitle {
+    font-size: 70px;
+    text-decoration: underline;
+}
+
+#tarifundertitle{
+    font-size: 45px;
+}
+
+.globalText{
+    font-size: 22px;
+}

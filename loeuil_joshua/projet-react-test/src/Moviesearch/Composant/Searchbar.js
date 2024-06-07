@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Form, FormControl } from "react-bootstrap";
-import { fetchFilmPops, rechercheFilms } from "../Redux/actions";
+import { fetchFilmPops, fetchSeries, rechercheFilms, rechercheSeries } from "../Redux/actions";
 import logo from "../../the_movie_database_logo.png";
 import { Link } from "react-router-dom";
 
@@ -10,13 +10,15 @@ function SearchBar() {
   const page = useSelector((state) => state.Reducer1.page);
   const dispatch = useDispatch();
 
-  const handleSearch = () => {
+  const handleSearchFilm = () => {
     if (recherche.trim() !== "") {
       dispatch(rechercheFilms(recherche, page));
     } else {
       dispatch(fetchFilmPops());
     }
   };
+
+
 
   return (
     <Navbar
@@ -45,7 +47,7 @@ function SearchBar() {
        <Link to="/Favori"> 
        <h3 className="text-light text-decoration-underline">Favoris</h3>
        </Link>
-        <Form className="d-flex" autoComplete="off" onSubmit={handleSearch}>
+        <Form className="d-flex" autoComplete="off" onSubmit={handleSearchFilm}>
           <FormControl
             type="search"
             placeholder="Recherche"

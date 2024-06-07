@@ -7,6 +7,7 @@ import BoutonDefilment from "./Moviesearch/Composant/boutonDefil";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CardSerie from "./Moviesearch/Composant/CardSerie";
 import DetailFilm from "./Moviesearch/Composant/detailFilm";
+import DetailSerie from "./Moviesearch/Composant/detailSerie";
 import Favori from "./Moviesearch/Composant/favori";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<CardFilm />}/>
           <Route path="/Serie" element={<CardSerie/>} />
           <Route path="/:id" element={<DetailFilm/>}/>
-          <Route path="/:id" element={<DetailFilm/>}/>
+          <Route path="/Serie/:id" element={<DetailSerie/>}/>
           <Route path="Favori" element={<Favori/>}/>
 
        </Routes>

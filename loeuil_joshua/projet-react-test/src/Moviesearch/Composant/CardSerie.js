@@ -6,7 +6,7 @@ import { fetchSeries, rechercheSeries } from "../Redux/actions";
 import { useNavigate } from "react-router-dom";
 
 function CardSerie() {
-  const series = useSelector((state) => state.Reducer1.result);
+  const series = useSelector((state) => state.Reducer1.results);
   const page = useSelector((state) => state.Reducer1.page);
   const recherche = useSelector((state) => state.Reducer1.query);
   const dispatch = useDispatch();
@@ -14,24 +14,24 @@ function CardSerie() {
  
 
   useEffect(() => {
-    if (recherche) {
-      dispatch(rechercheSeries(recherche, page));
-    } else {
+    if (!recherche) {
       dispatch(fetchSeries(page));
+    } else {
+      dispatch(rechercheSeries(recherche, page));
     }
   }, [recherche, page, dispatch]);
 
   function handleClick(serie){
-    navigate(`/${serie.id}`)
+    navigate(`/Serie/${serie.id}`)
    }
 
   return (
     <div className="d-flex justify-content-evenly flex-wrap gap-4 pt-lg-5 p-5 m-5 bg-primary-subtle">
-      {series.map((serie) => (
+      {series && series.map((serie) => (
         <Card
           key={serie.id}
           className="bg-dark-subtle border-4 border-black "
-          style={{ width: "20rem", height: "38rem"}}
+          style={{ width: "20rem"}}
            
         >
           <Card.Img

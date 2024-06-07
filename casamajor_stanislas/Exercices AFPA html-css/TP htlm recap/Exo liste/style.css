@@ -1,0 +1,23 @@
+html
+
+body
+
+ol {
+    list-style-type: lower-greek;
+}
+
+.nopuce {
+    list-style-type: none;
+}
+
+.italique {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.def {
+    margin-left: 40px;
+}

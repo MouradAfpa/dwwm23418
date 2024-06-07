@@ -1,0 +1,59 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 13rem;
+    border: solid 2px black;
+    width: 11%;
+    align-items: center;
+    background-color: white;
+    margin: 1%;
+}
+
+.tach{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2%;
+    padding: 1%;
+
+}
+
+.navb{
+    display: flex;
+    justify-content: end;
+    gap: 5%;
+}
+
+.butnav{
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+}
+
+h1{
+    text-align: center;
+
+
+}
+
+.butto{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-bottom: 2%;
+}
+
+fieldset{
+    width: 12%;
+    margin-left: 43.5%;
+    
+}
+
+#bod{
+    padding-top: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    background-color:powderblue;
+    height: 56rem;
+}

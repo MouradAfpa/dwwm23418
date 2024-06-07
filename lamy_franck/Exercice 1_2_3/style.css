@@ -1,0 +1,6 @@
+.active {
+    color: white;
+    background-color: black;
+    border: dotted, black, 2px;
+    text-indent: 5px;
+}

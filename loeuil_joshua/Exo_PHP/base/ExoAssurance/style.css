@@ -1,0 +1,55 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+};
+
+form{
+    align-items: center;
+};
+
+#bleu{
+    background-color: blue;
+    width: 10rem;
+}
+
+#tarrou{
+    border: solid black 2px;
+    background-color: red;
+    width: 33%;
+}
+
+#tarora{
+    border: solid black 2px;
+    background-color: orange;
+    width: 33%;
+}
+
+#tarver{
+    border: solid black 2px;
+    background-color: green;
+    width: 33%;
+}
+
+
+main{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+#ifle{
+    display: flex;
+    justify-content: space-between;
+    width: 85rem;
+    height: 5rem;
+ 
+}
+
+#ifle span{
+    height: 1rem;
+    width: 1rem;
+    
+}

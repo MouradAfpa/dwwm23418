@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>styles</title>
+  <meta charset="utf-8">
+  <!-- <style>
+    /* Définir les styles par défaut du paragraphe dans une classe "active" */
+    .active {
+      color: white;
+      background-color: black;
+      border: 1px dashed black;
+      padding: 5px;
+      margin: 5px;
+    }
+  </style> -->
+</head>
+<body>
+  <p id="parag1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+  <button onclick="changer_style()">Changer Style</button>
+
+  <script>
+    function changer_style() {
+      var paragraphe = document.getElementById("parag1");
+
+      // Ajouter la classe "active" au paragraphe
+      paragraphe.classList.add("active");
+    }
+  </script>
+</body>
+</html>

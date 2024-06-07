@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Questionnaire</title>
+</head>
+<body>
+
+    <div id="qcmContainer">
+        <div class="question" data-correct-answer="206 os">
+            <p>1. Combien d'os constituent le squelette d'un humain adulte ?</p>
+            <label><input type="radio" name="q1" value="412 os"> 412 os</label>
+            <label><input type="radio" name="q1" value="350 os"> 350 os</label>
+            <label><input type="radio" name="q1" value="206 os"> 206 os</label>
+        </div>
+
+        <div class="question" data-correct-answer="La pierre ponce">
+            <p>2. Laquelle des pierres suivantes flotte sur l'eau ?</p>
+            <label><input type="radio" name="q2" value="La pierre ponce"> La pierre ponce</label>
+            <label><input type="radio" name="q2" value="La craie"> La craie</label>
+            <label><input type="radio" name="q2" value="L'ardoise"> L'ardoise</label>
+        </div>
+
+        <!-- Ajoutez les autres questions de la même manière -->
+    </div>
+
+    <button onclick="corriger()">Vérifier les réponses</button>
+    <div id="message"></div>
+
+    <script src="/action2.js"></script>
+</body>
+</html>

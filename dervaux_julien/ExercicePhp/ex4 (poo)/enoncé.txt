@@ -1,0 +1,1 @@
+Exercice : créez une classe Voiture avec des attributs privées : marque modele couleur nombrePortes , des méthodes demarrer freiner accelerer qui renvoient des chaines de caractère : "demarrage" "freinage" "accélération".

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/4022159.png" type="image/x-icon">
+    <title>Exo 4 JS</title>
+</head>
+<body>
+<h1>Page interactive qui rend fou !</h1>
+<img src="humour_dev.jpg" alt="humour" height="400px" onmouseover="alert('Attention vous survoler une image !')">
+<br><br><br>
+<h2>Remplissez le champ et vous verrez :</h2>
+<input type="BoutonMagique" name="BoutonMagique" id="BoutonMagique" onkeydown="afficherAlerteTouche(event)">
+<button onclick="alert('Fallait pas cliquer ! Erreur fatal pour votre ordinateur')">Cliquez sur ce bouton magique</button>
+<br><br><br><br><br>
+<button id="boutonMagique" onclick="changerStyle()">Cliquez ici pour la version Dark</button>
+<button id="boutonMagique" onclick="revenirNormal()">Revenir à la normale</button>
+<br>
+<img id="monImage" src="/dynamite.jpg" width="300" height="200" 
+     onmouseover="changerImage()"; 
+     onmouseout="revenirImageOrigine()">
+<script src="/exo4.js"></script>
+</body>
+</html>

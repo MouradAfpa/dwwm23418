@@ -1,0 +1,10 @@
+#membre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#card {
+    border: solid 1px;
+    width: 15rem;
+}

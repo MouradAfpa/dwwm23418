@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/logoMorpion.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <title>Morpion</title>
+</head>
+<body>
+<h1>Jeu du Morpion</h1>
+
+<div id="gameEnd">
+    <p class="white" id="endGameStatut" >...</p>
+    <input type="submit" value="recommencer" id="reloadGame" onclick="reloadGame()">
+</div>
+
+   <div class="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+   </div>
+
+   <h1 id="gameStatut"> Le joueur 1 commence</h1>
+
+ <script src="/morpion.js"></script>   
+</body>
+</html>

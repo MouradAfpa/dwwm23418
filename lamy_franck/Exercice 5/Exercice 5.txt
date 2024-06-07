@@ -1,0 +1,78 @@
+Commençons par l'alternance de deux images avec un bouton pour arrêter/reprendre le défilement :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternance d'images</title>
+</head>
+<body>
+
+<img id="monImage" src="image1.jpg" width="300" height="200">
+<button onclick="arreterDefilement()">Arrêter</button>
+<button onclick="reprendreDefilement()">Reprendre</button>
+
+<script>
+    var images = ['image1.jpg', 'image2.jpg']; // Noms des images
+    var indexImage = 0; // Index de l'image actuelle
+    var intervalID; // ID de l'intervalle pour la fonction setInterval
+
+    function changerImage() {
+        document.getElementById('monImage').src = images[indexImage];
+        indexImage = (indexImage + 1) % images.length; // Passer à l'image suivante (boucle à la première)
+    }
+
+    function arreterDefilement() {
+        clearInterval(intervalID); // Arrêter le défilement
+    }
+
+    function reprendreDefilement() {
+        intervalID = setInterval(changerImage, 2000); // Reprendre le défilement toutes les deux secondes
+    }
+
+    // Démarrer le défilement automatiquement
+    reprendreDefilement();
+</script>
+
+</body>
+</html>
+
+Dans cet exemple, les images sont stockées dans un tableau JavaScript. La fonction changerImage est appelée toutes les deux secondes pour passer à la prochaine image. Les boutons "Arrêter" et "Reprendre" utilisent clearInterval et setInterval pour gérer l'arrêt et la reprise du défilement.
+
+Passons maintenant au diaporama avec boutons précédent et suivant :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaporama</title>
+</head>
+<body>
+
+<img id="monImageDiaporama" src="image1.jpg" width="300" height="200">
+<button onclick="imagePrecedente()">Précédent</button>
+<button onclick="imageSuivante()">Suivant</button>
+
+<script>
+    var imagesDiaporama = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Noms des images
+    var indexImageDiaporama = 0; // Index de l'image actuelle
+
+    function afficherImage() {
+        document.getElementById('monImageDiaporama').src = imagesDiaporama[indexImageDiaporama];
+    }
+
+    function imagePrecedente() {
+        indexImageDiaporama = (indexImageDiaporama - 1 + imagesDiaporama.length) % imagesDiaporama.length;
+        afficherImage();
+    }
+
+    function imageSuivante() {
+        indexImageDiaporama = (indexImageDiaporama + 1) % imagesDiaporama.length;
+        afficherImage();
+    }
+</script>
+
+</body>
+</html>
+Enfin, pour le déplacement d'une image parmi les autres en fonction d'actions de l'utilisateur (au clavier ou à la souris), cela peut être un peu plus complexe et dépend de la manière dont vous souhaitez implémenter le déplacement. Si vous avez des préférences spécifiques, n'hésitez pas à le préciser.
